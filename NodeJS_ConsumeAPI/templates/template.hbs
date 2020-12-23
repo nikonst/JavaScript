@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<h1 class="jumbotron" style="color:#007bff">{{obj2.country}}</h1>
+
+{{#each this.obj1}}
+<h3>Date {{date}}</h3>
+<hr>
+<p>Local Name: {{localName}} </p>
+<p>Name: {{name}} </p>
+<p>Type: {{type}} </p>
+{{/each}}
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
