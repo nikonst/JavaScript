@@ -1,0 +1,19 @@
+{
+  "name": "reduxdec2020",
+  "version": "1.0.0",
+  "description": "Redux Test",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "Nikos Konstantakis",
+  "license": "ISC",
+  "dependencies": {
+    "redux": "^4.0.5"
+  }
+ 
+}
