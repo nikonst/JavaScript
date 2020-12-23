@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>jQuery</title>
+
+    <style>
+        body {
+            font-size: 14pt;
+            font-family: tahoma;
+            background: #fff2df;
+            line-height: 1.5em;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        header {
+            background: #674d3c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px black solid;
+            margin-bottom: 10px;
+        }
+
+        #container {
+            width: 80%;
+            margin: auto;
+            padding: 10px;
+        }
+
+        img {
+            height: 220px;
+            width: 220px;
+            display: none;
+            margin: auto;
+        }
+
+        button {
+            margin-left: 5em;
+
+            background-color: #d9ad7c;
+            border: none;
+            color: white;
+            padding: 10px 22px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Led Zeppelin Studio Albums</h1>
+    </header>
+    <div id="container">
+        <p style="text-align: right"><button id="btn1">Show Covers</button></p>
+        <ul id="list">
+            <li>Led Zeppelin <span>12 January 1969</span>
+                <br><img id="c1" src="imgs/ledzepI.jpg" /></li>
+            <li>Led Zeppelin II <span>22 October 1969</span>
+                <br><img id="c2" src="imgs/ledzepII.jpg" /></li>
+            <li>Led Zeppelin III <span>5 October 1970</span>
+                <br><img id="c3" src="imgs/ledzepIII.jpg" /></li>
+            <li>Led Zeppelin IV <span>8 November 1971</span>
+                <br><img id="c4" src="imgs/ledzepIV.jpg" /></li>
+            <li>Houses of the Holy <span>28 March 1973</span>
+                <br><img id="c5" src="imgs/ledzepHouses.jpg" /></li>
+            <li>Physical Graffiti <span>24 February 1975</span>
+                <br><img id="c6" src="imgs/ledzepPhysical.jpg" /></li>
+            <li>Presence <span>31 March 1976</span>
+                <br><img id="c7" src="imgs/ledzepPresence.jpg" /></li>
+            <li>In Through the Out Door <span>15 August 1979</span>
+                <br><img id="c8" src="imgs/ledzepInThrough.jpg" /></li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('li').css('line-height', '43pt');
+            $('li span').css('color', '#a2836e');
+
+            $('#btn1').on('click', function (e) {
+                $('img').slideToggle('slow');
+                if ($('#btn1').text() == 'Show Covers') {
+                    $('#btn1').text('Hide Covers');
+                }
+                else {
+                    $('#btn1').text('Show Covers');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
