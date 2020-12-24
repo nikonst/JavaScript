@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     });
 });
 
-app.post('/people/add', (req, res) => {
+app.post('/books/add', (req, res) => {
     console.log('FORM OK');
     var newbook = {
         author: req.body.author,
