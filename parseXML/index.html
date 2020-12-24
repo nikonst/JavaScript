@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        body {
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
+        table {
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="color:navy;">Billboard Number-One Albums</h1>
+        <hr style="border-color:red;">
+        <p style="text-align:right;">
+            <button type="button" class="btn btn-primary" onclick="window.open('./xml/numberones.xml');">The XML
+                File</button>
+        </p>
+        <p></p>
+        <p style="text-align:center;">
+            <button type="button" class="btn btn-info btn-lg" onclick="disp('1967')">1967</button>
+            <button type="button" class="btn btn-info btn-lg" onclick="disp('1968')">1968</button>
+            <button type="button" class="btn btn-info btn-lg" onclick="disp('1969')">1969</button>
+            <button type="button" class="btn btn-info btn-lg" onclick="disp('1970')">1970</button>
+            <button type="button" class="btn btn-default btn-lg"
+                onclick="document.getElementById('main').innerHTML='';">Clear</button>
+        </p>
+        <div>
+            <hr style="border-color:red;">
+        </div>
+        <div id="main">
+            <p></p>
+        </div>
+    </div>
+    <div>
+        <hr style="border-color:red;">
+        <hr>
+        <hr>
+    </div>
+    <script src="./js/loadxmldoc.js"></script>
+    <script src="./js/displayYear.js"></script>
+</body>
+</html>

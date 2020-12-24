@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<number_ones>
+<year id="1967">
+<entry>
+	<issue_date>January 7</issue_date>
+	<album>The Monkees</album>
+	<artist>The Monkees</artist>
+	<weeks>5</weeks>
+</entry>
+<entry>
+	<issue_date>February 11</issue_date>
+	<album>More of The Monkees</album>
+	<artist>The Monkees</artist>
+	<weeks>18</weeks>
+</entry>
+<entry>
+	<issue_date>June 17</issue_date>
+	<album>Sounds Like...</album>
+	<artist>Herb Alpert and the Tijuana Brass</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>June 24</issue_date>
+	<album>Headquarters</album>
+	<artist>The Monkees</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>July 1</issue_date>
+	<album>Sgt. Pepper's Lonely Hearts Club Band</album>
+	<artist>The Beatles</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>October 14</issue_date>
+	<album>Ode to Billie Joe</album>
+	<artist>Bobbie Gentry</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>October 28</issue_date>
+	<album>Diana Ross &amp; the Supremes: Greatest Hits</album>
+	<artist>The Supremes</artist>
+	<weeks>5</weeks>
+</entry>
+<entry>
+	<issue_date>December 2</issue_date>
+	<album>Pisces, Aquarius, Capricorn &amp; Jones Ltd.</album>
+	<artist>The Monkees</artist>
+	<weeks>5</weeks>
+</entry>
+</year> <!-- 1967 -->
+
+<year id="1968">
+<entry>
+	<issue_date>January 6</issue_date>
+	<album>Magical Mystery Tour</album>
+	<artist>The Beatles</artist>
+	<weeks>8</weeks>
+</entry>
+<entry>
+	<issue_date>March 2</issue_date>
+	<album>Blooming Hits</album>
+	<artist>Paul Mauriat and His Orchestra</artist>
+	<weeks>5</weeks>
+</entry>
+<entry>
+	<issue_date>April 6</issue_date>
+	<album>The Graduate</album>
+	<artist>Simon &amp; Garfunkel / Soundtrack</artist>
+	<weeks>7</weeks>
+</entry>
+<entry>
+	<issue_date>May 25</issue_date>
+	<album>Bookends</album>
+	<artist>Simon &amp; Garfunkel</artist>
+	<weeks>3</weeks>
+</entry>
+<entry>
+	<issue_date>June 15</issue_date>
+	<album>The Graduate</album>
+	<artist>Simon &amp; Garfunkel / Soundtrack</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>June 29</issue_date>
+	<album>Bookends</album>
+	<artist>Simon &amp; Garfunkel</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>July 27</issue_date>
+	<album>The Beat of the Brass</album>
+	<artist>Herb Alpert and the Tijuana Brass</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>August 10</issue_date>
+	<album>Wheels of Fire</album>
+	<artist>Cream</artist>
+	<weeks>4</weeks>
+</entry>
+<entry>
+	<issue_date>September 7</issue_date>
+	<album>Waiting for the Sun</album>
+	<artist>The Doors</artist>
+	<weeks>3</weeks>
+</entry>
+<entry>
+	<issue_date>September 28</issue_date>
+	<album>Time Peace: The Rascals' Greatest Hits</album>
+	<artist>The Rascals</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>October 5</issue_date>
+	<album>Waiting for the Sun</album>
+	<artist>The Doors</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>October 12</issue_date>
+	<album>Cheap Thrills</album>
+	<artist>Big Brother and the Holding Company</artist>
+	<weeks>5</weeks>
+</entry>
+<entry>
+	<issue_date>November 16</issue_date>
+	<album>Electric Ladyland</album>
+	<artist>Jimi Hendrix Experience</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>November 30</issue_date>
+	<album>Cheap Thrills</album>
+	<artist>Big Brother and the Holding Company</artist>
+	<weeks>3</weeks>
+</entry>
+<entry>
+	<issue_date>December 21</issue_date>
+	<album>Wichita Lineman</album>
+	<artist>Glen Campbell</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>December 28</issue_date>
+	<album>The Beatles (The White Album)</album>
+	<artist>The Beatles</artist>
+	<weeks>1</weeks>
+</entry>
+</year> <!-- 1968 -->
+
+<year id="1969">
+<entry>
+	<issue_date>January 4</issue_date>
+	<album>The Beatles (The White Album)</album>
+	<artist>The Beatles</artist>
+	<weeks>5</weeks>
+</entry>
+<entry>
+	<issue_date>February 8</issue_date>
+	<album>TCB</album>
+	<artist>Diana Ross &amp; The Supremes and The Temptations</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>February 15</issue_date>
+	<album>The Beatles (The White Album)</album>
+	<artist>The Beatles</artist>
+	<weeks>3</weeks>
+</entry>
+<entry>
+	<issue_date>March 8</issue_date>
+	<album>Wichita Lineman</album>
+	<artist>Glen Campbell</artist>
+	<weeks>3</weeks>
+</entry>
+<entry>
+	<issue_date>March 29</issue_date>
+	<album>Blood, Sweat &amp; Tears</album>
+	<artist>Blood, Sweat &amp; Tears</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>April 5</issue_date>
+	<album>Wichita Lineman</album>
+	<artist>Glen Campbell</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>April 12</issue_date>
+	<album>Blood, Sweat &amp; Tears</album>
+	<artist>Blood, Sweat &amp; Tears</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>April 26</issue_date>
+	<album>Hair</album>
+	<artist>Original Cast</artist>
+	<weeks>13</weeks>
+</entry>
+<entry>
+	<issue_date>July 26</issue_date>
+	<album>Blood, Sweat &amp; Tears</album>
+	<artist>Blood, Sweat &amp; Tears</artist>
+	<weeks>4</weeks>
+</entry>
+<entry>
+	<issue_date>August 23</issue_date>
+	<album>At San Quentin</album>
+	<artist>Johnny Cash</artist>
+	<weeks>4</weeks>
+</entry>
+<entry>
+	<issue_date>September 20</issue_date>
+	<album>Blind Faith</album>
+	<artist>Blind Faith</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>October 4</issue_date>
+	<album>Green River</album>
+	<artist>Creedence Clearwater Revival</artist>
+	<weeks>4</weeks>
+</entry>
+<entry>
+	<issue_date>November 1</issue_date>
+	<album>Abbey Road</album>
+	<artist>The Beatles</artist>
+	<weeks>8</weeks>
+</entry>
+<entry>
+	<issue_date>December 27</issue_date>
+	<album>Led Zeppelin II</album>
+	<artist>Led Zeppelin</artist>
+	<weeks>1</weeks>
+</entry>
+</year> <!-- 1969 -->
+
+<year id="1970">
+<entry>
+	<issue_date>January 3</issue_date>
+	<album>Abbey Road</album>
+	<artist>The Beatles</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>January 17</issue_date>
+	<album>Led Zeppelin II</album>
+	<artist>Led Zeppelin</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>January 24</issue_date>
+	<album>Abbey Road</album>
+	<artist>The Beatles</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>January 31</issue_date>
+	<album>Led Zeppelin II</album>
+	<artist>Led Zeppelin</artist>
+	<weeks>5</weeks>
+</entry>
+<entry>
+	<issue_date>March 7</issue_date>
+	<album>Bridge over Troubled Water</album>
+	<artist>Simon &amp; Garfunkel</artist>
+	<weeks>10</weeks>
+</entry>
+<entry>
+	<issue_date>May 16</issue_date>
+	<album>Déjà Vu</album>
+	<artist>Crosby, Stills, Nash &amp; Young</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>May 23</issue_date>
+	<album>McCartney</album>
+	<artist>Paul McCartney</artist>
+	<weeks>3</weeks>
+</entry>
+<entry>
+	<issue_date>June 13</issue_date>
+	<album>Let It Be</album>
+	<artist>The Beatles</artist>
+	<weeks>4</weeks>
+</entry>
+<entry>
+	<issue_date>July 11</issue_date>
+	<album>Woodstock: Music from the Original Soundtrack and More</album>
+	<artist>Soundtrack</artist>
+	<weeks>4</weeks>
+</entry>
+<entry>
+	<issue_date>August 8</issue_date>
+	<album>Blood, Sweat &amp; Tears 3</album>
+	<artist>Blood, Sweat &amp; Tears</artist>
+	<weeks>2</weeks>
+</entry>
+<entry>
+	<issue_date>August 22</issue_date>
+	<album>Cosmo's Factory</album>
+	<artist>Creedence Clearwater Revival</artist>
+	<weeks>9</weeks>
+</entry>
+<entry>
+	<issue_date>October 24</issue_date>
+	<album>Abraxas</album>
+	<artist>Santana</artist>
+	<weeks>1</weeks>
+</entry>
+<entry>
+	<issue_date>October 31</issue_date>
+	<album>Led Zeppelin III</album>
+	<artist>Led Zeppelin</artist>
+	<weeks>4</weeks>
+</entry>
+<entry>
+	<issue_date>November 28</issue_date>
+	<album>Abraxas</album>
+	<artist>Santana</artist>
+	<weeks>5</weeks>
+</entry>
+</year> <!-- 1970 -->
+
+</number_ones>
+
