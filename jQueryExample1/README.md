@@ -1,3 +1,3 @@
 # jQuery
 
-Implement Basic jQuery animation effect.
+Implement basic jQuery animation effect.
