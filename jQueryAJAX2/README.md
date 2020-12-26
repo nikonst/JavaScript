@@ -1,3 +1,3 @@
 # jQuery and AJAX
 
-Using jQuery and AJAX to consume a REST API.
+Using jQuery and AJAX to consume a REST API (https://restcountries.eu/).
