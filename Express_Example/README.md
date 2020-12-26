@@ -1,10 +1,70 @@
 # A Simple Express Application
 
-A simple Express application that implements an api (get and put), based on data stored in a json file.
+A simple Express application that implements an API with GET, ADD and DELETE HTTP methods.
+
+The test data regards 'Books' and are stored in a json file.
+
 Using Embedded JavaScript templating, for the UI.
 
---------------?????--------------
+## API
 
-* / returns homepage title and list of books (array of json objects)
-* /books/add posts data for a book (author, title, pages)
-* /books/del/:author deletes a book from the list based on author's name
+**Show Books**
+
+----
+Returns data about the title of the home page and the list of book in json format.
+
+* **URL**
+
+  /
+
+* **Method:**
+
+  `GET`
+  
+* **URL Params**
+
+    None
+
+**Add a Book**
+
+----
+
+Add book data.
+
+* **URL**
+
+    /books/add
+
+* **Method:**
+
+  `POST`
+
+* **URL Params**
+
+    [Object]
+
+* **Example:**
+
+    `/books/add/{author: [string], title: [string], pages: [int]}`
+
+**Delete a Book**
+
+----
+
+Delete a book by author name.
+
+* **URL**
+
+    /books/del
+
+* **Method:**
+
+  `DELETE`
+
+* **URL Params**
+
+    `author:[string]`
+
+* **Example:**
+
+    `/books/del/[string]`
