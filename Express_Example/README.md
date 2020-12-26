@@ -8,7 +8,7 @@ Using Embedded JavaScript templating, for the UI.
 
 ## API
 
-**Show Books**
+### Show Books
 
 ----
 Returns data about the title of the home page and the list of book in json format.
@@ -25,7 +25,7 @@ Returns data about the title of the home page and the list of book in json forma
 
     None
 
-**Add a Book**
+### Add a Book
 
 ----
 
@@ -43,7 +43,7 @@ Add book data.
 
     [Object]
 
-**Delete a Book**
+### Delete a Book
 
 ----
 
