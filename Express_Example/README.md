@@ -33,7 +33,7 @@ Add book data.
 
 * **URL**
 
-    /books/add
+    /books/add/{object}
 
 * **Method:**
 
@@ -43,10 +43,6 @@ Add book data.
 
     [Object]
 
-* **Example:**
-
-    `/books/add/{author: [string], title: [string], pages: [int]}`
-
 **Delete a Book**
 
 ----
@@ -55,7 +51,7 @@ Delete a book by author name.
 
 * **URL**
 
-    /books/del
+    /books/del/{author}
 
 * **Method:**
 
@@ -64,7 +60,3 @@ Delete a book by author name.
 * **URL Params**
 
     `author:[string]`
-
-* **Example:**
-
-    `/books/del/[string]`
