@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require("fs");
 const app = express();
+const dataFile = './data/data.json'
 
 var logger = (req, res, next) => {
     console.log('Logger...');
@@ -24,7 +25,7 @@ app.set('views', path.join(__dirname,'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Data
-var books = require('./data.json');
+var books = require(dataFile);
 
 app.get('/', (req, res) => {
     var title = "List of Books";
@@ -44,7 +45,7 @@ app.post('/books/add', (req, res) => {
     console.log(newbook);
     books.push(newbook);
     let data = JSON.stringify(books);
-    fs.writeFileSync('data.json', data);
+    fs.writeFileSync(dataFile, data);
 
     console.log(books);
     res.redirect('/');
@@ -62,7 +63,7 @@ app.get('/books/del/:author', (req, res) => {
         }
     }
     let data = JSON.stringify(books);
-    fs.writeFileSync('data.json', data);
+    fs.writeFileSync(dataFile, data);
 
      res.redirect('/');
 });
