@@ -1,5 +1,7 @@
 const getRandomInt = require("./helpers/getRandomInt")
 
+const { performance } = require('perf_hooks');
+
 bubbleSort = (array) => {
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array.length - i - 1; j++) {
@@ -24,7 +26,7 @@ insertionSort = (array) => {
     return array
 }
 
-quickSortPartition = (array, left = 0, right = array.length - 1) => {
+/* quickSortPartition = (array, left = 0, right = array.length - 1) => {
     let pivot = array[Math.floor((right + left) / 2)]
     let low = left
     let high = right
@@ -57,7 +59,7 @@ quickSort = (array, left = 0, right = array.length - 1) => {
 
     return array
 }
-
+ */
 merge = (arr1, arr2) => {
     let sorted = [];
 
@@ -91,23 +93,27 @@ buildAarray = (n) => {
 console.log("BUBBLE---------------------------")
 let bubbleArray = buildAarray(20)
 console.log(bubbleArray)
+const t0 = performance.now();
 bubbleArray = bubbleSort(bubbleArray)
+const t1 = performance.now();
+console.log(`Bubble sort: ${t1 - t0} milliseconds.`);
 console.log(bubbleArray)
 
-/* let quickArray = buildAarray(20)
-console.log(quickArray)
-quickArray = quickSort(quickArray)
-console.log(quickArray)
- */
 console.log("INSERTION---------------------------")
 let insertionArray = buildAarray(20)
 console.log(insertionArray)
-bubbleArray = insertionSort(insertionArray)
+const t2 = performance.now();
+insertionArray = insertionSort(insertionArray)
+const t3 = performance.now();
+console.log(`Insertion sort: ${t3 - t2} milliseconds.`);
 console.log(insertionArray)
 
 console.log("MERGE---------------------------")
 let mergeArray = buildAarray(20)
 console.log(mergeArray)
+const t4 = performance.now();
 mergeArray = mergeSort(mergeArray)
+const t5 = performance.now();
+console.log(`Merge sort: ${t5 - t4} milliseconds.`);
 console.log(mergeArray)
 
