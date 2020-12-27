@@ -203,6 +203,9 @@ nums2.fill(0,1,3)
 console.log(nums2)
 
 // splice()
+/* The splice() method changes the contents of an array by
+removing or replacing existing elements and/or adding new elements in place.
+ */
 let instruments  = ["guitar", "bass", "drums", "sax"]
 console.log(instruments)
 instruments.splice(0, 0,  "cello")
@@ -213,9 +216,18 @@ instruments.splice(1, 2,  "percussion", "violin", "piano")
 console.log(instruments)
 
 // slice()
+/* The slice() method returns a shallow copy of a portion of an array into a new
+array object selected from start to end (end not included)
+where start and end represent the index of items in that array.
+The original array will not be modified.
+ */
 const animals = ['cat', 'dog', 'zebra', 'tiger', 'deer'];
+console.log(animals);
 console.log(animals.slice(2));
 console.log(animals.slice(2, 4));
 console.log(animals.slice(1, 5));
+console.log(animals);
+
 const anStr = "Hello, how are you?"
 console.log(anStr.slice(1, 5));
+console.log(anStr);
