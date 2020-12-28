@@ -1,3 +1,3 @@
 # Soritng Algorithms in JavaScript
 
-Bubble, Insertion, Selection and Merge sort.
+Bubble, Selection, Insertion and Merge sort.
