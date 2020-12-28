@@ -26,6 +26,18 @@ insertionSort = (array) => {
     return array
 }
 
+selectionSort = (array) => {
+    for (let i = 0; i < array.length - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[j] < array[minIndex]) {
+                minIndex = j;
+            }
+        }
+        [array[i], array[minIndex]] = [array[minIndex], array[i]];
+    }
+    return array;
+}
 /* quickSortPartition = (array, left = 0, right = array.length - 1) => {
     let pivot = array[Math.floor((right + left) / 2)]
     let low = left
@@ -73,11 +85,11 @@ merge = (arr1, arr2) => {
     return sorted.concat(arr1.slice().concat(arr2.slice()));
 }
 
-mergeSort = arr => {
-    if (arr.length <= 1) return arr
-    let mid = Math.floor(arr.length / 2),
-        left = mergeSort(arr.slice(0, mid)),
-        right = mergeSort(arr.slice(mid));
+mergeSort = (array) => {
+    if (array.length <= 1) return array
+    let mid = Math.floor(array.length / 2),
+        left = mergeSort(array.slice(0, mid)),
+        right = mergeSort(array.slice(mid));
 
     return merge(left, right);
 }
@@ -108,12 +120,20 @@ const t3 = performance.now();
 console.log(`Insertion sort: ${t3 - t2} milliseconds.`);
 console.log(insertionArray)
 
+console.log("SELECTION---------------------------")
+let selectionArray = buildAarray(20)
+console.log(selectionArray)
+const t4 = performance.now();
+selectionArray = selectionSort(selectionArray)
+const t5 = performance.now();
+console.log(`Selection sort: ${t3 - t2} milliseconds.`);
+console.log(selectionArray)
+
 console.log("MERGE---------------------------")
 let mergeArray = buildAarray(20)
 console.log(mergeArray)
-const t4 = performance.now();
+const t6 = performance.now();
 mergeArray = mergeSort(mergeArray)
-const t5 = performance.now();
+const t7 = performance.now();
 console.log(`Merge sort: ${t5 - t4} milliseconds.`);
 console.log(mergeArray)
-
