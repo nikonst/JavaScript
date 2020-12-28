@@ -39,3 +39,11 @@ gulp.task("minifyCSS", async () => {
 //Run all tasks
 gulp.task('default', gulp.series('copyData', 'copyHTML', 'imageMin', 'minifyJS', 'minifyCSS'))
 
+//Watch
+gulp.task('watch', async () => {
+    gulp.watch('src/*.html', gulp.series('copyHTML'))
+    gulp.watch('src/js/*.js', gulp.series('minifyJS'))
+    gulp.watch('src/css/*.css', gulp.series('minifyCSS'))
+    gulp.watch('src/imgs/*', gulp.series('imageMin'))
+    gulp.watch('src/data/*.json', gulp.series('copyData'))
+})
