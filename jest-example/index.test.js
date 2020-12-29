@@ -2,6 +2,7 @@
 import { add, mult, isNull, checkValue } from './modules/operations'
 import { Person } from './modules/people'
 import { anArray } from './modules/data'
+import { fetchData } from './modules/fetchData'
 
 test("Add 1 + 1 equals 2", () => {
     expect(add(1, 1)).toBe(2)
@@ -35,3 +36,8 @@ test('No "i" in "Jest"', () => {
 test('Lynn should be in data array', () => {
     expect(anArray).toContain("Lynn")
 })
+
+test('Get user with name "Leanne Graham"', async () => {
+    const data = await fetchData()
+    expect(data.name).toStrictEqual("Leanne Graham")
+  });
