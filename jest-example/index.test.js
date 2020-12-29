@@ -3,7 +3,7 @@ import { add, mult, isNull, checkValue } from './modules/operations'
 import { Person } from './modules/Person'
 import { anArray } from './modules/data'
 import { fetchData } from './modules/fetchData'
-import {reverseString, checkPalindrome } from './modules/stringOperations'
+import { reverseString, checkPalindrome } from './modules/stringOperations'
 
 test("Add 1 + 1 equals 2", () => {
     expect(add(1, 1)).toBe(2)
@@ -43,6 +43,14 @@ test('Get user with name "Leanne Graham"', async () => {
     expect(data.name).toStrictEqual("Leanne Graham")
 });
 
+test('Reverse a string function is defined', () => {
+    expect(reverseString).toBeDefined()
+})
+
+test('Reverse a string is a function', () => {
+    expect(typeof reverseString).toStrictEqual('function')
+})
+
 test('Reverse a string', () => {
     expect(reverseString("abc")).toStrictEqual("cba")
 })
@@ -51,6 +59,6 @@ test('Reverse a string II', () => {
     expect(reverseString("abc")).not.toStrictEqual("abc")
 })
 
-test('Check palidrome', () => {
+test('Check palindrome', () => {
     expect(checkPalindrome("ANNA")).toBe(true)
 })
