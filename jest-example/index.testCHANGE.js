@@ -1,7 +1,7 @@
 //import {add, sub, mult, div} from './modules/operations.js'
 import { add, mult, isNull, checkValue } from './modules/operations'
 import { Person } from './modules/Person'
-import { anArray } from './modules/data'
+import { arrayData } from './data/arrayData'
 import { fetchData } from './modules/fetchData'
 import { reverseString, checkPalindrome } from './modules/stringOperations'
 
@@ -35,7 +35,7 @@ test('No "i" in "Jest"', () => {
 })
 
 test('Lynn should be in data array', () => {
-    expect(anArray).toContain("Lynn")
+    expect(arrayData).toContain("Lynn")
 })
 
 test('Get user with name "Leanne Graham"', async () => {
