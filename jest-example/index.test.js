@@ -3,6 +3,7 @@ import { add, mult, isNull, checkValue } from './modules/operations'
 import { Person } from './modules/Person'
 import { anArray } from './modules/data'
 import { fetchData } from './modules/fetchData'
+import {reverseString, checkPalindrome } from './modules/stringOperations'
 
 test("Add 1 + 1 equals 2", () => {
     expect(add(1, 1)).toBe(2)
@@ -41,3 +42,15 @@ test('Get user with name "Leanne Graham"', async () => {
     const data = await fetchData()
     expect(data.name).toStrictEqual("Leanne Graham")
 });
+
+test('Reverse a string', () => {
+    expect(reverseString("abc")).toStrictEqual("cba")
+})
+
+test('Reverse a string II', () => {
+    expect(reverseString("abc")).not.toStrictEqual("abc")
+})
+
+test('Check palidrome', () => {
+    expect(checkPalindrome("ANNA")).toBe(true)
+})
