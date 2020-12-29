@@ -1,6 +1,6 @@
 //import {add, sub, mult, div} from './modules/operations.js'
 import { add, mult, isNull, checkValue } from './modules/operations'
-import { Person } from './modules/people'
+import { Person } from './modules/Person'
 import { anArray } from './modules/data'
 import { fetchData } from './modules/fetchData'
 
@@ -40,4 +40,4 @@ test('Lynn should be in data array', () => {
 test('Get user with name "Leanne Graham"', async () => {
     const data = await fetchData()
     expect(data.name).toStrictEqual("Leanne Graham")
-  });
+});
