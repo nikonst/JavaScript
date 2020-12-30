@@ -1,5 +1,5 @@
 //import {add, sub, mult, div} from './modules/operations.js'
-import { add, mult, isNull, checkValue } from './modules/operations'
+import { add, sub, mult, div, isNull, checkValue } from './modules/operations'
 import { Person } from './modules/Person'
 import { arrayData } from './data/arrayData'
 import { fetchData } from './modules/fetchData'
@@ -11,6 +11,14 @@ test("Add 1 + 1 equals 2", () => {
 
 test("Add 1 + 1 not equals 3", () => {
     expect(add(1, 1)).not.toBe(3)
+})
+
+test("1 minus 1 equals 0", () =>{
+    expect(sub(1,1)).toBe(0)
+})
+
+test("4 divided by 2 equals 2", () =>{
+    expect(div(4,2)).toBe(2)
 })
 
 test("Is Null", () => {
@@ -39,9 +47,16 @@ test('Lynn should be in data array', () => {
 })
 
 test('Get user with name "Leanne Graham"', async () => {
-    const data = await fetchData()
+    const url = 'https://jsonplaceholder.typicode.com/users/1'
+    const data = await fetchData(url)
     expect(data.name).toStrictEqual("Leanne Graham")
-});
+})
+
+test('Get with invalid URL', async () => {
+    const url = 'https://oneTwoThree/abc/'
+    const data = await fetchData(url)
+    expect(data).toStrictEqual('An Error Occured')
+})
 
 test('Reverse a string function is defined', () => {
     expect(reverseString).toBeDefined()

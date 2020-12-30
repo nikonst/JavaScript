@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-const fetchData = async () => {
+const fetchData = async (url) => {
     try {
-        const response = await axios('https://jsonplaceholder.typicode.com/users/1')
+        const response = await axios(url)
         return response.data
     } catch (err) {
-        return console.log(err)
+        return "An Error Occured"
     }
 }
 
