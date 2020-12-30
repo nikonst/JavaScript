@@ -6,4 +6,8 @@ const checkPalindrome = (str) => {
     return str.split('').reverse().join('') === str;
 }
 
-export { reverseString, checkPalindrome }
+const countLetters = (l, s) => {
+    return s.split('').filter(ch => ch === l).length
+}
+
+export { reverseString, checkPalindrome, countLetters }
