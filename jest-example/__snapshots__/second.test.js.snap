@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the data are coreect 1`] = `
+exports[`the data are corect 1`] = `
 Array [
   Object {
     "country": "Brazil",
