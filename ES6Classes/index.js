@@ -42,6 +42,11 @@ class Teacher extends Person {
         this.topic = topic
     }
 
+    //Function Overload
+    /* getPersonData() {
+        return "HELLO"
+    } */
+
     getTeacherData() {
         return { name: this.name, suurname: this.surname, age: this.age, topic: this.topic }
     }
@@ -50,6 +55,6 @@ class Teacher extends Person {
 p1 = new Person('Ann', 'Smith', 23)
 console.log(p1.getPersonData())
 
-t1 = new Teacher('Mary','Jones','33','Science')
+t1 = new Teacher('Mary', 'Jones', '33', 'Science')
 console.log(t1.getPersonData())
 console.log(t1.getTeacherData())
