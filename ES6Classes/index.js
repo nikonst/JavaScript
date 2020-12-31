@@ -23,3 +23,19 @@ console.log(csx5)
 console.log(csx5.doors)
 console.log(csx5.carStats())
 console.log(Car.totalDoors(csx5, suv1))
+
+class Person {
+    constructor(name, surname, age) {
+        this.name = name
+        this.surname = surname
+        this.age = age
+    }
+
+    getPersonData() {
+        return { name: this.name, suurname: this.surname, age: this.age }
+    }
+}
+
+p1 = new Person('Ann', 'Smith', 23)
+console.log(p1.getPersonData())
+
