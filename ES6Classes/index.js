@@ -24,6 +24,19 @@ console.log(csx5.doors)
 console.log(csx5.carStats())
 console.log(Car.totalDoors(csx5, suv1))
 
+//mixin
+let mixin = {
+    livesIn(country) {
+        console.log(`The person lives in ${country}`)
+    }
+}
+
+let personMixin = {
+    __proto__: mixin,
+    livesIn(country) {
+        super.livesIn(country)
+    }
+}
 class Person {
     constructor(name, surname, age) {
         this.name = name
@@ -40,13 +53,12 @@ class Teacher extends Person {
     constructor(name, surname, age, topic) {
         super(name, surname, age)
         this.topic = topic
+        Object.assign(this, personMixin)
     }
-
     //Function Overload
     /* getPersonData() {
         return "HELLO"
     } */
-
     getTeacherData() {
         return { name: this.name, suurname: this.surname, age: this.age, topic: this.topic }
     }
@@ -58,3 +70,5 @@ console.log(p1.getPersonData())
 t1 = new Teacher('Mary', 'Jones', '33', 'Science')
 console.log(t1.getPersonData())
 console.log(t1.getTeacherData())
+t1.livesIn("UK")
+t1.livesIn("France")
