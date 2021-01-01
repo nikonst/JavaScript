@@ -72,3 +72,67 @@ console.log(t1.getPersonData())
 console.log(t1.getTeacherData())
 t1.livesIn("UK")
 t1.livesIn("France")
+
+
+//Composition
+
+let itHasVitaminB6 = {
+    itHasVitaminB6Function() {
+        console.log("It has vitamin B6")
+    }
+}
+
+let itHasVitaminB6Mixin = {
+    __proto__: itHasVitaminB6,
+    itHasVitaminB6Function() {
+        super.itHasVitaminB6Function()
+    }
+}
+
+const itHasVitaminC = {
+    itHasVitaminCFunction() {
+        console.log("It has vitamin C")
+    }
+}
+
+let itHasVitaminCMixin = {
+    __proto__: itHasVitaminC,
+    itHasVitaminCFunction() {
+        super.itHasVitaminCFunction()
+    }
+}
+
+class Fruit {
+    constructor(name, color) {
+        this.name = name
+        this.color = color
+    }
+
+    getFruitData() {
+        return { name: this.name, color: this.color }
+    }
+}
+
+class Banana extends Fruit {
+    constructor(...args) {
+        super(...args)
+        Object.assign(this, itHasVitaminB6Mixin)
+    }
+}
+
+class Orange extends Fruit {
+    constructor(...args) {
+        super(...args)
+        Object.assign(this, itHasVitaminC)
+    }
+}
+
+const b = new Banana("banana", "yellow")
+const o = new Orange("orange", "orange")
+
+b.getFruitData()
+o.getFruitData()
+
+b.itHasVitaminB6Function()
+o.itHasVitaminCFunction()
+
