@@ -53,6 +53,22 @@ data2.forEach(element => {
     console.log(element)
 })
 
+// Iterate III
+for (let i = 0; i < data2.length; i++) {
+    for (let j = 0; j < data2[i].length; j++) {
+        console.log(data2[i][j])
+    }
+    console.log("")
+}
+
+for (let i = 0; i < data2.length; i++) {
+    for (let j = 0; j < data2[i].length; j++) {
+        console.log(data2[j][i])
+    }
+    console.log("")
+}
+
+
 console.log("++++++++++++++++++")
 data2.forEach(element => {
     element.forEach(el => {
