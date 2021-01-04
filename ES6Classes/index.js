@@ -136,3 +136,7 @@ o.getFruitData()
 b.itHasVitaminB6Function()
 o.itHasVitaminCFunction()
 
+console.log(b instanceof Banana)
+console.log(b instanceof Fruit)
+console.log(b instanceof Orange)
+
