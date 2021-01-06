@@ -19,7 +19,6 @@ data[1].push(6.5)
 console.log(data)
 
 // Remove Element from Outer Array
-
 data.pop()
 console.log(data)
 
@@ -61,13 +60,13 @@ for (let i = 0; i < data2.length; i++) {
     console.log("")
 }
 
+//Columns
 for (let i = 0; i < data2.length; i++) {
     for (let j = 0; j < data2[i].length; j++) {
         console.log(data2[j][i])
     }
     console.log("")
 }
-
 
 console.log("++++++++++++++++++")
 data2.forEach(element => {
@@ -76,4 +75,21 @@ data2.forEach(element => {
     })
 })
 
-// High oredr functions on 2d arrays
+// High order functions on 2d arrays
+console.log("Sums per row")
+data2.forEach(element => {
+    sum = element.reduce((s, n) => {
+        return s = s + n
+    })
+    console.log(sum)
+})
+
+console.log("Rows with sum greater than 10")
+let rowsWithSumGreaterThan10 = data2.filter(element => {
+    sum = element.reduce((s, n) => {
+        return s = s + n
+    })
+    return (sum > 10) ? element : ""
+})
+console.log(rowsWithSumGreaterThan10)
+
