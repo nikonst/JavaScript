@@ -34,7 +34,7 @@ data[1].splice(0, 1)
 console.log(data)
 
 // Iterating
-console.group('----------------------------')
+console.log('----------------------------')
 let data2 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 console.log(data2)
 
@@ -60,7 +60,7 @@ for (let i = 0; i < data2.length; i++) {
     console.log("")
 }
 
-//Columns
+// Columns
 for (let i = 0; i < data2.length; i++) {
     for (let j = 0; j < data2[i].length; j++) {
         console.log(data2[j][i])
@@ -68,6 +68,7 @@ for (let i = 0; i < data2.length; i++) {
     console.log("")
 }
 
+// High order functions on 2d arrays
 console.log("++++++++++++++++++")
 data2.forEach(element => {
     element.forEach(el => {
@@ -75,7 +76,6 @@ data2.forEach(element => {
     })
 })
 
-// High order functions on 2d arrays
 console.log("Sums per row")
 data2.forEach(element => {
     sum = element.reduce((s, n) => {
