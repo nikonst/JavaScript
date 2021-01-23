@@ -144,7 +144,7 @@ eval("const people = [\n    {\"name\":\"John\"},\n    {\"name\":\"Ann\"},\n    {
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
-eval("__webpack_require__(/*! ./../css/style.css */ \"./src/css/style.css\")\nconst people = __webpack_require__(/*! ./../data/people.js */ \"./src/data/people.js\")\n\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")\n\n$.each(people, (key, value) => {\n    $('body').append('<h1>'+value.name+'</h1>')\n})\n\n//# sourceURL=webpack://js-webpack/./src/js/index.js?");
+eval("__webpack_require__(/*! ./../css/style.css */ \"./src/css/style.css\")\nconst people = __webpack_require__(/*! ./../data/people.js */ \"./src/data/people.js\")\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")\n\n$.each(people, (key, value) => {\n    $('body').append('<h1>'+value.name+'</h1>')\n})\n\n//# sourceURL=webpack://js-webpack/./src/js/index.js?");
 })();
 
 /******/ })()

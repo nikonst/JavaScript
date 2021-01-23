@@ -1,6 +1,7 @@
 const { ModuleFilenameHelpers } = require("webpack");
 
 module.exports = {
+    mode: 'development',
     entry: './src/js/index.js',
     output: {
         path: __dirname + '/build',
