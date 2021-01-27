@@ -8,12 +8,13 @@ $.each(people, (key, value) => {
 
 import React from 'react'
 import { render } from 'react-dom'
+//import icon from './../imgs/icom.png'
 
 const Greeting = () => {
     return (
         <div>
             <h2>Hello from React</h2>
-            <div id="image"></div>
+            <img src={require('./../imgs/webpack4.jpg')} alt="Webpack" />
         </div>
     )
 }

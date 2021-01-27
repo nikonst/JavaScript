@@ -32,10 +32,11 @@ module.exports = {
                 }
             },
             {
-                test: /\.(png|jpg)$/,
+                test: /\.(png|jpg)$/i,
+                type: 'asset/resource',
                 use: [
                     {
-                        loader: 'url-loader',
+                        loader: 'file-loader',
                     }
                 ]
             },

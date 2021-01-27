@@ -9,8 +9,7 @@ h2 {
     color: salmon;
 }
 
-#image {
-    background: url('webpack.png');
+img {
     height: 250px;
     width: 250px;
 }
