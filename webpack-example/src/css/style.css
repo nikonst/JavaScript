@@ -1,3 +1,16 @@
 body {
     background-color: cyan;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+h2 {
+    font-family: Arial;
+    color: salmon;
+}
+
+#image {
+    background: url('webpack.png');
+    height: 250px;
+    width: 250px;
 }
