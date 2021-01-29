@@ -2,10 +2,19 @@ const { ModuleFilenameHelpers } = require("webpack");
 
 module.exports = {
     mode: 'development',
-    entry: './src/js/index.js',
+    entry: {
+        about: './src/js/about.js',
+        contact: './src/js/contact.js',
+        main: './src/js/index.js',
+    },
     output: {
         path: __dirname + '/build',
-        filename: 'main.js'
+        filename: '[name].bundle.js'
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     module: {
         rules: [
