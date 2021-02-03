@@ -1,7 +1,7 @@
 const { ModuleFilenameHelpers } = require("webpack");
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
         about: './src/js/about.js',
         contact: './src/js/contact.js',
