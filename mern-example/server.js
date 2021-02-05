@@ -14,7 +14,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mern-example')
     .catch(err => console.log(err))
 
 //Routes
-app.use('api/users', users)
+app.use('/api/users', users)
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {
