@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addOne } from '../redux/counterActions'
+import { addOne, reset } from '../redux/counterActions'
 
 function Counter(props) {
     return (
         <div>
             <h3>Counter - {props.counter} </h3>
+            <button onClick={props.reset}>Reset</button>
             <button onClick={props.addOne}>Add 1</button>
         </div>
     )
@@ -19,7 +20,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addOne: () => dispatch(addOne())
+        addOne: () => dispatch(addOne()),
+        reset: () => dispatch(reset())
     }
 }
 
