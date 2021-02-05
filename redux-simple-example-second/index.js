@@ -47,11 +47,11 @@ const initialStateDays = {
 const reducerCounters = (state = initialStateCounters, action) => {
     switch(action.type) {
         case INCREASE_COUNTER_ALPHA: return {
-            ...state, // other propertiesof state are unchanged
+            ...state, // other properties of state are unchanged
             counterAlpha: state.counterAlpha + 1
         }
         case INCREASE_COUNTER_BETA: return {
-            ...state, // other propertiesof state are unchanged
+            ...state, // other properties of state are unchanged
             counterBeta: state.counterBeta + 1
         }
         default: return state
