@@ -85,6 +85,8 @@ const store = redux.createStore(rootReducer, applymiddleware(logger)) // reducer
 console.log("**** ", store)
 console.log("**** ", store.getState())
 //store.subscribe(()=> console.log("State updated"))
+
+//Both reducers recieves the Action. Each, manages its own state part.
 store.dispatch(increaseCounterAlpha())
 store.dispatch(increaseCounterAlpha())
 store.dispatch(increaseCounterBeta())
