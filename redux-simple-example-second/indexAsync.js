@@ -55,7 +55,7 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-// Action creator that returns a function instead of an action  due to thunkMiddleware
+// Action creator that returns a function instead of an action, due to thunkMiddleware
 // Otherwise, we get the error -> throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
 const fecthUsers = () => {
     return function (dispatch) {
