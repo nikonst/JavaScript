@@ -1,4 +1,4 @@
-import {INCREMENET_BY_FIVE, RESET} from './hitTypes'
+import {INCREMENET_BY_FIVE, RESET_HIT} from './hitTypes'
 
 export const incrementByFive = () => {
     return {
@@ -6,9 +6,9 @@ export const incrementByFive = () => {
     }
 }
 
-export const reset = () => {
+export const resetHit = () => {
     return {
-        type: RESET
+        type: RESET_HIT
     }
 }
 

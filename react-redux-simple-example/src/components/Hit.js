@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { incrementByFive, reset } from '../redux/hit/hitActions'
+import { incrementByFive, resetHit } from '../redux/hit/hitActions'
 
-export default function Hit() {
+const Hit = (props) => {
     return (
         <div>
             <div>
-                <h3>Hit - {props.counter} </h3>
-                <button onClick={props.reset}>Reset</button>
+                <h3>Hit - {props.hit} </h3>
+                <button onClick={props.resetHit}>Reset</button>
                 <button onClick={props.incrementByFive}>Add 5</button>
             </div>
         </div>
@@ -15,15 +15,16 @@ export default function Hit() {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
-        hit: state.hit
+        hit: state.hitReducer.hit
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        incrementByFive: dispatch(incrementByFive),
-        reset: dispatch(reset)
+        incrementByFive: () => dispatch(incrementByFive()),
+        resetHit: () => dispatch(resetHit())
     }
 }
 
