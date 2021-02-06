@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addOne, reset } from '../redux/counterActions'
+import { addOne, reset } from '../redux/counter/counterActions'
 
 function Counter(props) {
     return (
