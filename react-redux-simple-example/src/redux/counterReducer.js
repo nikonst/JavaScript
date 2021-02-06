@@ -4,7 +4,7 @@ const initialSatte = {
     counter: 0
 }
 
-const counterReduer = (state = initialSatte, action) => {
+const counterReducer = (state = initialSatte, action) => {
     switch (action.type) {
         case ADD_ONE: {
             return {
@@ -23,4 +23,4 @@ const counterReduer = (state = initialSatte, action) => {
     }
 }
 
-export default counterReduer
+export default counterReducer
