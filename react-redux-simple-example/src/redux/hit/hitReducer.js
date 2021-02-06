@@ -15,7 +15,7 @@ const hitReducer = (state = initialState, action) => {
         case RESET_HIT: {
             return {
                 ...state,
-                hit: 0
+                hit: 100
             }
         }
         default:
