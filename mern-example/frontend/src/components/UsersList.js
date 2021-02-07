@@ -29,10 +29,17 @@ export default class UsersList extends Component {
                     }
                 }}>Add user</Button>
                 <ul className="list-group">
+
                     {this.state.users.map((item, i) => (
-                        //console.log(item)
-                        <li key = {item.id} className="list-group-item list-group-item-primary">
-                            {item.name}
+                        <li key={item.id} className="list-group-item list-group-item-primary">
+                            <Button className="btn btn-danger"
+                                onClick={
+                                    () => {
+                                        this.setState(state => ({
+                                            users: state.users.filter(user => user.id !== item.id)
+                                        }))
+                                    }}
+                            >Delete</Button>{item.name}
                         </li>
                     ))}
                 </ul>
