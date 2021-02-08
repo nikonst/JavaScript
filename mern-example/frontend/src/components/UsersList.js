@@ -1,21 +1,11 @@
 import React, { Component } from 'react'
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'
 //import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { v4 as uuidv4 } from 'uuid'
 import { connect } from 'react-redux'
-import { getUsers } from '../reduxSetup/users/userActions'
+import { deleteUser, getUsers } from '../reduxSetup/users/userActions'
 
-
-class UsersList extends Component {
-
-    componentDidMount() {
-        this.props.getUsers()
-        console.log(this.props)
-    }
-
-    render() {
-        const { users } = this.props.users
-        console.log(users)
+function UsersList(props) {
+    console.log(props)
         return (
             <Container>
                 {/*  <Button color="dark" onClick={() => {
@@ -27,15 +17,18 @@ class UsersList extends Component {
                     }
                 }}>Add user</Button> */}
                 <ul className="list-group">
-                    {users.map((item, i) => (
+                    {props.users.map((item, i) => (
+                        
                         <li key={item.id} className="list-group-item list-group-item-primary">
                             <Button className="btn btn-danger"
                                 onClick={
-                                    () => {
-                                        this.setState(state => ({
+                                    () => { console.log(item) 
+                                        props.deleteUser(item.id) }
+                                }
+                                        /* this.setState(state => ({
                                             users: state.users.filter(user => user.id !== item.id)
                                         }))
-                                    }}
+                                    }} */
                             >Delete</Button>{item.name}
                         </li>
                     ))}
@@ -50,7 +43,6 @@ class UsersList extends Component {
             </Container>
 
         )
-    }
 }
 
 const mapStateToProps = state => {
@@ -62,6 +54,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getUsers: () => dispatch(getUsers()),
+        deleteUser: (id) => dispatch(deleteUser(id))
     }
 }
 

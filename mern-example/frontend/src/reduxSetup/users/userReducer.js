@@ -23,12 +23,12 @@ const userReducer = (state = initialState, action) => {
             }
         }
         case DELETE_USER: {
+            console.log("STATE ", state, "ACTION ", action)
             return {
                 ...state,
-                
+                users: state.users.filter(user => user.id !== action.payload)
             }
         }
-
         default: return state
     }
 }

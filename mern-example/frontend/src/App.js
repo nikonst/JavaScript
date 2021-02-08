@@ -8,11 +8,9 @@ import UsersList from './components/UsersList'
 
 import store from './store'
 
-const theStore = { store }
-
 function App() {
   return (
-    <Provider store={theStore}>
+    <Provider store={store}>
       <div className="App">
         <AppNavbar />
         <UsersList />
