@@ -19,7 +19,7 @@ const userReducer = (state = initialState, action) => {
         case ADD_USER: {
             return {
                 ...state,
-                
+                users: [...state.users, { id: uuidv4(), name: action.payload }]
             }
         }
         case DELETE_USER: {

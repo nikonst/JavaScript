@@ -1,48 +1,54 @@
-import React, { Component } from 'react'
+import React, { useRef , Component } from 'react'
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'
 //import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { connect } from 'react-redux'
-import { deleteUser, getUsers } from '../reduxSetup/users/userActions'
+import { addUser, deleteUser, getUsers } from '../reduxSetup/users/userActions'
 
 function UsersList(props) {
     console.log(props)
-        return (
-            <Container>
-                {/*  <Button color="dark" onClick={() => {
-                    const name = prompt("Enter  user")
-                    if (name) {
-                        this.setState({
-                            users: [...this.state.users, { id: uuidv4(), name: name }]
-                        });
+    const textInput = useRef(null)
+    return (
+        <Container>
+            <p>
+                <input type="text" name="input-text" ref={textInput}/>
+
+                <Button color="dark" onClick={() => {
+                    console.log('INPUT VALUE: ', textInput.current?.value)
+                    if (textInput.current?.value) {
+                        props.addUser(textInput.current?.value)
+                       
                     }
-                }}>Add user</Button> */}
-                <ul className="list-group">
-                    {props.users.map((item, i) => (
-                        
-                        <li key={item.id} className="list-group-item list-group-item-primary">
-                            <Button className="btn btn-danger"
-                                onClick={
-                                    () => { console.log(item) 
-                                        props.deleteUser(item.id) }
+                }}>Add user</Button>
+            </p>
+            <ul className="list-group">
+                {props.users.map((item, i) => (
+
+                    <li key={item.id} className="list-group-item list-group-item-primary">
+                        <Button className="btn btn-danger"
+                            onClick={
+                                () => {
+                                    console.log(item)
+                                    props.deleteUser(item.id)
                                 }
-                                        /* this.setState(state => ({
-                                            users: state.users.filter(user => user.id !== item.id)
-                                        }))
-                                    }} */
-                            >Delete</Button>{item.name}
-                        </li>
-                    ))}
-                </ul>
-                {/* <ListGroup>
+                            }
+                        /* this.setState(state => ({
+                            users: state.users.filter(user => user.id !== item.id)
+                        }))
+                    }} */
+                        >Delete</Button>{item.name}
+                    </li>
+                ))}
+            </ul>
+            {/* <ListGroup>
                     {this.state.users.map((name) => {
                         <ListGroupItem>
                             {name}
                         </ListGroupItem>
                     })}
                 </ListGroup> */}
-            </Container>
+        </Container>
 
-        )
+    )
 }
 
 const mapStateToProps = state => {
@@ -54,6 +60,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getUsers: () => dispatch(getUsers()),
+        addUser: (user) => dispatch(addUser(user)),
         deleteUser: (id) => dispatch(deleteUser(id))
     }
 }
