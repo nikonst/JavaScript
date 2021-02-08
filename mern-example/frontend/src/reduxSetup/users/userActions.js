@@ -1,4 +1,10 @@
-import { ADD_USER, DELETE_USER } from './userTypes'
+import { GET_USERS, ADD_USER, DELETE_USER } from './userTypes'
+
+export const getUsers = () => {
+    return {
+        type: GET_USERS
+    }
+}
 
 export const addUser = () => {
     return {

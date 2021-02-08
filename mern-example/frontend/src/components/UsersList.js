@@ -2,35 +2,32 @@ import React, { Component } from 'react'
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'
 //import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { v4 as uuidv4 } from 'uuid'
+import { connect } from 'react-redux'
+import { getUsers } from '../reduxSetup/users/userActions'
 
-export default class UsersList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: [
-                { id: uuidv4(), name: "Ian" },
-                { id: uuidv4(), name: "Tom" },
-                { id: uuidv4(), name: "Ann" },
-            ]
-        }
+class UsersList extends Component {
+
+    componentDidMount() {
+        this.props.getUsers()
+        console.log(this.props)
     }
 
     render() {
+        const { users } = this.props.users
+        console.log(users)
         return (
-
             <Container>
-                <Button color="dark" onClick={() => {
+                {/*  <Button color="dark" onClick={() => {
                     const name = prompt("Enter  user")
                     if (name) {
                         this.setState({
                             users: [...this.state.users, { id: uuidv4(), name: name }]
                         });
                     }
-                }}>Add user</Button>
+                }}>Add user</Button> */}
                 <ul className="list-group">
-
-                    {this.state.users.map((item, i) => (
+                    {users.map((item, i) => (
                         <li key={item.id} className="list-group-item list-group-item-primary">
                             <Button className="btn btn-danger"
                                 onClick={
@@ -56,4 +53,17 @@ export default class UsersList extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        users: state.users
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getUsers: () => dispatch(getUsers()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersList)
 
