@@ -1,19 +1,22 @@
 import { v4 as uuidv4 } from 'uuid'
-import { GET_USERS, ADD_USER, DELETE_USER } from './userTypes'
+import { GET_USERS, ADD_USER, DELETE_USER, LOADING_USERS } from './userTypes'
 
 const initialState = {
     users: [
-        { id: uuidv4(), name: "Ian" },
+        /* { id: uuidv4(), name: "Ian" },
         { id: uuidv4(), name: "Tom" },
-        { id: uuidv4(), name: "Ann" },
-    ]
+        { id: uuidv4(), name: "Ann" }, */
+    ],
+    loading: false
 }
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_USERS: {
             return {
-                ...state
+                ...state,
+                users: action.payload,
+                laoding: false
             }
         }
         case ADD_USER: {
@@ -27,6 +30,12 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.filter(user => user.id !== action.payload)
+            }
+        }
+        case LOADING_USERS: {
+            return {
+                ...state,
+                loding: true
             }
         }
         default: return state
