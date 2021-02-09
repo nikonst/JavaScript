@@ -2,12 +2,17 @@ import { GET_USERS, ADD_USER, DELETE_USER, LOADING_USERS } from './userTypes'
 import axios from 'axios'
 
 export const getUsers = () => dispatch => {
-    dispatch(loadingUsers())
-    axios.get('/api/users')
+    //dispatch(loadingUsers())
+    axios.get('http://localhost:5000/api/users',  {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        }
+      })
     .then(res => dispatch({
         type: GET_USERS,
         payload: res.data
     }))
+    .catch(err => console.log("err ", err))
 }
 
 export const addUser = (user) => {

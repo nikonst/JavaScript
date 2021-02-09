@@ -7,6 +7,8 @@ import { addUser, deleteUser, getUsers } from '../reduxSetup/users/userActions'
 function UsersList(props) {
     console.log(props)
     const textInput = useRef(null)
+    props.getUsers()
+    console.log("props.users ", props.users)
     return (
         <Container>
             <p>
