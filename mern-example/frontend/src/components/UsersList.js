@@ -1,31 +1,35 @@
-import React, { useRef , Component } from 'react'
+import React, { useRef, useEffect, Component } from 'react'
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'
 //import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { addUser, deleteUser, getUsers } from '../reduxSetup/users/userActions'
 
 function UsersList(props) {
     console.log(props)
     const textInput = useRef(null)
-    props.getUsers()
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(props.getUsers)
+    }, [])
+
     console.log("props.users ", props.users)
     return (
         <Container>
             <p>
-                <input type="text" name="input-text" ref={textInput}/>
+                <input type="text" name="input-text" ref={textInput} />
 
                 <Button color="dark" onClick={() => {
                     console.log('INPUT VALUE: ', textInput.current?.value)
                     if (textInput.current?.value) {
                         props.addUser(textInput.current?.value)
-                       
+
                     }
                 }}>Add user</Button>
             </p>
             <ul className="list-group">
                 {props.users.map((item, i) => (
 
-                    <li key={item.id} className="list-group-item list-group-item-primary">
+                    <li key={item._id} className="list-group-item list-group-item-primary">
                         <Button className="btn btn-danger"
                             onClick={
                                 () => {
@@ -41,14 +45,7 @@ function UsersList(props) {
                     </li>
                 ))}
             </ul>
-            {/* <ListGroup>
-                    {this.state.users.map((name) => {
-                        <ListGroupItem>
-                            {name}
-                        </ListGroupItem>
-                    })}
-                </ListGroup> */}
-        </Container>
+       </Container>
 
     )
 }

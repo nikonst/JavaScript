@@ -13,11 +13,11 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_USERS: {
-            console.log("action.payload", action.payload)
+            //console.log("action.payload", action.payload)
             return {
                 ...state,
                 users: action.payload,
-                laoding: false
+                loading: false
             }
         }
         case ADD_USER: {
@@ -36,7 +36,7 @@ const userReducer = (state = initialState, action) => {
         case LOADING_USERS: {
             return {
                 ...state,
-                loding: true
+                loading: true
             }
         }
         default: return state
