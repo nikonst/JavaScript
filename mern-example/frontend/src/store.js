@@ -7,7 +7,7 @@ import userReducer from './reduxSetup/users/userReducer'
 
 const middleware = [thunk]
 
-const store = createStore(userReducer, applyMiddleware(...middleware))
+const store = createStore(userReducer, composeWithDevTools(applyMiddleware(...middleware)))
 /* const store = createStore(rootReducer, compose(
     applyMiddleware(...middleware),
     composeWithDevTools())
