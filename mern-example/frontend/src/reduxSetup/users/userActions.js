@@ -15,11 +15,16 @@ export const getUsers = () => dispatch => {
         .catch(err => console.log("err ", err))
 }
 
-export const addUser = (user) => {
-    return {
+export const addUser = (user) => dispatch => {
+    console.log("user", user, "type of", typeof user)
+    const name = user
+    axios.post('http://localhost:5000/api/users', name)
+    .then(res => 
+         dispatch({
         type: ADD_USER,
-        payload: user
-    }
+        payload: res.data.name
+    }))
+    .catch(err => console.log(err))
 }
 
 export const deleteUser = (id) => {

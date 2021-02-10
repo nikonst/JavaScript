@@ -19,10 +19,10 @@ function UsersList(props) {
                 <input type="text" name="input-text" ref={textInput} />
 
                 <Button color="dark" onClick={() => {
-                    console.log('INPUT VALUE: ', textInput.current?.value)
                     if (textInput.current?.value) {
-                        props.addUser(textInput.current?.value)
-
+                        let userName = {}
+                        userName["name"] = textInput.current?.value
+                        props.addUser(userName)
                     }
                 }}>Add user</Button>
             </p>

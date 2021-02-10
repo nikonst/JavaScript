@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { GET_USERS, ADD_USER, DELETE_USER, LOADING_USERS } from './userTypes'
 
 const initialState = {
@@ -23,7 +22,7 @@ const userReducer = (state = initialState, action) => {
         case ADD_USER: {
             return {
                 ...state,
-                users: [...state.users, { id: uuidv4(), name: action.payload }]
+                users: [...state.users, { name: action.payload }]
             }
         }
         case DELETE_USER: {

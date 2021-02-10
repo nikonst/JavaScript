@@ -13,11 +13,13 @@ router.get('/', (req, res) => {
 
 //POST api/users
 router.post('/', (req, res) => {
+    console.log("SERVER", req)
     const newUser = new User({
         name: req.body.name
     })
     newUser.save()
         .then(user => res.json(user))
+        .catch(err => console.log(err))
 
 })
 
