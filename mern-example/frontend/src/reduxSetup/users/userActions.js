@@ -27,11 +27,18 @@ export const addUser = (user) => dispatch => {
     .catch(err => console.log(err))
 }
 
-export const deleteUser = (id) => {
-    return {
+export const deleteUser = (id) => dispatch => {
+    axios.delete(`http://localhost:5000/api/users/${id}`)
+    .then(res => dispatch({
         type: DELETE_USER,
         payload: id
-    }
+    }))
+    .catch(err => {console.log(err)})
+
+    /* return {
+        type: DELETE_USER,
+        payload: id
+    } */
 }
 
 export const loadingUsers = () => {

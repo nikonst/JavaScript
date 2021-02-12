@@ -29,7 +29,7 @@ const userReducer = (state = initialState, action) => {
             console.log("STATE ", state, "ACTION ", action)
             return {
                 ...state,
-                users: state.users.filter(user => user.id !== action.payload)
+                users: state.users.filter(user => user._id !== action.payload)
             }
         }
         case LOADING_USERS: {

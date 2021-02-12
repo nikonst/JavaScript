@@ -27,21 +27,21 @@ function UsersList(props) {
                 }}>Add user</Button>
             </p>
             <ul className="list-group">
-                {props.users.map((item, i) => (
+                {props.users.map((user, i) => (
 
-                    <li key={item._id} className="list-group-item list-group-item-primary">
+                    <li key={user._id} className="list-group-item list-group-item-primary">
                         <Button className="btn btn-danger"
                             onClick={
                                 () => {
-                                    console.log(item)
-                                    props.deleteUser(item.id)
+                                    console.log(user)
+                                    props.deleteUser(user._id)
                                 }
                             }
                         /* this.setState(state => ({
                             users: state.users.filter(user => user.id !== item.id)
                         }))
                     }} */
-                        >Delete</Button>{item.name}
+                        >Delete</Button>{user.name}
                     </li>
                 ))}
             </ul>
