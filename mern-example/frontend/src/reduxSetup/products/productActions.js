@@ -18,21 +18,22 @@ export const addProduct = (product) => dispatch => {
     console.log("product", product, "type of", typeof product)
     const name = product
     axios.post('http://localhost:5000/api/products', name)
-    .then(res => 
-         dispatch({
-        type: ADD_PRODUCT,
-        payload: res.data.name
-    }))
-    .catch(err => console.log(err))
+        .then(res =>
+            dispatch({
+                type: ADD_PRODUCT,
+                payload: res.data.name
+            }))
+        .catch(err => console.log(err))
 }
 
 export const deleteProduct = (id) => dispatch => {
+    console.log("id:", id)
     axios.delete(`http://localhost:5000/api/products/${id}`)
-    .then(res => dispatch({
-        type: DELETE_PRODUCT,
-        payload: id
-    }))
-    .catch(err => {console.log(err)})
+        .then(res => dispatch({
+            type: DELETE_PRODUCT,
+            payload: id
+        }))
+        .catch(err => { console.log(err) })
 }
 
 export const loadingProducts = () => {

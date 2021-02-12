@@ -8,11 +8,12 @@ function ProductList(props) {
     console.log(props)
     const textInput = useRef(null)
     const dispatch = useDispatch();
+    
     useEffect(() => {
-        dispatch(props.getUsers)
+        dispatch(props.getProducts)
     }, [])
 
-    console.log("props.users ", props.users)
+    console.log("props.products ", props.products)
     return (
         <Container>
             <p>
@@ -27,7 +28,7 @@ function ProductList(props) {
                 }}>Add product</Button>
             </p>
             <ul className="list-group">
-                {props.peoducts.map((user, i) => (
+                {props.products.map((product, i) => (
                     <li key={i} className="list-group-item list-group-item-primary">
                         <Button className="btn btn-danger"
                             onClick={
@@ -58,7 +59,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getProducts: () => dispatch(getProducts()),
-        addProduct: (user) => dispatch(addProduct(user)),
+        addProduct: (product) => dispatch(addProduct(product)),
         deleteProduct: (id) => dispatch(deleteProduct(id))
     }
 }

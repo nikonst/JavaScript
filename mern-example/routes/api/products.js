@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
 
 //DELETE api/users/:id
 router.delete('/:id', (req, res) => {
-    User.findById(req.params.id)
+    Product.findById(req.params.id)
         .then(product => product.remove().then(() => res.json({ success: true })))
         .catch(error=>res.status("404").json({success: false}))
 
