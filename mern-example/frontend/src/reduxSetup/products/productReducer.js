@@ -1,4 +1,4 @@
-import { GET_USERS, ADD_USER, DELETE_USER, LOADING_USERS } from './productTypes'
+import { GET_PRODUCTS, ADD_PRODUCT, DELETE_PRODUCT, LOADING_PRODUCTS } from './productTypes'
 
 const initialState = {
     products: [],
