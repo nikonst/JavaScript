@@ -28,8 +28,7 @@ function UsersList(props) {
             </p>
             <ul className="list-group">
                 {props.users.map((user, i) => (
-
-                    <li key={user._id} className="list-group-item list-group-item-primary">
+                    <li key={i} className="list-group-item list-group-item-primary">
                         <Button className="btn btn-danger"
                             onClick={
                                 () => {
