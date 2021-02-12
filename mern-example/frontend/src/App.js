@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Provider} from 'react-redux'
 
 import AppNavbar from './components/AppNavbar'
-import ProducstList from './components/ProductList'
+import ProductList from './components/ProductList'
 
 import store from './store'
 
@@ -13,7 +13,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <AppNavbar />
-        <ProducstList />
+        <ProductList />
       </div>
     </Provider>
   );
