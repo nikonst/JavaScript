@@ -2,23 +2,23 @@ const express = require('express')
 const router = express.Router()
 
 //User model
-const User = require('../../models/User')
+const Product = require('../../models/Product')
 
 //GET api/users
 router.get('/', (req, res) => {
-    User.find()
+    Product.find()
         .sort({ date: -1 }) //sort descending
-        .then(users => res.json(users))
+        .then(products => res.json(products))
 })
 
 //POST api/users
 router.post('/', (req, res) => {
     console.log("SERVER", req)
-    const newUser = new User({
+    const newProduct = new Product({
         name: req.body.name
     })
-    newUser.save()
-        .then(user => res.json(user))
+    newProduct.save()
+        .then(product => res.json(product))
         .catch(err => console.log(err))
 
 })
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 //DELETE api/users/:id
 router.delete('/:id', (req, res) => {
     User.findById(req.params.id)
-        .then(user => user.remove().then(() => res.json({ success: true })))
+        .then(product => product.remove().then(() => res.json({ success: true })))
         .catch(error=>res.status("404").json({success: false}))
 
 })

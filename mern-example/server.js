@@ -6,7 +6,7 @@ const cors = require('cors')
 const app = express()
 
 
-const users = require('./routes/api/users')
+const products = require('./routes/api/products')
 //BodyParser middleware
 app.use(bodyParser.json())
 app.use(cors())
@@ -16,7 +16,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mern-example')
     .catch(err => console.log(err))
 
 //Routes
-app.use('/api/users', users)
+app.use('/api/products', products)
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {

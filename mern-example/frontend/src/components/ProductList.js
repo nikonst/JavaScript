@@ -2,9 +2,9 @@ import React, { useRef, useEffect, Component } from 'react'
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'
 //import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { connect, useDispatch } from 'react-redux'
-import { addUser, deleteUser, getUsers } from '../reduxSetup/users/userActions'
+import { addProduct, deleteProduct, getProducts } from '../reduxSetup/products/productActions'
 
-function UsersList(props) {
+function ProductList(props) {
     console.log(props)
     const textInput = useRef(null)
     const dispatch = useDispatch();
@@ -20,27 +20,27 @@ function UsersList(props) {
 
                 <Button color="dark" onClick={() => {
                     if (textInput.current?.value) {
-                        let userName = {}
-                        userName["name"] = textInput.current?.value
-                        props.addUser(userName)
+                        let productName = {}
+                        productName["name"] = textInput.current?.value
+                        props.addProduct(productName)
                     }
-                }}>Add user</Button>
+                }}>Add product</Button>
             </p>
             <ul className="list-group">
-                {props.users.map((user, i) => (
+                {props.peoducts.map((user, i) => (
                     <li key={i} className="list-group-item list-group-item-primary">
                         <Button className="btn btn-danger"
                             onClick={
                                 () => {
-                                    console.log(user)
-                                    props.deleteUser(user._id)
+                                    console.log(product)
+                                    props.deleteProduct(product._id)
                                 }
                             }
                         /* this.setState(state => ({
                             users: state.users.filter(user => user.id !== item.id)
                         }))
                     }} */
-                        >Delete</Button>{user.name}
+                        >Delete</Button>{product.name}
                     </li>
                 ))}
             </ul>
@@ -51,17 +51,17 @@ function UsersList(props) {
 
 const mapStateToProps = state => {
     return {
-        users: state.users
+        products: state.products
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getUsers: () => dispatch(getUsers()),
-        addUser: (user) => dispatch(addUser(user)),
-        deleteUser: (id) => dispatch(deleteUser(id))
+        getProducts: () => dispatch(getProducts()),
+        addProduct: (user) => dispatch(addProduct(user)),
+        deleteProduct: (id) => dispatch(deleteProduct(id))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersList)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList)
 
