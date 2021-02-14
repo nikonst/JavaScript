@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
 
 //POST api/users
 router.post('/', (req, res) => {
-    console.log("SERVER", req)
     const newProduct = new Product({
         name: req.body.name
     })

@@ -5,15 +5,13 @@ import { connect, useDispatch } from 'react-redux'
 import { addProduct, deleteProduct, getProducts } from '../reduxSetup/products/productActions'
 
 function ProductList(props) {
-    console.log(props)
     const textInput = useRef(null)
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
         dispatch(props.getProducts)
     }, [])
 
-    console.log("props.products ", props.products)
     return (
         <Container>
             <p>
@@ -33,7 +31,6 @@ function ProductList(props) {
                         <Button className="btn btn-danger"
                             onClick={
                                 () => {
-                                    console.log(product)
                                     props.deleteProduct(product._id)
                                 }
                             }
@@ -45,7 +42,7 @@ function ProductList(props) {
                     </li>
                 ))}
             </ul>
-       </Container>
+        </Container>
 
     )
 }

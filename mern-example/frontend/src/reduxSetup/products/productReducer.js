@@ -8,7 +8,6 @@ const initialState = {
 const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_PRODUCTS: {
-            //console.log("action.payload", action.payload)
             return {
                 ...state,
                 products: action.payload,
@@ -18,11 +17,10 @@ const productReducer = (state = initialState, action) => {
         case ADD_PRODUCT: {
             return {
                 ...state,
-                products: [...state.products, { name: action.payload }]
+                products: [...state.products,  action.payload.data ]
             }
         }
         case DELETE_PRODUCT: {
-            console.log("STATE ", state, "ACTION ", action)
             return {
                 ...state,
                 products: state.products.filter(product => product._id !== action.payload)
