@@ -1,18 +1,22 @@
 const express = require('express')
 const router = express.Router()
 
+const auth = require("./../middleware/auth")
+
 //User model
 const Product = require('../../models/Product')
 
-//GET api/users
-router.get('/', (req, res) => {
+//GET api/products
+//@access Public
+router.get('/products', (req, res) => {
     Product.find()
         .sort({ date: -1 }) //sort descending
         .then(products => res.json(products))
 })
 
-//POST api/users
-router.post('/', (req, res) => {
+//POST api/products
+//@access Private
+router.post('/products/add', auth, (req, res) => {
     const newProduct = new Product({
         name: req.body.name
     })
@@ -22,8 +26,9 @@ router.post('/', (req, res) => {
 
 })
 
-//DELETE api/users/:id
-router.delete('/:id', (req, res) => {
+//DELETE api/products/:id
+//@access Private
+router.delete('products/delete/:id', auth, (req, res) => {
     Product.findById(req.params.id)
         .then(product => product.remove().then(() => res.json({ success: true })))
         .catch(error=>res.status("404").json({success: false}))
