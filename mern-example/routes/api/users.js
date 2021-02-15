@@ -1,7 +1,7 @@
 const express = require('express')
 const bcrypt = require('bcryptjs')
 const router = express.Router()
-const configs = require('./config.js')
+const configs = require('./../../config.js')
 const jwt = require('jsonwebtoken')
 
 //User model
@@ -9,7 +9,7 @@ const User = require('../../models/User')
 
 //POST users/add
 //@Access Public
-router.post('/users/add', (req, res) => {
+router.post('/add', (req, res) => {
     //res.send("Register")
     const { name, email, password } = req.body
     if( !email || !name || !password) {
