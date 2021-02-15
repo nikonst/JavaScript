@@ -3,13 +3,13 @@ const bcrypt = require('bcryptjs')
 const router = express.Router()
 const configs = require('./../../config.js')
 const jwt = require('jsonwebtoken')
-const auth = require("./../../middleware/auth")
+const auth = require("../../middleware/authMiddleware")
 
 //User model
 const User = require('../../models/User')
 
 //POST user/auth
-router.post('/users/auth', (req, res) => {
+router.post('/', (req, res) => {
     //res.send("Register")
     const { email, password } = req.body
     if( !email || !password) {
@@ -52,7 +52,7 @@ router.post('/users/auth', (req, res) => {
 //
 router.get('/user', auth, (req, res) => {
     User.findById(req.user.id)
-    .select("-select")
+    .select("-password")
     .then(user => res.json(user))
 })
 

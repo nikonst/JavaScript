@@ -9,5 +9,8 @@
 ### Users
 
 1. /api/users/add -> POST -> Public, add a user
-2. /api/users/auth -> POST -> Public, authorize user (login)
-3. /api/user -> GET -> Private, gets user
+
+### Auth
+
+1. /api/auth -> POST -> Public, authorize user (login)
+2. /api/user -> GET -> Private, gets user

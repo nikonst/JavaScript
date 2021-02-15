@@ -6,7 +6,6 @@ const configs = require('./config.js')
 
 const app = express()
 
-
 //const products = require('./routes/api/products')
 //const users = require()
 //BodyParser middleware
