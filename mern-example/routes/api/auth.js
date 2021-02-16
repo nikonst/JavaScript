@@ -3,26 +3,24 @@ const bcrypt = require('bcryptjs')
 const router = express.Router()
 const configs = require('./../../config.js')
 const jwt = require('jsonwebtoken')
-const auth = require("../../middleware/authMiddleware")
+const authMiddleware = require("../../middleware/authMiddleware")
 
 //User model
 const User = require('../../models/User')
 
-//POST user/auth
-router.post('/', (req, res) => {
+//POST auth/signin
+router.post('/signin', (req, res) => {
     //res.send("Register")
     const { email, password } = req.body
+    console.log(email, "***", password)
     if( !email || !password) {
         return res.status(400).json({msg: "Enter email and password..."})
     }
     //Check for existing user
     User.findOne({email: email})
     .then(user => {
-        if(user) return res.status(400).json({msg: "User allready exists!"})
-        /* const newUser = new User({
-            name, email, password
-        }) */
-
+        if(!user) return res.status(400).json({msg: "User not found"})
+ 
         //Validate password
         bcrypt.compare(password, user.password) 
         .then(isMatch => {
@@ -49,8 +47,10 @@ router.post('/', (req, res) => {
     })
 })
 
-//
-router.get('/user', auth, (req, res) => {
+
+//GET auth/user
+//@Access Private
+router.get('/user', authMiddleware, (req, res) => {
     User.findById(req.user.id)
     .select("-password")
     .then(user => res.json(user))

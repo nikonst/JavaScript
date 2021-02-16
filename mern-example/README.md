@@ -12,5 +12,5 @@
 
 ### Auth
 
-1. /api/auth -> POST -> Public, authorize user (login)
+1. /api/auth/signin -> POST -> Public, authorize user (login)
 2. /api/user -> GET -> Private, gets user
