@@ -3,11 +3,13 @@ const app = express()
 const port = 5050
 
 app.get('/student', (req, res) => {
-  res.send('Hello Student!')
+  res.json({'name':'Hello Student!',
+    })
 })
 
 app.get('/teacher', (req, res) => {
-    res.send('Hello Teacher!')
+    res.json({'name':'Hello Teacher!',
+        'school':'ΓΥΜΝΑΣΙΟ'})
   })
 
 app.listen(port, () => {
