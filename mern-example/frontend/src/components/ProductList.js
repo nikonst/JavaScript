@@ -3,12 +3,14 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'
 //import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { connect, useDispatch } from 'react-redux'
 import { addProduct, deleteProduct, getProducts } from '../reduxSetup/products/productActions'
+import { loadUser } from '../reduxSetup/auth/authActions'
 
 function ProductList(props) {
     const textInput = useRef(null)
     const dispatch = useDispatch();
 
-     useEffect(() => {
+    useEffect(() => {
+        dispatch(props.loadUser)
         dispatch(props.getProducts)
     }, [])
 
@@ -49,12 +51,14 @@ function ProductList(props) {
 
 const mapStateToProps = state => {
     return {
-        products: state.products
+        products: state.products,
+        auth: state.auth
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        loadUser: () => dispatch(loadUser()),
         getProducts: () => dispatch(getProducts()),
         addProduct: (product) => dispatch(addProduct(product)),
         deleteProduct: (id) => dispatch(deleteProduct(id))
