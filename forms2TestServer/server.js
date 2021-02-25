@@ -13,16 +13,20 @@ app.use(function (req, res, next) {
 
 app.get('/student', (req, res) => {
   res.json({
-    'name': 'Hello Student!'
+    'name': 'Ίων Μαθητής',
+    'school': 'ΓΕΛ',
+    'district': 'ΚΡΗΤΗ',
+    'email': 'test@student.gr'
   })
 })
 
 app.get('/teacher', (req, res) => {
   let teacherObj = {
-    'name': 'Hello Teacher!',
-    'school': 'ΓΥΜΝΑΣΙΟ'
+    'name': 'Ιάσων Καθηγητής',
+    'school': 'ΓΥΜΝΑΣΙΟ',
+    'district': 'ΑΤΤΙΚΗ',
+    'email': 'test@teacher.gr'
   }
-  console.log(typeof teacherObj)
   res.json(teacherObj)
 })
 
