@@ -13,19 +13,35 @@ app.use(function (req, res, next) {
 
 app.get('/student', (req, res) => {
   res.json({
-    'name': 'Ίων Μαθητής',
-    'school': 'ΓΕΛ',
-    'district': 'ΚΡΗΤΗ',
-    'email': 'test@student.gr'
+    'name': 'ΔΗΜΗΤΡΙΟΥ ΔΗΜΗΤΡΗΣ',
+    'status': 'ΜΑΘΗΤΗΣ',
+    'mail': 'ddim@sch.gr',
+    'unit[0]': 'gym-pteleou',
+    'unit-code[0]':3513020,
+    'unit-loc[0]': 'mag',
+    'unit[1]': 'thess',
+    'unit-code[1]':9999905,
+    'unit-loc[1]': 'pde',
+    'unit-description':'ΓΡΑΜΜΑΤΙΚΕΙΟΝ (ΓΥΜΝΑΣΙΟ ΠΤΕΛΕΟΣ)',
+    'unit_type[0]':'ΓΥΜΝΑΣΙΟ',
+    'education_level[0]': 'ΔΕΥΤΕΡΟΒΑΘΜΙΑ'
   })
 })
 
 app.get('/teacher', (req, res) => {
   let teacherObj = {
-    'name': 'Ιάσων Καθηγητής',
-    'school': 'ΓΥΜΝΑΣΙΟ',
-    'district': 'ΑΤΤΙΚΗ',
-    'email': 'test@teacher.gr'
+    'name': 'ΓΕΩΡΓΙΟΥ ΓΕΩΡΓΙΟΣ',
+    'status': 'ΕΚΠΑΙΔΕΥΤΙΚΟΣ',
+    'mail': 'georgiou@sch.gr',
+    'unit[0]': 'gym-pteleou',
+    'unit-code[0]':3513020,
+    'unit-loc[0]': 'mag',
+    'unit[1]': 'thess',
+    'unit-code[1]':9999905,
+    'unit-loc[1]': 'pde',
+    'unit-description':'ΓΡΑΜΜΑΤΙΚΕΙΟΝ (ΓΥΜΝΑΣΙΟ ΠΤΕΛΕΟΣ)',
+    'unit_type[0]':'ΔΗΜΟΤΙΚΟ',
+    'education_level[0]': 'ΠΡΩΤΟΒΑΘΜΙΑ'
   }
   res.json(teacherObj)
 })
