@@ -2,3 +2,11 @@
 exports.__esModule = true;
 var message = "Hello World";
 console.log(message);
+var aFlag = true;
+console.log(aFlag);
+var aNumber = 10;
+console.log(aNumber);
+var aString = "Paris";
+console.log(aString);
+var bString = "Hello\n" + aString;
+console.log(bString);
