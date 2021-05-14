@@ -10,3 +10,39 @@ var aString = "Paris";
 console.log(aString);
 var bString = "Hello\n" + aString;
 console.log(bString);
+var n = null;
+var u = undefined;
+//works fine:
+var x = null;
+var y = undefined;
+var list1 = [1, 2, 3];
+var list2 = [1, 2, 3];
+var p1 = ["Sam", 12]; // tuple, fixed dimension
+console.log(p1);
+var Color;
+(function (Color) {
+    Color[Color["red"] = 0] = "red";
+    Color[Color["blue"] = 1] = "blue";
+    Color[Color["yellow"] = 2] = "yellow";
+})(Color || (Color = {})); // assign enum value to strings
+var c = Color.red;
+console.log(c); // 0
+var Cars;
+(function (Cars) {
+    Cars[Cars["fiat"] = 5] = "fiat";
+    Cars[Cars["ford"] = 6] = "ford";
+    Cars[Cars["citroen"] = 7] = "citroen";
+})(Cars || (Cars = {}));
+var car = Cars.ford;
+console.log(car); // 6
+var randomValue;
+randomValue = 1;
+randomValue = true;
+randomValue = 'Pizza';
+randomValue = [0, 1, 2, 3];
+var multitype;
+multitype = 1;
+console.log(multitype);
+multitype = true;
+console.log(multitype);
+// multitype = 'Hello' ERROR
