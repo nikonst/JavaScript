@@ -19,6 +19,13 @@ var list1 = [1, 2, 3];
 var list2 = [1, 2, 3];
 var p1 = ["Sam", 12]; // tuple, fixed dimension
 console.log(p1);
+var mixed = ["ome", 2, true];
+// mixed = 100 ERROR, change of type
+console.log("mixed: ", mixed);
+mixed.push("five");
+console.log("mixed: ", mixed);
+mixed[0] = 1;
+console.log("mixed: ", mixed);
 var Color;
 (function (Color) {
     Color[Color["red"] = 0] = "red";

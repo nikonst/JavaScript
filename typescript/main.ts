@@ -26,6 +26,14 @@ let list2: Array<number> = [1,2,3]
 let p1: [ string, number] = ["Sam", 12] // tuple, fixed dimension
 console.log(p1)
 
+let mixed = ["ome", 2, true]
+// mixed = 100 ERROR, change of type
+console.log("mixed: ", mixed)
+mixed.push("five")
+console.log("mixed: ", mixed)
+mixed[0] = 1
+console.log("mixed: ", mixed)
+
 enum Color {red, blue, yellow} // assign enum value to strings
 let c: Color = Color.red
 console.log(c) // 0
