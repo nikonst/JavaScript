@@ -19,6 +19,7 @@ var list1 = [1, 2, 3];
 var list2 = [1, 2, 3];
 var p1 = ["Sam", 12]; // tuple, fixed dimension
 console.log(p1);
+//union types
 var p2 = ["Sam", 12, "Sue", 45, "Helen"]; // mixed types in array
 console.log(p2);
 var mixed = ["ome", 2, true];
@@ -55,3 +56,6 @@ console.log(multitype);
 multitype = true;
 console.log(multitype);
 // multitype = 'Hello' ERROR
+var anObj;
+anObj = { attr1: "hello", attr2: 12 };
+console.log(anObj);

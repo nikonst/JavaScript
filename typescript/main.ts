@@ -26,6 +26,7 @@ let list2: Array<number> = [1,2,3]
 let p1: [ string, number ] = ["Sam", 12] // tuple, fixed dimension
 console.log(p1)
 
+//union types
 let p2: (string | number)[]= ["Sam", 12, "Sue", 45, "Helen"] // mixed types in array
 console.log(p2)
 
@@ -57,3 +58,11 @@ console.log(multitype)
 multitype = true
 console.log(multitype)
 // multitype = 'Hello' ERROR
+
+let anObj: {
+    attr1: string,
+    attr2: number
+}
+
+anObj = {attr1:"hello", attr2: 12}
+console.log(anObj)
