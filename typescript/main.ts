@@ -23,8 +23,11 @@ let y : string = undefined
 let list1: number[] = [1,2,3]
 let list2: Array<number> = [1,2,3]
 
-let p1: [ string, number] = ["Sam", 12] // tuple, fixed dimension
+let p1: [ string, number ] = ["Sam", 12] // tuple, fixed dimension
 console.log(p1)
+
+let p2: (string | number)[]= ["Sam", 12, "Sue", 45, "Helen"] // mixed types in array
+console.log(p2)
 
 let mixed = ["ome", 2, true]
 // mixed = 100 ERROR, change of type

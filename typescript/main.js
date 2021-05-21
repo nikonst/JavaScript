@@ -19,6 +19,8 @@ var list1 = [1, 2, 3];
 var list2 = [1, 2, 3];
 var p1 = ["Sam", 12]; // tuple, fixed dimension
 console.log(p1);
+var p2 = ["Sam", 12, "Sue", 45, "Helen"]; // mixed types in array
+console.log(p2);
 var mixed = ["ome", 2, true];
 // mixed = 100 ERROR, change of type
 console.log("mixed: ", mixed);
