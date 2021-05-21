@@ -30,6 +30,10 @@ console.log(p1)
 let p2: (string | number)[]= ["Sam", 12, "Sue", 45, "Helen"] // mixed types in array
 console.log(p2)
 
+let p3: any[] = []
+p3.push("italy", 11, "france", true)
+console.log(p3)
+
 let mixed = ["ome", 2, true]
 // mixed = 100 ERROR, change of type
 console.log("mixed: ", mixed)

@@ -22,6 +22,9 @@ console.log(p1);
 //union types
 var p2 = ["Sam", 12, "Sue", 45, "Helen"]; // mixed types in array
 console.log(p2);
+var p3 = [];
+p3.push("italy", 11, "france", true);
+console.log(p3);
 var mixed = ["ome", 2, true];
 // mixed = 100 ERROR, change of type
 console.log("mixed: ", mixed);
