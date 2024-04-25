@@ -12,9 +12,11 @@
   "author": "Nikos Konstantakis",
   "license": "ISC",
   "dependencies": {
+    "babel-node": "^0.0.1-security",
     "express": "^4.19.2",
     "graphql": "^16.8.1",
-    "graphql-express": "^3.0.0"
+    "graphql-express": "^3.0.0",
+    "graphql-http": "^1.22.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.1",
