@@ -1,22 +1,28 @@
-import express from "express";
-import { createHandler } from 'graphql-http/lib/use/express';
+import express from "express"
+import { createHandler } from "graphql-http/lib/use/express"
+import { ruruHTML } from "ruru/server"
 import schema from "./data/schema.js";
+import resolvers from "./data/resolvers.js";
 
 const app = express()
 
-const PORT = 8080
+const PORT = 4000
 
-app.get('/', (req, res) => {
-    res.send("GraphQL")
+const root = resolvers
+
+app.all(
+    "/graphql",
+    createHandler({
+        schema: schema,
+        rootValue: root,
+    })
+)
+// Serve the GraphiQL IDE.
+app.get("/", (_req, res) => {
+    res.type("html")
+    res.end(ruruHTML({ endpoint: "/graphql" }))
 })
 
-const root = { hello: () => "Hi from graphql" }
-
-app.all('/graphql', createHandler({ 
-    schema: schema,
-    rootValue: root,
-  }));
-
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
     console.log(`Running server at: ${PORT}`)
 })
