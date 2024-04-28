@@ -1,5 +1,5 @@
 import crypto from "crypto"
-import { Widgets } from "./dbconnectors";
+import { Widgets } from "./dbConnectors.js";
 
 // class Product {
 //     constructor(id, { name, description, price, soldout, stores }) {
@@ -23,12 +23,39 @@ const resolvers = {
         catch (e) {
             throw new Error(e)
         }
-        return new Product(id, productDatabase[id])
     },
-    createProduct: ({ input }) => {
-        // let id = crypto.randomBytes(10).toString('hex');
-        // productDatabase[id] = input;
-        // return new Product(id, input);
+    createProduct: async ({ input }) => {
+
+        const newWidget = new Widgets({
+            name: input.name,
+            description: input.description,
+            price: input.price,
+            soldout: input.soldout,
+            stores: input.stores,
+        })
+        try {
+            await newWidget.save()
+            return newWidget
+        } catch (e) {
+            throw new Error(e)
+        }
+    },
+    updateProduct: async ({input}) => {
+        try {
+            const updateWidgets = Widgets.findOneAndUpdate({_id:input.id}, input,
+            {new: true})
+            return updateWidgets
+        } catch (e) {
+            throw new Error(e)
+        }
+    },
+    deleteProduct: async ({id}) => {
+        try {
+           await Widgets.deleteOne({_id: id})
+           return "Successfully removed ... "
+        } catch (e) {
+            throw new Error(e)
+        }
     }
 }
 
