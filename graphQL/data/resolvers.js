@@ -40,6 +40,13 @@ const resolvers = {
             throw new Error(e)
         }
     },
+    getAllProducts: async () => {
+        try {
+             return await Widgets.find({})
+        } catch (e) {
+            throw new Error(e)
+        }
+    },
     updateProduct: async ({input}) => {
         try {
             const updateWidgets = Widgets.findOneAndUpdate({_id:input.id}, input,
