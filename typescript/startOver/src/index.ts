@@ -14,4 +14,7 @@ printPerson(p)
 const b: Book = new Book("ON THE EDGE","Nate Silver")
 console.log(b.getBook())
 
+const root = document.getElementById("root") as HTMLDivElement
+root.innerHTML = b.getBook()
+
 
