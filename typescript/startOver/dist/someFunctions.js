@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.printOrPrameters = exports.printArray = exports.myFun = void 0;
+exports.printPerson = exports.printOrPrameters = exports.printArray = exports.myFun = void 0;
 const myFun = (x) => {
     return x + "!";
 };
@@ -15,3 +15,7 @@ const printOrPrameters = (p) => {
     console.log(p);
 };
 exports.printOrPrameters = printOrPrameters;
+const printPerson = (p) => {
+    console.log(p.name, " ", p.age);
+};
+exports.printPerson = printPerson;
