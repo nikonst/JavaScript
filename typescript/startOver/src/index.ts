@@ -1,3 +1,8 @@
+import { myFun, printArray, printOrPrameters } from "./someFunctions"
 
-let age: number = 33
-console.log("HELLO")
+let x:string = "Some String"
+
+console.log(myFun("Hello"))
+printArray([1,2,3])
+printOrPrameters("car")
+
