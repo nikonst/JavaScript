@@ -6,9 +6,8 @@ import generateJoke from './generateJoke'
 const laughIcon = document.getElementById('laughImg')
 laughIcon.src = laugh
 
+const firstJoke = document.getElementById("joke")
+firstJoke.innerHTML = joke()
+
 const jokeBtn = document.getElementById('jokeBtn')
 jokeBtn.addEventListener('click', generateJoke)
-
-console.log("hello")
-console.log(joke())
-console.log("hello 3")
