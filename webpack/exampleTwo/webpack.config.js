@@ -6,7 +6,18 @@ module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'main.js',
+        clean: true
+    },
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist')
+        },
+        port: 8080,
+        open: true,
+        hot: true,
+        compress: true,
+        historyApiFallback: true,
     },
     module: {
         rules: [
