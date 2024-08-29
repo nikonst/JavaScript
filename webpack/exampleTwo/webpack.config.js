@@ -7,7 +7,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
-        clean: true
+        clean: true,
+        assetModuleFilename: '[name][ext]',
     },
     devServer: {
         static: {
@@ -28,7 +29,12 @@ module.exports = {
                     'css-loader',
                     'sass-loader',
                 ]
-            }
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                loader: 'file-loader',
+                type: 'asset/resource',
+              },
         ]
     },
     plugins: [
