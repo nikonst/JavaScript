@@ -13,3 +13,8 @@ var Size;
 })(Size || (Size = {}));
 let mySize = Size.Medium;
 console.log(mySize);
+function fToC(f = 100) {
+    return (f - 32) + 5 / 9;
+}
+console.log(fToC(50));
+console.log(fToC());
