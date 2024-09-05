@@ -4,7 +4,7 @@ nums.forEach(n => {
     console.log(n);
 });
 let user = ["Nikos", 123];
-console.log(user);
+console.log("user", user);
 var Size;
 (function (Size) {
     Size[Size["Small"] = 1] = "Small";
@@ -12,9 +12,22 @@ var Size;
     Size[Size["Large"] = 3] = "Large";
 })(Size || (Size = {}));
 let mySize = Size.Medium;
-console.log(mySize);
+console.log("mySize ", mySize);
 function fToC(f = 100) {
     return (f - 32) + 5 / 9;
 }
 console.log(fToC(50));
 console.log(fToC());
+let p = {
+    id: 1,
+    name: "John Doe",
+    introduce: () => {
+        console.log("Hello");
+    }
+};
+p.introduce();
+let anInterTyoe = {
+    someString: "hELLO",
+    n: 15
+};
+console.log("anInterTyoe ", anInterTyoe);
