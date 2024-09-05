@@ -76,3 +76,8 @@ function greed(name: string | null | undefined) {
 
 greed("jane")
 greed(null)
+
+//Optional Chaining ??
+let log: any = (message: string) => {console.log(message)}
+
+log("Mary")

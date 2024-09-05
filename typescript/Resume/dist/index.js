@@ -43,3 +43,5 @@ function greed(name) {
 }
 greed("jane");
 greed(null);
+let log = (message) => { console.log(message); };
+log("Mary");
