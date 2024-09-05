@@ -31,3 +31,15 @@ let anInterTyoe = {
     n: 15
 };
 console.log("anInterTyoe ", anInterTyoe);
+let q = 100;
+console.log("Literal type variable ", q);
+function greed(name) {
+    if (name) {
+        console.log(name.toUpperCase());
+    }
+    else {
+        console.log("NONAME");
+    }
+}
+greed("jane");
+greed(null);

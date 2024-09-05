@@ -1,5 +1,5 @@
 // Arrays
-let nums: number[]  = [1,2,3]
+let nums: number[] = [1, 2, 3]
 
 nums.forEach(n => {
     console.log(n)
@@ -10,13 +10,13 @@ let user: [string, number] = ["Nikos", 123]
 console.log("user", user)
 
 //Enums
-enum Size {Small = 1, Medium = 2, Large = 3}
+enum Size { Small = 1, Medium = 2, Large = 3 }
 let mySize = Size.Medium
 console.log("mySize ", mySize)
 
 //Functions
 function fToC(f: number = 100): number { //Default value for parameter f
-    return (f-32)+5/9
+    return (f - 32) + 5 / 9
 }
 
 console.log(fToC(50))
@@ -55,3 +55,24 @@ let anInterTyoe: myInterType = {
 }
 
 console.log("anInterTyoe ", anInterTyoe)
+
+//Literal types
+type Quantiy = 50 | 100
+
+let q: Quantiy = 100
+
+console.log("Literal type variable ", q)
+
+//Nulable types
+function greed(name: string | null | undefined) {
+    if(name) {
+        console.log(name.toUpperCase())
+    } else {
+        console.log("NONAME")
+    }
+    
+}
+// greed(null) ERROR, can be updated in tsconfig
+
+greed("jane")
+greed(null)
