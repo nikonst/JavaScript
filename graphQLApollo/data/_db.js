@@ -1,5 +1,5 @@
-export default books = 
-[{
+const books =
+  [{
     "_id": {
       "$oid": "66e179c074a9720c956c04a1"
     },
@@ -449,3 +449,5 @@ export default books =
     "pages": 587,
     "price": 1.66
   }]
+
+export default { books }

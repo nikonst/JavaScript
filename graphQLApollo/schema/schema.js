@@ -1,11 +1,13 @@
 export const typeDefs = `#graphql
   type Book {
-    id: {
-        ID!
-    }
+    id: ID!
     title: String!
     author: String
-    pages: int
-    price: float
+    pages: Int
+    price: Float
+  }
+
+  type Query {
+    books: [Book]
   }
 `
