@@ -1,7 +1,7 @@
 const books =
   [{
     "_id": {
-      "$oid": "66e179c074a9720c956c04a1"
+      "oid": "66e179c074a9720c956c04a1"
     },
     "title": "Big Year, The",
     "author": "Kristyn Stolze",
@@ -10,7 +10,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04a2"
+      "oid": "66e179c074a9720c956c04a2"
     },
     "title": "Flawless",
     "author": "Jolee Philliskirk",
@@ -19,7 +19,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04a3"
+      "oid": "66e179c074a9720c956c04a3"
     },
     "title": "Fish Tank",
     "author": "Chase Chalfain",
@@ -28,7 +28,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04a4"
+      "oid": "66e179c074a9720c956c04a4"
     },
     "title": "Horror Business",
     "author": "Jessie Mancktelow",
@@ -37,7 +37,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04a5"
+      "oid": "66e179c074a9720c956c04a5"
     },
     "title": "Little Witches",
     "author": "Meade Dyott",
@@ -46,7 +46,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04a6"
+      "oid": "66e179c074a9720c956c04a6"
     },
     "title": "Sling Blade",
     "author": "Royall Rubenczyk",
@@ -55,7 +55,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04a7"
+      "oid": "66e179c074a9720c956c04a7"
     },
     "title": "Maborosi (Maboroshi no hikari)",
     "author": "Raven Carden",
@@ -64,7 +64,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04a8"
+      "oid": "66e179c074a9720c956c04a8"
     },
     "title": "Vampire in Brooklyn",
     "author": "Nadya Swayton",
@@ -73,7 +73,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04a9"
+      "oid": "66e179c074a9720c956c04a9"
     },
     "title": "Ninja Scroll (Jûbei ninpûchô)",
     "author": "Morgen Carriage",
@@ -82,7 +82,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04aa"
+      "oid": "66e179c074a9720c956c04aa"
     },
     "title": "Thousand Acres, A",
     "author": "Harmonia Pulfer",
@@ -91,7 +91,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04ab"
+      "oid": "66e179c074a9720c956c04ab"
     },
     "title": "Neds",
     "author": "Marlene Dunlap",
@@ -100,7 +100,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04ac"
+      "oid": "66e179c074a9720c956c04ac"
     },
     "title": "Wimbledon",
     "author": "Angus Toolan",
@@ -109,7 +109,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04ad"
+      "oid": "66e179c074a9720c956c04ad"
     },
     "title": "Beast Must Die, The",
     "author": "Dre MacDonald",
@@ -118,7 +118,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04ae"
+      "oid": "66e179c074a9720c956c04ae"
     },
     "title": "Anthony Adverse",
     "author": "Ramsay Grosvenor",
@@ -127,7 +127,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04af"
+      "oid": "66e179c074a9720c956c04af"
     },
     "title": "I Love Trouble",
     "author": "Michaelina Rhymer",
@@ -136,7 +136,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b0"
+      "oid": "66e179c074a9720c956c04b0"
     },
     "title": "Takva: A Man's Fear of God",
     "author": "Nickolaus Pennone",
@@ -145,7 +145,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b1"
+      "oid": "66e179c074a9720c956c04b1"
     },
     "title": "Senotaji",
     "author": "Yehudit Thrower",
@@ -154,7 +154,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b2"
+      "oid": "66e179c074a9720c956c04b2"
     },
     "title": "Woman Rebels, A (Portrait of a Rebel)",
     "author": "Alisha McNeachtain",
@@ -163,7 +163,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b3"
+      "oid": "66e179c074a9720c956c04b3"
     },
     "title": "Oliver Twist",
     "author": "Hurleigh Ducrow",
@@ -172,7 +172,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b4"
+      "oid": "66e179c074a9720c956c04b4"
     },
     "title": "Beyond the Valley of the Dolls",
     "author": "Brena Harraway",
@@ -181,7 +181,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b5"
+      "oid": "66e179c074a9720c956c04b5"
     },
     "title": "Miracle on 34th Street",
     "author": "Ginny Frisel",
@@ -190,7 +190,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b6"
+      "oid": "66e179c074a9720c956c04b6"
     },
     "title": "Needing You... (Goo naam gwa neui)",
     "author": "Nate Bannard",
@@ -199,7 +199,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b7"
+      "oid": "66e179c074a9720c956c04b7"
     },
     "title": "Metsän tarina",
     "author": "Hazlett Dockreay",
@@ -208,7 +208,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b8"
+      "oid": "66e179c074a9720c956c04b8"
     },
     "title": "Cats",
     "author": "Humphrey Idill",
@@ -217,7 +217,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04b9"
+      "oid": "66e179c074a9720c956c04b9"
     },
     "title": "Caesar (Julius Caesar)",
     "author": "Kristel Nickols",
@@ -226,7 +226,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04ba"
+      "oid": "66e179c074a9720c956c04ba"
     },
     "title": "Sandor slash Ida",
     "author": "Pier Toxell",
@@ -235,7 +235,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04bb"
+      "oid": "66e179c074a9720c956c04bb"
     },
     "title": "Don't Look Now",
     "author": "Neddie Brompton",
@@ -244,7 +244,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04bc"
+      "oid": "66e179c074a9720c956c04bc"
     },
     "title": "Courage Mountain",
     "author": "Cloris Graham",
@@ -253,7 +253,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04bd"
+      "oid": "66e179c074a9720c956c04bd"
     },
     "title": "Suburbans, The",
     "author": "Luci McKomb",
@@ -262,7 +262,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04be"
+      "oid": "66e179c074a9720c956c04be"
     },
     "title": "Spread",
     "author": "Windham Sillars",
@@ -271,7 +271,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04bf"
+      "oid": "66e179c074a9720c956c04bf"
     },
     "title": "Party Monster",
     "author": "Barbi Quickenden",
@@ -280,7 +280,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c0"
+      "oid": "66e179c074a9720c956c04c0"
     },
     "title": "Shattered Glass",
     "author": "Christopher Santry",
@@ -289,7 +289,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c1"
+      "oid": "66e179c074a9720c956c04c1"
     },
     "title": "Private War of Major Benson, The",
     "author": "Jacklyn Duthie",
@@ -298,7 +298,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c2"
+      "oid": "66e179c074a9720c956c04c2"
     },
     "title": "The Runner from Ravenshead",
     "author": "Kendrick Smithies",
@@ -307,7 +307,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c3"
+      "oid": "66e179c074a9720c956c04c3"
     },
     "title": "Shadows",
     "author": "Guilbert Markson",
@@ -316,7 +316,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c4"
+      "oid": "66e179c074a9720c956c04c4"
     },
     "title": "Faces of Death",
     "author": "Leonanie Ceci",
@@ -325,7 +325,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c5"
+      "oid": "66e179c074a9720c956c04c5"
     },
     "title": "Elephant White",
     "author": "Odie Seivertsen",
@@ -334,7 +334,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c6"
+      "oid": "66e179c074a9720c956c04c6"
     },
     "title": "Upside Down",
     "author": "Bennett Stanbro",
@@ -343,7 +343,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c7"
+      "oid": "66e179c074a9720c956c04c7"
     },
     "title": "F/X2 (a.k.a. F/X 2 - The Deadly Art of Illusion)",
     "author": "Vida Capey",
@@ -352,7 +352,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c8"
+      "oid": "66e179c074a9720c956c04c8"
     },
     "title": "Forest of the Gods (Dievu miskas)",
     "author": "Selby Portsmouth",
@@ -361,7 +361,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04c9"
+      "oid": "66e179c074a9720c956c04c9"
     },
     "title": "Dinner at Eight",
     "author": "Libbey Rykert",
@@ -370,7 +370,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04ca"
+      "oid": "66e179c074a9720c956c04ca"
     },
     "title": "Element of Crime, The (Forbrydelsens Element)",
     "author": "Corenda Aldie",
@@ -379,7 +379,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04cb"
+      "oid": "66e179c074a9720c956c04cb"
     },
     "title": "Hackers",
     "author": "Allyce Duckham",
@@ -388,7 +388,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04cc"
+      "oid": "66e179c074a9720c956c04cc"
     },
     "title": "Black Sheep",
     "author": "Lind Neiland",
@@ -397,7 +397,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04cd"
+      "oid": "66e179c074a9720c956c04cd"
     },
     "title": "Little Romance, A",
     "author": "Richard Popeley",
@@ -406,7 +406,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04ce"
+      "oid": "66e179c074a9720c956c04ce"
     },
     "title": "Louis Theroux: Twilight of the Porn Stars",
     "author": "Carlin Edelmann",
@@ -415,7 +415,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04cf"
+      "oid": "66e179c074a9720c956c04cf"
     },
     "title": "Razor's Edge, The",
     "author": "Lorenzo Lauxmann",
@@ -424,7 +424,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04d0"
+      "oid": "66e179c074a9720c956c04d0"
     },
     "title": "Lamp in the Dark; The Untold History of the Bible, A",
     "author": "Chauncey Scarlon",
@@ -433,7 +433,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04d1"
+      "oid": "66e179c074a9720c956c04d1"
     },
     "title": "Playing with Love (Puppy Love) (Maladolescenza)",
     "author": "Bel Tonsley",
@@ -442,7 +442,7 @@ const books =
   },
   {
     "_id": {
-      "$oid": "66e179c074a9720c956c04d2"
+      "oid": "66e179c074a9720c956c04d2"
     },
     "title": "Mutant Action (Acción Mutante)",
     "author": "Carlie Clarey",

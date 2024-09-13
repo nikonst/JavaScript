@@ -1,6 +1,10 @@
 export const typeDefs = `#graphql
+  type objID {
+    oid: String!
+  }
+
   type Book {
-    id: ID!
+    _id: objID!
     title: String!
     author: String
     pages: Int
