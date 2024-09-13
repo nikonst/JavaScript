@@ -1,10 +1,6 @@
 export const typeDefs = `#graphql
-  type objID {
-    oid: String!
-  }
-
   type Book {
-    _id: objID!
+    id: String!
     title: String!
     author: String
     pages: Int
@@ -13,5 +9,6 @@ export const typeDefs = `#graphql
 
   type Query {
     books: [Book]
+    book(id: String!): Book
   }
 `

@@ -14,6 +14,18 @@ const resolvers = {
     books() {
       return db.books
     },
+    book(parent, args, context) {
+      console.log(args.id)
+      let result = db.books.find((b) => {
+        return b.id === args.id
+      })
+      console.log("RESULT ", result)
+      if(result) {
+        return result
+      } else {
+        return "ERROR"
+      }
+    }
   }
 }
 
