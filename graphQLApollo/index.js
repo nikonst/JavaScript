@@ -4,6 +4,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 // that together define the "shape" of queries that are executed against
 // your data.
 import { typeDefs } from './schema/schema.js';
+import { GraphQLError } from 'graphql';
 
 // data
 import db from './data/_db.js'
@@ -15,15 +16,20 @@ const resolvers = {
       return db.books
     },
     book(parent, args, context) {
-      console.log(args.id)
+      //console.log(parent, "\n", context)
       let result = db.books.find((b) => {
         return b.id === args.id
       })
-      console.log("RESULT ", result)
+      
       if(result) {
         return result
       } else {
-        return "ERROR"
+        throw new GraphQLError('NOT FOUND', {
+          extensions: {
+            code: 'BAD_REQUESTPUT',
+            argumentName: 'id',
+          },
+        });
       }
     }
   }
