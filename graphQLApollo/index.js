@@ -26,7 +26,7 @@ const resolvers = {
       } else {
         throw new GraphQLError('NOT FOUND', {
           extensions: {
-            code: 'BAD_REQUESTPUT',
+            code: 'BAD_REQUEST',
             argumentName: 'id',
           },
         });
