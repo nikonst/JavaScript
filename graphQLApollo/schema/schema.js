@@ -24,5 +24,7 @@ export const typeDefs = `#graphql
   type Query {
     books: [Book]
     book(id: Int!): Book
+    authors: [Author]
+    addressAuthor(name: String!): Address
   }
 `

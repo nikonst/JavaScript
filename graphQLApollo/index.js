@@ -15,6 +15,24 @@ const resolvers = {
     books() {
       return db.books
     },
+    authors() {
+      return db.authors
+    },
+    addressAuthor(parent, args, context) {
+      let resAddress = db.authors.find(author => {
+        return author.name === args.name
+      })
+      if(resAddress) {
+        return resAddress
+      } else {
+        throw new GraphQLError('NOT FOUND', {
+          extensions: {
+            code: 'BAD_REQUEST',
+            argumentName: 'name',
+          },
+        });
+      }
+    },
     book(parent, args, context) {
       //console.log(parent, "\n", context)
       let result = db.books.find((b) => {
