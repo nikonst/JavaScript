@@ -1,28 +1,41 @@
 const books =
-[{"id":"00e2366e-cbdc-4bc2-ba3c-44aabfe38699","title":"Thousands Cheer","author":"Giralda Trulock","pages":477,"price":29.69},
-  {"id":"99f82051-14e1-4599-94bb-8087cc96feea","title":"Duplicity","author":"Sidonnie Holliar","pages":319,"price":73.73},
-  {"id":"ce3a1b7d-e84b-4f28-915d-0e36217cfe31","title":"Witnesses, The (Les témoins)","author":"Tybie Marshall","pages":602,"price":32.16},
-  {"id":"87bc73d3-9a14-4c69-93f0-eccc98a0b66e","title":"You Don't Mess with the Zohan","author":"Jaynell Whitchurch","pages":171,"price":4.7},
-  {"id":"91aa1342-ffef-45a8-916f-d02a0e42d85d","title":"Pirates of the Caribbean: The Curse of the Black Pearl","author":"Filberto Patkin","pages":570,"price":87.29},
-  {"id":"b3b40b4c-602a-419a-8678-d4b5dfa0e11d","title":"Haider","author":"Pia Ditchburn","pages":681,"price":75.86},
-  {"id":"59f3aeda-4094-40c9-aa8c-86e60a4b1f14","title":"Disclosure","author":"Jacquelin Benjefield","pages":242,"price":59.13},
-  {"id":"ba71e80d-d6e6-4385-b461-f6bc71fe6d93","title":"From One Second to the Next","author":"Charlie Grouse","pages":154,"price":98.38},
-  {"id":"fd82fbf9-da60-4a39-9922-872453ad5fcd","title":"Hitman, The","author":"Arch Bogue","pages":119,"price":11.21},
-  {"id":"574800ff-48a3-4271-b5cd-fdfbf4b2d0c8","title":"Happy Gilmore","author":"Dorolisa Gadeaux","pages":26,"price":47.28},
-  {"id":"b9d8d041-2d0a-409c-8df2-f5beca2b3303","title":"La nación clandestina","author":"Druci Carbin","pages":147,"price":77.01},
-  {"id":"50363201-746d-4dfe-82d6-0a3fecfa2440","title":"State of Emergency","author":"Zedekiah Diegan","pages":423,"price":36.23},
-  {"id":"1f7b6290-4010-4bd6-a613-e40ca9a6f639","title":"Charly","author":"Edin Cubbit","pages":259,"price":89.79},
-  {"id":"6e3c5b38-2c1b-4b8f-a78a-56de47baa4a6","title":"Twice Upon a Time","author":"Annmaria Maliphant","pages":211,"price":65.94},
-  {"id":"9f70e691-c866-4a8d-8587-4c39a5908250","title":"Kevin Hart: Seriously Funny","author":"Fey Wheatcroft","pages":467,"price":23.17},
-  {"id":"87049d30-eb55-4201-bbd6-2662518f66d1","title":"Born Romantic","author":"Pauletta Varney","pages":274,"price":40.14},
-  {"id":"434e5b81-5129-454d-853a-aae417dc9e72","title":"My Man Godfrey","author":"Shelly Ure","pages":130,"price":76.35},
-  {"id":"4aefa606-6c09-4806-9078-98df15bdf79d","title":"Harmontown","author":"Erinn Pasmore","pages":514,"price":89.55},
-  {"id":"47de7e23-53b3-4faf-a41e-aa1d9eeaa0c8","title":"Little Nikita","author":"Guillermo Cranson","pages":349,"price":26.21},
-  {"id":"01646f4f-c546-439f-ba04-9da125716f7c","title":"Bandidas","author":"Minnie Goroni","pages":470,"price":80.32},
-  {"id":"93ca37d8-8895-4227-89c3-70608f578005","title":"Equinox","author":"Merola Cunde","pages":73,"price":97.02},
-  {"id":"d8e611d6-883c-481c-9a15-07a66e6b3fde","title":"Babysitter, The","author":"Gianna Redgrave","pages":618,"price":3.32},
-  {"id":"4b704691-0d62-4195-adba-a85da8f5c57a","title":"One Man's Hero","author":"Mack Manuello","pages":98,"price":44.37},
-  {"id":"764f50f7-74e7-477c-a582-5c28624c0806","title":"Air Bud: Golden Receiver","author":"Inness Barnhill","pages":609,"price":53.57},
-  {"id":"63fd8198-4c70-465f-84a4-6a087133c777","title":"Song to Remember, A","author":"Filippa Tebbet","pages":590,"price":4.13}
-]  
-export default { books }
+  [
+    { "id": 1, "title": "Circles (Krugovi)", "author": 2, "pages": 628, "price": 232.9 },
+    { "id": 2, "title": "Little Girl Who Lives Down the Lane, The", "author": 10, "pages": 589, "price": 237.13 },
+    { "id": 3, "title": "Hell's Highway: The True Story of Highway Safety Films", "author": 6, "pages": 270, "price": 246.27 },
+    { "id": 4, "title": "Artois the Goat", "author": 1, "pages": 133, "price": 225.82 },
+    { "id": 5, "title": "Devil's Due", "author": 9, "pages": 138, "price": 201.51 },
+    { "id": 6, "title": "Bad Boys", "author": 2, "pages": 461, "price": 217.38 },
+    { "id": 7, "title": "Surviving the Game", "author": 1, "pages": 364, "price": 53.12 },
+    { "id": 8, "title": "Punisher: War Zone", "author": 2, "pages": 744, "price": 20.08 },
+    { "id": 9, "title": "Exorcist III, The", "author": 7, "pages": 628, "price": 128.01 },
+    { "id": 10, "title": "Mutants", "author": 9, "pages": 144, "price": 110.48 }
+  ]
+
+const authors = [
+  { "id": 1, "name": "Buffy Sallan", "address": 1 },
+  { "id": 2, "name": "Cornall Ashburne", "address": 2 },
+  { "id": 3, "name": "Jehu Bultitude", "address": 3 },
+  { "id": 4, "name": "Anatol Giorgi", "address": 4 },
+  { "id": 5, "name": "Eada Gaddesby", "address": 5 },
+  { "id": 6, "name": "Jerrome Blankley", "address": 6 },
+  { "id": 7, "name": "Marita Walcher", "address": 7 },
+  { "id": 8, "name": "Ernesta Ridgewell", "address": 8 },
+  { "id": 9, "name": "Morgan Wharf", "address": 9 },
+  { "id": 10, "name": "Elton Joderli", "address": 10 }
+]
+
+const address = [
+  { "id": 1, "street": "1 Garrison Parkway", "city": "La Joya", "country": "Mexico", "author": 7 },
+  { "id": 2, "street": "56649 Fordem Junction", "city": "Ouro Preto do Oeste", "country": "Brazil", "author": 2 },
+  { "id": 3, "street": "016 Troy Road", "city": "Zhichanghe", "country": "China", "author": 4 },
+  { "id": 4, "street": "82405 3rd Way", "city": "Sepanjang", "country": "Indonesia", "author": 7 },
+  { "id": 5, "street": "53112 Annamark Point", "city": "Kobleve", "country": "Ukraine", "author": 6 },
+  { "id": 6, "street": "8 Hagan Trail", "city": "Liufeng", "country": "China", "author": 5 },
+  { "id": 7, "street": "2 Tennessee Point", "city": "Shijing", "country": "China", "author": 9 },
+  { "id": 8, "street": "0540 Hansons Alley", "city": "Kukuluk", "country": "Indonesia", "author": 1 },
+  { "id": 9, "street": "83 Eliot Pass", "city": "Neringa", "country": "Lithuania", "author": 9 },
+  { "id": 10, "street": "53 Almo Alley", "city": "Kertasari", "country": "Indonesia", "author": 3 }
+]
+
+export default { books, authors, address }
