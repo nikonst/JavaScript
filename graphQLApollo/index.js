@@ -19,20 +19,39 @@ const resolvers = {
       return db.authors
     },
     addressAuthor(parent, args, context) {
-      let resAddress = db.authors.find(author => {
-        return author.name === args.name
-      })
-      if(resAddress) {
-        return resAddress
-      } else {
-        throw new GraphQLError('NOT FOUND', {
-          extensions: {
-            code: 'BAD_REQUEST',
-            argumentName: 'name',
-          },
-        });
-      }
+      let resAddress = db.authors.forEach(author => {
+        if (author.name === args.name) {
+          console.log(author)
+          for(let i = 0; i< db.address.length ; i++) {
+            if(db.address[i].id === author.address) {
+              console.log("YES")
+              return db.address[i]
+            }
+          }
+      }})
+      console.log(resAddress)
     },
+      
+    //   ;(author => {
+    //     if (author.name === args.name) {
+    //       console.log(author)
+    //       let resultAddress = db.address.find((a) => {
+    //         return a.city === args.id
+    //       })
+    //       return db.address.street
+    //     }
+    //   })
+    //   if(resAddress) {
+    //     return resAddress
+    //   } else {
+    //     throw new GraphQLError('NOT FOUND', {
+    //       extensions: {
+    //         code: 'BAD_REQUEST',
+    //         argumentName: 'name',
+    //       },
+    //     });
+    //   }
+    // },
     book(parent, args, context) {
       //console.log(parent, "\n", context)
       let result = db.books.find((b) => {
