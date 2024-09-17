@@ -34,13 +34,24 @@ const resolvers = {
     booksAndAuthors() {
       let booksAndAuthorsArray = []
       for (let i = 0; i < db.books.length; i++) {
-        for(let j = 0; j < db.authors.length; j++) {
-          if(db.books[i].author === db.authors[j].id) {
-            booksAndAuthorsArray.push({title: db.books[i].title, authorName: db.authors[j].name })
+        for (let j = 0; j < db.authors.length; j++) {
+          if (db.books[i].author === db.authors[j].id) {
+            booksAndAuthorsArray.push({ title: db.books[i].title, authorName: db.authors[j].name })
           }
         }
       }
       return booksAndAuthorsArray
+    },
+    booksByAuthor(parent, args, context) {
+      const authorsID = db.authors.find(a => {
+        if (a.name === args.name) {
+          return a
+        }
+      })
+      const booksByAuthor = db.books.filter(b => {
+        return b.author === authorsID.id
+      })
+      return booksByAuthor
     },
     book(parent, args, context) {
       //console.log(parent, "\n", context)
