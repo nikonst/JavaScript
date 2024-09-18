@@ -11,6 +11,7 @@ export const typeDefs = `#graphql
     id: Int!
     name: String!
     address: Int!
+    books: [Book]
   }
 
   type Address {

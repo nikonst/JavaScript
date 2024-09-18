@@ -70,7 +70,14 @@ const resolvers = {
         });
       }
     }
-  }
+  },
+  // AuthorsAndBooks: {
+  //   books(parent) {
+  //     return db.address.filter((a) => {
+  //       a.id === parent.id
+  //     })
+  //   }
+  // },
 }
 
 // The ApolloServer constructor requires two parameters: your schema
