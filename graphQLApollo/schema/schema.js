@@ -10,8 +10,7 @@ export const typeDefs = `#graphql
   type Author {
     id: Int!
     name: String!
-    address: Int!
-    books: [Book]
+    address: Address!
   }
 
   type Address {
@@ -19,7 +18,7 @@ export const typeDefs = `#graphql
     street: String!
     city: String
     country: String
-    author: String!
+    author: Author
   }
 
   type BookAndAuthor {
@@ -31,6 +30,9 @@ export const typeDefs = `#graphql
     books: [Book]
     book(id: Int!): Book
     authors: [Author]
+    author(id: Int!): Author
+    addresses: [Address]
+    address(id: Int!): Address
     addressAuthor(name: String!): Address
     booksAndAuthors: [BookAndAuthor]
     booksByAuthor(name: String!): [Book]

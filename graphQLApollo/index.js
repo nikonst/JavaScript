@@ -18,6 +18,15 @@ const resolvers = {
     authors() {
       return db.authors
     },
+    author(_, args) {
+      return db.authors.find(a => a.id === args.id)
+    },
+    addresses() {
+      return db.address
+    },
+    address(_, args) {
+      return db.address.find(a => a.id === args.id)
+    },
     addressAuthor(parent, args, context) {
       let returnAddress = {}
       for (let k = 0; k < db.authors.length; k++) {
@@ -71,6 +80,15 @@ const resolvers = {
       }
     }
   },
+  Author: {
+    address(parent) {
+      console.log(parent)
+      return db.address.find((a) => {
+        console.log(a.author, parent.id)
+        a.author === parent.id
+      })
+    }
+  }
   // AuthorsAndBooks: {
   //   books(parent) {
   //     return db.address.filter((a) => {
