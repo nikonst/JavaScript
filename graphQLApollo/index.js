@@ -82,12 +82,12 @@ const resolvers = {
   },
   Author: {
     addresses(parent) {
-      console.log(parent)
-      return db.address.filter((a) => {
-        //console.log(a)
-        console.log(a.authorID, parent.id)
-        a.authorID === parent.id
-      })
+      // console.log(parent)
+      // for(let i = 0; i< db.address.length; i++) {
+      //   if(db.address[i].authorID === parent.id)
+      //     return db.address[i]
+      // }
+      
     }
   }
   // AuthorsAndBooks: {
