@@ -81,11 +81,12 @@ const resolvers = {
     }
   },
   Author: {
-    address(parent) {
+    addresses(parent) {
       console.log(parent)
-      return db.address.find((a) => {
-        console.log(a.author, parent.id)
-        a.author === parent.id
+      return db.address.filter((a) => {
+        //console.log(a)
+        console.log(a.authorID, parent.id)
+        a.authorID === parent.id
       })
     }
   }

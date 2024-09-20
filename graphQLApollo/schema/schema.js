@@ -10,7 +10,7 @@ export const typeDefs = `#graphql
   type Author {
     id: Int!
     name: String!
-    address: Address!
+    addresses: [Address]
   }
 
   type Address {
