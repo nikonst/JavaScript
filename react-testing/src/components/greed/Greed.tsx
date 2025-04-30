@@ -1,7 +1,9 @@
-import React from 'react'
+type GreedProps = {
+  name?: string
+}
 
-export const Greed = () => {
+export const Greed = (props: GreedProps) => {
   return (
-    <div>Hello</div>
+    <div>Hello {props.name}</div>
   )
 }
