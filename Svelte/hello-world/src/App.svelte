@@ -1,10 +1,14 @@
 <script>
-	export let name;
+	//export let name;
+	const name = "Hardy"
+	const someStr = "<b><i>Brand New Day</i></b>"
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h3>{5 + 5}</h3>
+	<p>{@html someStr}</p>
+	<!-- <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p> -->
 </main>
 
 <style>
