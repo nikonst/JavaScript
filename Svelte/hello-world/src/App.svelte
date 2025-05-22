@@ -2,6 +2,8 @@
 	//export let name;
 	const name = "Hardy"
 	const someStr = "<b><i>Brand New Day</i></b>"
+	const someAttr = 'myHeading'
+	const disabled = true
 </script>
 
 <main>
@@ -9,6 +11,9 @@
 	<h3>{5 + 5}</h3>
 	<p>{@html someStr}</p>
 	<!-- <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p> -->
+	<p id = {someAttr}>Using a HTML attribute</p>
+	<p {someAttr}>Using a HTML attribute 2nd way</p>
+	<button {disabled}>Some Button</button>
 </main>
 
 <style>
