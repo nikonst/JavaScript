@@ -6,6 +6,9 @@
 	const disabled = true
 	const status = "danger"
 	const isPromoted = true
+
+	const num = 0
+
 </script>
 
 <main>
@@ -20,6 +23,16 @@
 	<p id = {someAttr}>Using a HTML attribute</p>
 	<p {someAttr}>Using a HTML attribute 2nd way</p>
 	<button {disabled}>Some Button</button>
+
+	{#if num === 0}
+	<h4>The number is zero (if statement)</h4>
+	{:else if num > 0}
+	<h4>The number is postitive (if statement)</h4>
+	{:else if num < 0}
+	<h4>The number is negative (if statement)</h4>
+	{:else}
+	<h4>Num is not a number (if statement)</h4>
+	{/if}
 </main>
 
 <style>
