@@ -9,6 +9,12 @@
 
 	const num = 0
 
+	const names = ["Ann", "Mary", "Sofia"]
+	const fullNames = [
+		{first:"Helen", last:"Hoe"},
+		{first:"Suzan", last:"May"},
+		{first:"Sue", last:"Miller"}
+	] 
 </script>
 
 <main>
@@ -25,14 +31,23 @@
 	<button {disabled}>Some Button</button>
 
 	{#if num === 0}
-	<h4>The number is zero (if statement)</h4>
+		<h4>The number is zero (if statement)</h4>
 	{:else if num > 0}
-	<h4>The number is postitive (if statement)</h4>
+		<h4>The number is postitive (if statement)</h4>
 	{:else if num < 0}
-	<h4>The number is negative (if statement)</h4>
+		<h4>The number is negative (if statement)</h4>
 	{:else}
-	<h4>Num is not a number (if statement)</h4>
+		<h4>Num is not a number (if statement)</h4>
 	{/if}
+	<hr>
+	{#each names as name, index}
+		<p>{index} {name}</p>
+	{/each}
+
+	<hr>
+	{#each fullNames as fullname, index}
+		<p>{index} {fullname.first} {fullname.last}</p>
+	{/each}
 </main>
 
 <style>
