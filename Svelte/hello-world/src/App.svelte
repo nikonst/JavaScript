@@ -15,6 +15,13 @@
 		{first:"Suzan", last:"May"},
 		{first:"Sue", last:"Miller"}
 	] 
+
+	let count = 0
+
+	const handleClick = (event, stepSize) => {
+		count += stepSize
+		console.log(event)
+	}
 </script>
 
 <main>
@@ -29,6 +36,11 @@
 	<p id = {someAttr}>Using a HTML attribute</p>
 	<p {someAttr}>Using a HTML attribute 2nd way</p>
 	<button {disabled}>Some Button</button>
+	<hr>
+	<button on:click={() => {
+		count = count + 1
+	}}>Count  {count}</button>
+	<button on:click={(event) => handleClick(event, 10)}>Increment by 10 {count}</button>
 
 	{#if num === 0}
 		<h4>The number is zero (if statement)</h4>
