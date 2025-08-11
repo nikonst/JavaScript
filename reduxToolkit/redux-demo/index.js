@@ -2,11 +2,19 @@ const redux = require('redux')
 const createStore = redux.createStore
 
 const FRUIT_ORDERED = 'FRUIT_ORDERED'
+const FRUIT_RESTOCK = 'FRUIT_RESTOCK'
 
 function orderFruit() { //Action creator
     return { //Action
         type: FRUIT_ORDERED,
         quantity: 1
+    }
+}
+
+function restockFruit(quantity = 1) { //Action creator
+    return { //Action
+        type: FRUIT_RESTOCK,
+        quantity: quantity
     }
 }
 
@@ -21,6 +29,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 numOfFruits: state.numOfFruits - action.quantity
+            }
+        case FRUIT_RESTOCK:
+            return {
+                ...state,
+                numOfFruits: state.numOfFruits + action.quantity
             }
         default:
             return state
@@ -42,5 +55,6 @@ store.dispatch({
     type: FRUIT_ORDERED,
     quantity: 5
 })
+store.dispatch(restockFruit(5))
 
 unsubsribe()
