@@ -1,4 +1,5 @@
 const redux = require('redux')
+const bindActionCreators = redux.bindActionCreators
 const createStore = redux.createStore
 
 const FRUIT_ORDERED = 'FRUIT_ORDERED'
@@ -56,5 +57,14 @@ store.dispatch({
     quantity: 5
 })
 store.dispatch(restockFruit(5))
+
+//Not necessary
+const actions = bindActionCreators({orderFruit, restockFruit}, store.dispatch)
+actions.orderFruit()
+actions.orderFruit()
+actions.orderFruit()
+actions.restockFruit(2)
+
+
 
 unsubsribe()
