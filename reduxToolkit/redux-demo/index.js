@@ -1,7 +1,12 @@
 const redux = require('redux')
-const bindActionCreators = redux.bindActionCreators
+const reduxLogger = require("redux-logger")
+//const bindActionCreators = redux.bindActionCreators
+
 const createStore = redux.createStore
 const combineReducers = redux.combineReducers
+const logger = reduxLogger.createLogger()
+const applyMiddleware = redux.applyMiddleware
+
 
 const FRUIT_ORDERED = 'FRUIT_ORDERED'
 const FRUIT_RESTOCK = 'FRUIT_RESTOCK'
@@ -21,6 +26,7 @@ function restockFruit(quantity = 1) { //Action creator
         quantity: quantity
     }
 }
+
 function orderBanana() { //Action creator
     return { //Action
         type: BANANA_ORDERED,
@@ -58,7 +64,6 @@ const fruitReducer = (state = initialFruitState, action) => {
             }
         default:
             return state
-
     }
 }
 
@@ -86,11 +91,12 @@ const rootReducer = combineReducers({
     banana: bananaReducer
 })
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, applyMiddleware(logger))
 console.log('Inital State:', store.getState())
 
 const unsubsribe = store.subscribe(() => {
-    console.log("Updated state:", store.getState())
+    //Note needed when applying Logger
+    //console.log("Updated state:", store.getState())
 })
 
 store.dispatch(orderFruit())
