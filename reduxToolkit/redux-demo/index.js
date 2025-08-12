@@ -7,7 +7,6 @@ const combineReducers = redux.combineReducers
 const logger = reduxLogger.createLogger()
 const applyMiddleware = redux.applyMiddleware
 
-
 const FRUIT_ORDERED = 'FRUIT_ORDERED'
 const FRUIT_RESTOCK = 'FRUIT_RESTOCK'
 const BANANA_ORDERED = 'BANANA_ORDERED'
