@@ -1,12 +1,12 @@
 const createSlice = require('@reduxjs/toolkit').createSlice
 
-const intialState = {
+const initialState = {
     numOfCakes: 10
 }
 
 const cakeSlice = createSlice({
     name: 'cake',
-    intialState: intialState,
+    initialState: initialState,
     reducers: {
         ordered: (state) => {
             state.numOfCakes--
