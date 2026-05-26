@@ -21,9 +21,9 @@ async function getNewQuote() {
         
         const data = await response.json();
         
-        // Update the DOM with the unique API data
-        quoteText.textContent = '"' + data.quote + '"';
-        authorText.textContent = "- " + data.author;
+        // Fixed: dummyjson uses .body and .user.username
+        quoteText.textContent = '"' + data.body + '"';
+        authorText.textContent = "- " + data.user.username;
     } catch (error) {
         console.error("Error fetching the quote:", error);
         quoteText.textContent = "Oops! Something went wrong.";
@@ -33,4 +33,5 @@ async function getNewQuote() {
 
 // Event Listeners
 newQuoteBtn.addEventListener('click', getNewQuote);
-getNewQuote(); // Initial call to display a quote immediately on page load
+
+// Fixed: Removed getNewQuote() from here so "Press the button to start" shows first
