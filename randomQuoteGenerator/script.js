@@ -12,10 +12,7 @@ async function getNewQuote() {
     try {
         // Generate a random ID between 1 and 100
         const randomId = Math.floor(Math.random() * 100) + 1;
-        
-        // EXPLICIT FIXED URL: Explicitly builds "https://dummyjson.com" followed by the number
         const apiUrl = "https://dummyjson.com/comments/" + randomId;
-        
         const response = await fetch(apiUrl);
         
         if (!response.ok) {
