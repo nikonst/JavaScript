@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        #display {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        /* Base Material button style */
+        button {
+            width: 140px;
+            padding: 14px 0;
+            margin: 6px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.2s ease, transform 0.1s ease;
+        }
+
+        /* Elevation */
+        button:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        /* Ripple effect */
+        button::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transform: scale(1);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.5s, opacity 0.8s;
+        }
+
+        button:active::after {
+            transform: scale(20);
+            opacity: 1;
+            transition: 0s;
+        }
+
+        /* Individual Material colors */
+        #start {
+            background: #4CAF50;
+            /* Material Green */
+        }
+
+        #stop {
+            background: #F44336;
+            /* Material Red */
+        }
+
+        #reset {
+            background: #2196F3;
+            /* Material Blue */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="display">00:00:00</div>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
