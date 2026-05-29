@@ -79,6 +79,10 @@ button:active {
   background: #2563eb;
 }
 
+.clear-btn {
+  margin-top: 8px; 
+}
+
 .outside-copy-btn {
   width: 320px;       
   padding: 12px;      

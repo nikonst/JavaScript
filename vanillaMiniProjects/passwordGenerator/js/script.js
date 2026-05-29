@@ -1,71 +1,72 @@
-const passwordOutput = document.getElementById("passwordOutput");
-const copyBtn = document.getElementById("copyBtn");
-const lengthRange = document.getElementById("lengthRange");
-const lengthValue = document.getElementById("lengthValue");
+const passwordOutput = document.getElementById('passwordOutput');
+const generateBtn = document.getElementById('generateBtn');
+const clearBtn = document.getElementById('clearBtn');
+const copyBtn = document.getElementById('copyBtn');
 
-const lowercaseCheckbox = document.getElementById("lowercase");
-const uppercaseCheckbox = document.getElementById("uppercase");
-const numbersCheckbox = document.getElementById("numbers");
-const symbolsCheckbox = document.getElementById("symbols");
+const lengthRange = document.getElementById('lengthRange');
+const lengthValue = document.getElementById('lengthValue');
+const lowercaseCheck = document.getElementById('lowercase');
+const uppercaseCheck = document.getElementById('uppercase');
+const numbersCheck = document.getElementById('numbers');
+const symbolsCheck = document.getElementById('symbols');
 
-const generateBtn = document.getElementById("generateBtn");
-
-const LOWERCASE_CHARS = "abcdefghijklmnopqrstuvwxyz";
-const UPPERCASE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const NUMBER_CHARS = "0123456789";
-const SYMBOL_CHARS = "!@#$%^&*()_+-=[]{};:,.<>/?";
-
-lengthValue.textContent = lengthRange.value;
-
-lengthRange.addEventListener("input", () => {
-  lengthValue.textContent = lengthRange.value;
+lengthRange.addEventListener('input', (e) => {
+  lengthValue.textContent = e.target.value;
 });
 
-generateBtn.addEventListener("click", () => {
-  const length = parseInt(lengthRange.value, 10);
+const chars = {
+  lowercase: 'abcdefghijklmnopqrstuvwxyz',
+  uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  numbers: '0123456789',
+  symbols: '!@#$%^&*()_+~`|}{[]:;?><,./-='
+};
 
-  if (length < 3) {
-    passwordOutput.value = "Length must be at least 3";
+generateBtn.addEventListener('click', () => {
+  let allowedChars = '';
+  if (lowercaseCheck.checked) allowedChars += chars.lowercase;
+  if (uppercaseCheck.checked) allowedChars += chars.uppercase;
+  if (numbersCheck.checked) allowedChars += chars.numbers;
+  if (symbolsCheck.checked) allowedChars += chars.symbols;
+
+  if (allowedChars === '') {
+    alert('Please select at least one character type!');
     return;
   }
 
-  let pool = "";
-  if (lowercaseCheckbox.checked) pool += LOWERCASE_CHARS;
-  if (uppercaseCheckbox.checked) pool += UPPERCASE_CHARS;
-  if (numbersCheckbox.checked) pool += NUMBER_CHARS;
-  if (symbolsCheckbox.checked) pool += SYMBOL_CHARS;
-
-  if (!pool) {
-    passwordOutput.value = "Select at least one option";
-    return;
-  }
-
-  // first 3 lowercase letters ---
-  let password = "";
-  for (let i = 0; i < 3; i++) {
-    const index = Math.floor(Math.random() * LOWERCASE_CHARS.length);
-    password += LOWERCASE_CHARS[index];
-  }
-
-  // Remaining characters ---
-  for (let i = 3; i < length; i++) {
-    const index = Math.floor(Math.random() * pool.length);
-    password += pool[index];
+  let password = '';
+  const length = parseInt(lengthRange.value);
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * allowedChars.length);
+    password += allowedChars[randomIndex];
   }
 
   passwordOutput.value = password;
 });
 
+clearBtn.addEventListener('click', () => {
+  passwordOutput.value = '';
+  lengthRange.value = 12;
+  lengthValue.textContent = 12;
+  lowercaseCheck.checked = true;
+  uppercaseCheck.checked = true;
+  numbersCheck.checked = true;
+  symbolsCheck.checked = false;
+  copyBtn.textContent = 'Copy Password';
+});
 
-copyBtn.addEventListener("click", async () => {
-  const value = passwordOutput.value.trim();
-  if (!value || value === "Select at least one option") return;
+copyBtn.addEventListener('click', async () => {
+  if (!passwordOutput.value) {
+    alert('Generate a password first!');
+    return;
+  }
 
   try {
-    await navigator.clipboard.writeText(value);
-    copyBtn.textContent = "Copied!";
-    setTimeout(() => (copyBtn.textContent = "Copy"), 1200);
+    await navigator.clipboard.writeText(passwordOutput.value);
+    copyBtn.textContent = 'Copied! ✅';
+    setTimeout(() => {
+      copyBtn.textContent = 'Copy Password';
+    }, 2000);
   } catch (err) {
-    console.error("Copy failed", err);
+    alert('Failed to copy password.');
   }
 });
