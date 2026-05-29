@@ -24,6 +24,11 @@ lengthRange.addEventListener("input", () => {
 generateBtn.addEventListener("click", () => {
   const length = parseInt(lengthRange.value, 10);
 
+  if (length < 3) {
+    passwordOutput.value = "Length must be at least 3";
+    return;
+  }
+
   let pool = "";
   if (lowercaseCheckbox.checked) pool += LOWERCASE_CHARS;
   if (uppercaseCheckbox.checked) pool += UPPERCASE_CHARS;
@@ -35,14 +40,22 @@ generateBtn.addEventListener("click", () => {
     return;
   }
 
+  // first 3 lowercase letters ---
   let password = "";
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < 3; i++) {
+    const index = Math.floor(Math.random() * LOWERCASE_CHARS.length);
+    password += LOWERCASE_CHARS[index];
+  }
+
+  // Remaining characters ---
+  for (let i = 3; i < length; i++) {
     const index = Math.floor(Math.random() * pool.length);
     password += pool[index];
   }
 
   passwordOutput.value = password;
 });
+
 
 copyBtn.addEventListener("click", async () => {
   const value = passwordOutput.value.trim();
