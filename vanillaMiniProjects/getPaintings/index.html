@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Met Museum API Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="gallery-card">
+    <h2>Masterpiece Explorer</h2>
+    <div id="loader" class="loader">Loading artwork...</div>
+    
+    <div id="artContainer" class="hidden">
+      <img id="artImage" src="" alt="Painting">
+      <h3 id="artTitle"></h3>
+      <p id="artArtist"></p>
+      <p id="artDate" class="date"></p>
+    </div>
+
+    <button id="refreshBtn">Next Painting</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
