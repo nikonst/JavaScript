@@ -35,9 +35,12 @@ generateBtn.addEventListener('click', () => {
 
   let password = '';
   const length = parseInt(lengthRange.value);
+  
   for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * allowedChars.length);
-    password += allowedChars[randomIndex];
+    // If we are at index 0, 1, or 2, force choice from lowercase letters
+    const currentPool = (i < 3) ? chars.lowercase : allowedChars;
+    const randomIndex = Math.floor(Math.random() * currentPool.length);
+    password += currentPool[randomIndex];
   }
 
   passwordOutput.value = password;
