@@ -35,7 +35,6 @@ async function initializeGallery() {
     }
 }
 
-
 // Step 2: Pick a random ID from our cache and fetch its specific data
 async function fetchRandomArtwork() {
     showLoader(true);
