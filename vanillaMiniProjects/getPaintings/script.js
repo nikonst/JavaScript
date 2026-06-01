@@ -7,15 +7,12 @@ const artArtist = document.getElementById('artArtist');
 const artDate = document.getElementById('artDate');
 const refreshBtn = document.getElementById('refreshBtn');
 
-// Global cache for object IDs so we don't spam the search endpoint
 let cachedObjectIds = [];
 
-// Step 1: Search the Met for keyword "Van Gogh" with images
-// Step 1: Search the Met using built-in URL formatting
 async function initializeGallery() {
     showLoader(true);
     try {
-        
+
         const baseUrl = 'https://collectionapi.metmuseum.org/public/collection/v1/search';
 
         const params = new URLSearchParams({
@@ -47,10 +44,11 @@ async function fetchRandomArtwork() {
     const objectId = cachedObjectIds[randomIndex];
 
     try {
-        const response = await fetch(`https://metmuseum.org{objectId}`);
+        const response = await fetch(
+            `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectId}`
+        );
         const artwork = await response.json();
 
-        // The Met API sometimes lists items that lost image access. Double check it.
         if (!artwork.primaryImage) {
             // If no image, try another one recursively
             fetchRandomArtwork();
@@ -84,5 +82,5 @@ function showLoader(isLoading) {
 // Event Listeners
 refreshBtn.addEventListener('click', fetchRandomArtwork);
 
-// Kick off the application
+// Start the application
 initializeGallery();
