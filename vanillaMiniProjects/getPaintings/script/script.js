@@ -38,6 +38,8 @@ async function initializeGallery() {
 // Step 2: Pick a random ID from our cache and fetch its specific data
 async function fetchRandomArtwork() {
     showLoader(true);
+    // Reset opacity so it can fade in fresh every time
+    artImage.style.opacity = 0; 
 
     const randomIndex = Math.floor(Math.random() * cachedObjectIds.length);
     const objectId = cachedObjectIds[randomIndex];
@@ -49,24 +51,29 @@ async function fetchRandomArtwork() {
         const artwork = await response.json();
 
         if (!artwork.primaryImage) {
-            // If no image, try another one recursively
             fetchRandomArtwork();
             return;
         }
 
-        // Inject data into DOM
-        artImage.src = artwork.primaryImage;
+        // 1. Inject textual data immediately
         artTitle.textContent = artwork.title || 'Untitled';
         artArtist.textContent = artwork.artistDisplayName || 'Unknown Artist';
         artDate.textContent = artwork.objectDate || '';
 
-        showLoader(false);
+        // 2. Wait for the image file to fully download
+        artImage.src = artwork.primaryImage;
+        
+        artImage.onload = () => {
+            showLoader(false); // Hide loader only when image is ready
+            artImage.style.opacity = 1; // Trigger the smooth fade-in
+        };
+
     } catch (error) {
         console.error('Error fetching artwork details:', error);
-        // Try again with a different random ID if one fails
         fetchRandomArtwork();
     }
 }
+
 
 function showLoader(isLoading) {
     if (isLoading) {
