@@ -1,0 +1,27 @@
+body {
+    background: #d7e3f0;
+    /* light blue-gray */
+    font-family: system-ui, sans-serif;
+}
+
+.color-box {
+    height: 150px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    /* subtle frame */
+    display: flex;
+    justify-content: center;
+    /* center horizontally */
+    align-items: center;
+    /* center vertically */
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    background: #fff;
+    /* fallback before JS loads */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.color-box:hover {
+    transform: scale(1.03);
+}
