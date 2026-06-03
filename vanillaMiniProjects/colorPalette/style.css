@@ -4,6 +4,9 @@ body {
     font-family: system-ui, sans-serif;
 }
 
+h1 {
+    padding-bottom: 1.2rem;
+}
 .color-box {
     height: 150px;
     border-radius: 8px;
