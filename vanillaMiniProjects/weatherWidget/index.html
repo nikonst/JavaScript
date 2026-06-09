@@ -4,19 +4,28 @@
 <head>
     <meta charset="UTF-8" />
     <title>Mini Weather Widget</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
     <div class="widget">
         <h2>Weather Widget</h2>
 
-        <input id="cityInput" type="text" placeholder="Enter city..." />
-
-        <button id="searchBtn">Search</button>
+        <select id="citySelect">
+            <option value="">Select a city...</option>
+            <option value="Athens">🇬🇷 Athens</option>
+            <option value="Rome">🇮🇹 Rome</option>
+            <option value="London">🇬🇧 London</option>
+            <option value="Paris">🇫🇷 Paris</option>
+            <option value="Madrid">🇪🇸 Madrid</option>
+            <option value="Berlin">🇩🇪 Berlin</option>
+            <option value="New York">🇺🇸 New York</option>
+            <option value="San Francisco">🇺🇸 San Francisco</option>
+            <option value="Los Angeles">🇺🇸 Los Angeles</option>
+        </select>
 
         <div id="weatherBox" class="weather hidden">
-            <img id="icon" />
+            <div id="icon" class="icon"></div>
             <div>
                 <h3 id="cityName"></h3>
                 <p id="temp"></p>
@@ -24,7 +33,7 @@
             </div>
         </div>
 
-        <p class="hint">By Open‑Meteo</p>
+        <p class="hint">Powered by Open‑Meteo</p>
     </div>
 
     <script src="script.js"></script>

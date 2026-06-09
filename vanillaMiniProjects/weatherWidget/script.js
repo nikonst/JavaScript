@@ -1,5 +1,4 @@
-const cityInput = document.getElementById("cityInput");
-const searchBtn = document.getElementById("searchBtn");
+const citySelect = document.getElementById("citySelect");
 const weatherBox = document.getElementById("weatherBox");
 
 const cityNameEl = document.getElementById("cityName");
@@ -27,7 +26,7 @@ async function getWeather(city) {
 
     const w = weather.current_weather;
 
-    // 3) Map weather code → icon + description
+    // 3) Weather code → emoji + description
     const map = {
         0: ["☀️", "Clear sky"],
         1: ["🌤️", "Mainly clear"],
@@ -47,12 +46,12 @@ async function getWeather(city) {
     cityNameEl.textContent = `${name}, ${country}`;
     tempEl.textContent = `${w.temperature}°C`;
     descEl.textContent = desc;
-    iconEl.src = `https://dummyimage.com/60x60/ffffff/000000&text=${emoji}`;
+    iconEl.textContent = emoji;
 
     weatherBox.classList.remove("hidden");
 }
 
-searchBtn.addEventListener("click", () => {
-    const city = cityInput.value.trim();
+citySelect.addEventListener("change", () => {
+    const city = citySelect.value;
     if (city) getWeather(city);
 });
