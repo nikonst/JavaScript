@@ -1,4 +1,4 @@
-const citySelect = document.getElementById("citySelect");
+const citySelectForThisScript = document.getElementById("citySelect");
 const weatherBox = document.getElementById("weatherBox");
 
 const cityNameEl = document.getElementById("cityName");
@@ -51,7 +51,7 @@ async function getWeather(city) {
     weatherBox.classList.remove("hidden");
 }
 
-citySelect.addEventListener("change", () => {
-    const city = citySelect.value;
+citySelectForThisScript.addEventListener("change", () => {
+    const city = citySelectForThisScript.value;
     if (city) getWeather(city);
 });

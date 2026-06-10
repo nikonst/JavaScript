@@ -13,15 +13,7 @@
 
         <select id="citySelect">
             <option value="">Select a city...</option>
-            <option value="Athens">🇬🇷 Athens</option>
-            <option value="Rome">🇮🇹 Rome</option>
-            <option value="London">🇬🇧 London</option>
-            <option value="Paris">🇫🇷 Paris</option>
-            <option value="Madrid">🇪🇸 Madrid</option>
-            <option value="Berlin">🇩🇪 Berlin</option>
-            <option value="New York">🇺🇸 New York</option>
-            <option value="San Francisco">🇺🇸 San Francisco</option>
-            <option value="Los Angeles">🇺🇸 Los Angeles</option>
+            <!-- JavaScript will insert the cities here -->
         </select>
 
         <div id="weatherBox" class="weather hidden">
@@ -35,8 +27,38 @@
 
         <p class="hint">Powered by Open‑Meteo</p>
     </div>
-
     <script src="script.js"></script>
+    <script>
+
+        const cities = [
+            { code: "Athens", label: "[GR] Athens" },
+            { code: "Rome", label: "[IT] Rome" },
+            { code: "London", label: "[GB] London" },
+            { code: "Paris", label: "[FR] Paris" },
+            { code: "Madrid", label: "[ES] Madrid" },
+            { code: "Berlin", label: "[DE] Berlin" },
+            { code: "Lisbon", label: "[PT] Lisbon" },
+            { code: "New York", label: "[US] New York" },
+            { code: "San Francisco", label: "[US] San Francisco" },
+            { code: "Los Angeles", label: "[US] Los Angeles" }
+        ];
+
+        const citySelect = document.getElementById('citySelect');
+
+        cities.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city.code;
+            option.textContent = city.label;
+            citySelect.appendChild(option);
+        });
+
+        citySelect.addEventListener('change', (event) => {
+            const selectedCity = event.target.value;
+            if (!selectedCity) return;
+
+            console.log(`Ready to fetch weather for: ${selectedCity}`);
+        });
+    </script>
 </body>
 
 </html>
