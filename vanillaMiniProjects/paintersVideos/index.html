@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Painters Biography Player</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .video-container {
+            background-color: #1a1a1a;
+            min-height: 200px;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-light min-vh-100 d-flex flex-column justify-content-center py-5">
+
+    <div class="container text-center">
+        <!-- Header -->
+        <h1 class="mb-4 fw-bold text-warning">Masters of Art</h1>
+        <p class="text-secondary mb-5">Select a painter to load their educational biography video in the center stage.
+        </p>
+
+        <!-- Button Selector Control Group -->
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+            <!-- Van Gogh Button (Passing the exact video ID) -->
+            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('lAjVuUB9AkI', this)">
+                Vincent van Gogh
+            </button>
+
+            <!-- Renoir Button -->
+            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('B__Uv8Ty0Wg', this)">
+                Pierre-Auguste Renoir
+            </button>
+
+            <!-- Gauguin Button -->
+            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('y8lMRTJ5RAM', this)">
+                Paul Gauguin
+            </button>
+        </div>
+
+        <!-- Center Stage Responsive Video Player Frame -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-12">
+                <div
+                    class="ratio ratio-16x9 shadow-lg rounded border border-secondary overflow-hidden video-container d-flex align-items-center justify-content-center">
+
+                    <!-- Landing Placeholder Box -->
+                    <div id="videoPlaceholder" class="text-secondary p-4 w-100 text-center">
+                        <svg xmlns="http://w3.org" width="64" height="64" fill="currentColor"
+                            class="bi bi-play-btn mb-3" viewBox="0 0 16 16">
+                            <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                        </svg>
+                        <p class="fs-5 m-0">Click a button above to watch the biography</p>
+                    </div>
+
+                    <!-- Hidden iframe by default on landing -->
+                    <iframe id="videoPlayer" src="" title="Biography Video"
+                        style="display: none; width: 100%; height: 100%; border: none;"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Link Engine -->
+    <script>
+        function playVideo(videoId, buttonElement) {
+            const player = document.getElementById('videoPlayer');
+            const placeholder = document.getElementById('videoPlaceholder');
+
+            // Hide the placeholder text and show the video frame
+            placeholder.style.setProperty('display', 'none', 'important');
+            player.style.display = 'block';
+
+            // Explicitly set the precise, unbreakable embedded link structure
+            player.src = "https://youtube.com" + videoId + "?autoplay=1";
+
+            // Highlight only the active clicked button
+            document.querySelectorAll('.btn-outline-warning').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            buttonElement.classList.add('active');
+        }
+    </script>
+
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://jsdelivr.net"></script>
+</body>
+
+</html>
