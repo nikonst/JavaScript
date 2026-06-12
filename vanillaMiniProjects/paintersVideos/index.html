@@ -60,7 +60,7 @@
 
 
         <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
-            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('oxHnRfhDmrk', this)">
+            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('vanGogh', this)">
                 Vincent van Gogh
             </button>
 
@@ -90,68 +90,79 @@
                         <p class="m-0">Το βίντεο δεν μπορεί να αναπαραχθεί αυτή τη στιγμή.</p>
                     </div>
 
-                    <!-- Placeholder -->
-                    <div id="videoPlaceholder" class="text-secondary p-4 w-100 text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
-                            class="bi bi-play-btn mb-3" viewBox="0 0 16 16">
-                            <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                            <path
-                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
-                        </svg>
-                        <p class="fs-5 m-0">Click a button above to watch the biography</p>
+                    <div id="carouselPlaceholder" class="text-secondary p-4 w-100 text-center">
+                        <p class="fs-5 m-0">Επίλεξε έναν ζωγράφο για να δεις τους πίνακές του</p>
                     </div>
 
-                    <!-- Iframe -->
-                    <iframe id="videoPlayer" src="" title="Biography Video"
-                        style="display: none; width: 100%; height: 100%; border: none;"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
 
+                    <div id="carouselContainer" style="width:100%; text-align:center;"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function playVideo(videoId, buttonElement) {
-            const player = document.getElementById('videoPlayer');
-            const placeholder = document.getElementById('videoPlaceholder');
-            const spinner = document.getElementById('loadingSpinner');
-            const errorMessage = document.getElementById('errorMessage');
+        const IMAGES = {
+            vanGogh: [
+                "./imgs/vanGogh/vanGogh1.webp",
+                "./imgs/vanGogh/vanGogh2.webp",
+                "./imgs/vanGogh/vanGogh3.webp"
+            ],
+            renoir: [
+                "./imgs/renoir/renoir1.webp",
+                "./imgs/renoir/renoir2.webp",
+                "./imgs/renoir/renoir3.webp"
+            ],
+            gauguin: [
+                "./imgs/gauguin/gauguin1.webp",
+                "./imgs/gauguin/gauguin2.webp",
+                "./imgs/gauguin/gauguin3.webp"
+            ]
+        };
 
-            // reset UI
-            errorMessage.classList.add('d-none');
+        function playVideo(painter, buttonElement) {
+            const placeholder = document.getElementById('carouselPlaceholder');
             placeholder.style.display = 'none';
-            player.style.display = 'none';
-            player.classList.remove('visible');
 
-            // δείξε spinner
-            spinner.classList.remove('d-none');
+            const carousel = document.getElementById('carouselContainer');
 
-            // αλλάζουμε src
-            player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            const images = IMAGES[painter];
 
-            // όταν φορτώσει, κρύψε spinner και κάνε fade-in
-            player.onload = () => {
-                spinner.classList.add('d-none');
-                player.style.display = 'block';
-                player.classList.add('visible');
-            };
+            let html = `
+        <div id="simpleCarousel" style="position:relative; width:100%; max-width:800px; margin:auto;">
+            <img id="carouselImage" src="${images[0]}" style="width:100%; border-radius:8px;">
+            
+            <button onclick="prevImage('${painter}')" 
+                style="position:absolute; top:50%; left:10px; transform:translateY(-50%);">
+                ‹
+            </button>
 
-            // active state στα κουμπιά
-            document.querySelectorAll('.btn-outline-warning').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            <button onclick="nextImage('${painter}')" 
+                style="position:absolute; top:50%; right:10px; transform:translateY(-50%);">
+                ›
+            </button>
+        </div>
+    `;
+
+            carousel.innerHTML = html;
+
+            document.querySelectorAll('.btn-outline-warning').forEach(btn => btn.classList.remove('active'));
             buttonElement.classList.add('active');
 
-            // προαιρετικό: timeout fallback αν κάτι δεν φορτώσει
-            setTimeout(() => {
-                if (player.style.display === 'none') {
-                    spinner.classList.add('d-none');
-                    errorMessage.classList.remove('d-none');
-                }
-            }, 5000);
+            window.currentIndex = 0;
+            window.currentPainter = painter;
+        }
+
+        function prevImage(painter) {
+            const imgs = IMAGES[painter];
+            window.currentIndex = (window.currentIndex - 1 + imgs.length) % imgs.length;
+            document.getElementById("carouselImage").src = imgs[window.currentIndex];
+        }
+
+        function nextImage(painter) {
+            const imgs = IMAGES[painter];
+            window.currentIndex = (window.currentIndex + 1) % imgs.length;
+            document.getElementById("carouselImage").src = imgs[window.currentIndex];
         }
     </script>
 
