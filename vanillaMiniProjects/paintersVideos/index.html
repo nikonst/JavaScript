@@ -70,11 +70,11 @@
                 Vincent van Gogh
             </button>
 
-            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('1T5vZXTmS6E', this)">
+            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('renoir', this)">
                 Pierre-Auguste Renoir
             </button>
 
-            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('u1JgqS0bkkE', this)">
+            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('gauguin', this)">
                 Paul Gauguin
             </button>
         </div>
@@ -91,15 +91,9 @@
                         </div>
                     </div>
 
-                    <!-- Error message -->
-                    <div id="errorMessage" class="text-danger d-none">
-                        <p class="m-0">Το βίντεο δεν μπορεί να αναπαραχθεί αυτή τη στιγμή.</p>
-                    </div>
-
                     <div id="carouselPlaceholder" class="text-secondary p-4 w-100 text-center">
                         <p class="fs-5 m-0">Επίλεξε έναν ζωγράφο για να δεις τους πίνακές του</p>
                     </div>
-
 
                     <div id="carouselContainer" style="width:100%; text-align:center;"></div>
                 </div>
@@ -133,18 +127,19 @@
             const carousel = document.getElementById('carouselContainer');
 
             const images = IMAGES[painter];
-
+            console.log(painter)
+            console.log(images)
             let html = `
-        <div id="simpleCarousel" class="position-relative mx-auto" style="max-width: 800px;">
-        <img id="carouselImage" src="${images[0]}" class="carousel-image">
+                    <div id="simpleCarousel" class="position-relative mx-auto" style="max-width: 800px;">
+                    <img id="carouselImage" src="${images[0]}" class="carousel-image">
 
-        <button class="btn btn-warning position-absolute top-50 start-0 translate-middle-y"
-            onclick="prevImage('${painter}')">‹</button>
+                    <button class="btn btn-warning position-absolute top-50 start-0 translate-middle-y"
+                        onclick="prevImage('${painter}')">‹</button>
 
-        <button class="btn btn-warning position-absolute top-50 end-0 translate-middle-y"
-            onclick="nextImage('${painter}')">›</button>
-    </div>
-    `;
+                    <button class="btn btn-warning position-absolute top-50 end-0 translate-middle-y"
+                        onclick="nextImage('${painter}')">›</button>
+                </div>
+                `;
 
             carousel.innerHTML = html;
 
