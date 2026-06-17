@@ -1,11 +1,11 @@
 body {
-    background: #d7e3f0;
-    /* light blue-gray */
+    background: #f2f4f5;
     font-family: system-ui, sans-serif;
 }
 
 h1 {
     padding-bottom: 1.2rem;
+    color: maroon;
 }
 .color-box {
     height: 150px;
