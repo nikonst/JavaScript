@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,17 @@
         body {
             background-color: #f8f9fa;
         }
+
         .metric-card {
             transition: transform 0.2s;
         }
+
         .metric-card:hover {
             transform: translateY(-3px);
         }
     </style>
 </head>
+
 <body>
 
     <div class="container py-5">
@@ -31,20 +35,16 @@
         <!-- Main Content -->
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                
+
                 <!-- Text Area Input -->
                 <div class="mb-4 shadow-sm rounded">
-                    <textarea 
-                        id="textInput" 
-                        class="form-control form-control-lg" 
-                        rows="8" 
-                        placeholder="Type or paste your text here to begin analyzing..."
-                    ></textarea>
+                    <textarea id="textInput" class="form-control form-control-lg" rows="8"
+                        placeholder="Type or paste your text here to begin analyzing..."></textarea>
                 </div>
 
                 <!-- Metrics Dashboard -->
                 <div class="row g-3 text-center">
-                    
+
                     <!-- Character Count -->
                     <div class="col-md-4">
                         <div class="card h-100 border-0 shadow-sm metric-card">
@@ -132,4 +132,5 @@
         });
     </script>
 </body>
+
 </html>
