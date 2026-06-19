@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .metric-card {
+            transition: transform 0.2s;
+        }
+        .metric-card:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="row mb-4 text-center">
+            <div class="col">
+                <h1 class="fw-bold text-primary">Word Counter</h1>
+                <p class="text-muted">Analyze your text characters, words, and estimated reading time.</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Text Area Input -->
+                <div class="mb-4 shadow-sm rounded">
+                    <textarea 
+                        id="textInput" 
+                        class="form-control form-control-lg" 
+                        rows="8" 
+                        placeholder="Type or paste your text here to begin analyzing..."
+                    ></textarea>
+                </div>
+
+                <!-- Metrics Dashboard -->
+                <div class="row g-3 text-center">
+                    
+                    <!-- Character Count -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm metric-card">
+                            <div class="card-body py-4">
+                                <h6 class="text-uppercase text-muted fw-semibold small mb-2">Characters</h6>
+                                <span id="charCount" class="display-6 fw-bold text-dark">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Word Count -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm metric-card">
+                            <div class="card-body py-4">
+                                <h6 class="text-uppercase text-muted fw-semibold small mb-2">Words</h6>
+                                <span id="wordCount" class="display-6 fw-bold text-success">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reading Time -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm metric-card">
+                            <div class="card-body py-4">
+                                <h6 class="text-uppercase text-muted fw-semibold small mb-2">Reading Time</h6>
+                                <span id="readingTime" class="display-6 fw-bold text-info">0s</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Clear Button -->
+                <div class="text-center mt-4">
+                    <button id="clearBtn" class="btn btn-outline-danger px-4">Clear Text</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // DOM Elements
+        const textInput = document.getElementById('textInput');
+        const charCount = document.getElementById('charCount');
+        const wordCount = document.getElementById('wordCount');
+        const readingTime = document.getElementById('readingTime');
+        const clearBtn = document.getElementById('clearBtn');
+
+        // Main analysis function
+        function analyzeText() {
+            const text = textInput.value;
+
+            // 1. Character Count (including spaces)
+            charCount.textContent = text.length;
+
+            // 2. Word Count 
+            // Trim removes outer spaces. Split uses regex to catch multiple spaces/newlines.
+            const cleanText = text.trim();
+            const wordsArray = cleanText === "" ? [] : cleanText.split(/\s+/);
+            const totalWords = wordsArray.length;
+            wordCount.textContent = totalWords;
+
+            // 3. Reading Time (Average adult reading speed: 200 words per minute)
+            const wordsPerMinute = 200;
+            const totalMinutes = totalWords / wordsPerMinute;
+            const totalSeconds = Math.ceil(totalMinutes * 60);
+
+            if (totalSeconds < 60) {
+                readingTime.textContent = `${totalSeconds}s`;
+            } else {
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                readingTime.textContent = seconds === 0 ? `${minutes}m` : `${minutes}m ${seconds}s`;
+            }
+        }
+
+        // Event Listeners
+        textInput.addEventListener('input', analyzeText);
+
+        clearBtn.addEventListener('click', () => {
+            textInput.value = '';
+            analyzeText();
+        });
+    </script>
+</body>
+</html>
