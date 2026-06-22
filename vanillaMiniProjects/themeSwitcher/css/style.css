@@ -15,6 +15,15 @@
     --btn-text: #121212;
 }
 
+/* Red Theme */
+:root[data-theme="red"] {
+    --bg-color: #4a0e0e;
+    --text-color: #fff5f5;
+    --card-bg: #7f1d1d;
+    --btn-bg: #fca5a5;
+    --btn-text: #4a0e0e;
+}
+
 /* Global resets and styles */
 * {
     margin: 0;
@@ -56,4 +65,5 @@ button {
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
+    margin: 0 0.25rem; /* Separates the three buttons slightly */
 }
