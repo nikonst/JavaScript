@@ -1,0 +1,57 @@
+body {
+  font-family: "Commissioner", sans-serif;
+  background-color: #790a0a;
+  color: #fff;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.movie-card {
+  background: #a10505;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.movie-card h3 {
+  font-size: 16px;
+  margin: 10px 0 5px 0;
+}
+
+.movie-card p {
+  color: #aaa;
+  font-size: 14px;
+  margin: 0;
+}
+
+.hidden { display: none; }
+#error-message { color: #ff6b6b; margin: 10px; }
