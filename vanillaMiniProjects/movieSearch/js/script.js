@@ -1,4 +1,3 @@
-const API_KEY = 'YOUR_API_KEY_HERE';
 const searchInput = document.getElementById('search-input');
 const resultsGrid = document.getElementById('results-grid');
 const loader = document.getElementById('loader');
@@ -6,7 +5,7 @@ const errorMessage = document.getElementById('error-message');
 
 let timeoutId;
 
-// Debounce function to wait until user stops typing
+// Debounce listener to restrict API requests while typing
 searchInput.addEventListener('input', (e) => {
     clearTimeout(timeoutId);
     const query = e.target.value.trim();
@@ -18,7 +17,7 @@ searchInput.addEventListener('input', (e) => {
 
     timeoutId = setTimeout(() => {
         fetchMovies(query);
-    }, 400); // Waits 400ms after last keystroke
+    }, 400); // Wait 400ms after the last keypress
 });
 
 async function fetchMovies(query) {
@@ -26,30 +25,45 @@ async function fetchMovies(query) {
     showError('');
 
     try {
-        const response = await fetch(`https://omdbapi.com{query}&apikey=${API_KEY}`);
+        // Constructing the URL with the exact mandatory query string structure
+        const baseUrl = 'https://imdb.iamidiotareyoutoo.com/search';
+        const queryString = `?q=${encodeURIComponent(query)}&tt=&lsn=1&v=1`;
+
+        const response = await fetch(baseUrl + queryString);
         const data = await response.json();
 
-        if (data.Response === "True") {
-            displayMovies(data.Search);
+        // The API wraps search results inside a 'description' key array
+        if (data && data.description && data.description.length > 0) {
+            displayMovies(data.description);
         } else {
             displayMovies([]);
-            showError(data.Error);
+            showError('No movies found matching that title.');
         }
     } catch (err) {
-        showError('Failed to fetch data. Check your connection.');
+        showError('Failed to fetch movie data. Please check your network.');
+        console.error(err);
     } finally {
         showLoader(false);
     }
 }
 
+
 function displayMovies(movies) {
-    resultsGrid.innerHTML = movies.map(movie => `
-    <div class="movie-card">
-      <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'https://placeholder.com'}" alt="${movie.Title}">
-      <h3>${movie.Title}</h3>
-      <p>${movie.Year}</p>
-    </div>
-  `).join('');
+    resultsGrid.innerHTML = movies.map(movie => {
+        // FM-DB specific keys: '#title', '#year', '#img', and '#imdbId'
+        const title = movie["#title"] || "Unknown Title";
+        const year = movie["#year"] || "N/A";
+        const poster = movie["#img"] || "https://placeholder.com";
+        const imdbId = movie["#imdbId"];
+
+        return `
+      <div class="movie-card" data-id="${imdbId}">
+        <img src="${poster}" alt="${title}" onerror="this.src='https://placeholder.com'">
+        <h3>${title}</h3>
+        <p>Year: ${year}</p>
+      </div>
+    `;
+    }).join('');
 }
 
 function showLoader(show) {
