@@ -1,76 +1,89 @@
-const searchInput = document.getElementById('search-input');
-const resultsGrid = document.getElementById('results-grid');
-const loader = document.getElementById('loader');
-const errorMessage = document.getElementById('error-message');
+// ===== DOM ELEMENTS =====
+const searchInput = document.querySelector('#search-input');
+const resultsGrid = document.querySelector('#results-grid');
+const loader = document.querySelector('#loader');
+const errorBox = document.querySelector('#error-message');
 
-let timeoutId;
+// ===== UTILITIES =====
+const debounce = (fn, delay = 400) => {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+    };
+};
 
-// Debounce listener to restrict API requests while typing
-searchInput.addEventListener('input', (e) => {
-    clearTimeout(timeoutId);
-    const query = e.target.value.trim();
+const showLoader = (state) => {
+    loader.classList.toggle('hidden', !state);
+};
 
-    if (!query) {
-        resultsGrid.innerHTML = '';
-        return;
-    }
+const showError = (msg = '') => {
+    errorBox.textContent = msg;
+    errorBox.classList.toggle('hidden', msg === '');
+};
 
-    timeoutId = setTimeout(() => {
-        fetchMovies(query);
-    }, 400); // Wait 400ms after the last keypress
-});
-
-async function fetchMovies(query) {
+// ===== API CALL =====
+async function searchMovies(query) {
     showLoader(true);
     showError('');
+    resultsGrid.innerHTML = '';
+
+    const url = `https://imdb.iamidiotareyoutoo.com/search?q=${encodeURIComponent(query)}&tt=&lsn=1&v=1`;
 
     try {
-        // Constructing the URL with the exact mandatory query string structure
-        const baseUrl = 'https://imdb.iamidiotareyoutoo.com/search';
-        const queryString = `?q=${encodeURIComponent(query)}&tt=&lsn=1&v=1`;
+        const res = await fetch(url);
+        const data = await res.json();
 
-        const response = await fetch(baseUrl + queryString);
-        const data = await response.json();
+        const movies = data?.description || [];
 
-        // The API wraps search results inside a 'description' key array
-        if (data && data.description && data.description.length > 0) {
-            displayMovies(data.description);
-        } else {
-            displayMovies([]);
-            showError('No movies found matching that title.');
+        if (movies.length === 0) {
+            showError('No movies found.');
+            return;
         }
+
+        renderMovies(movies);
     } catch (err) {
-        showError('Failed to fetch movie data. Please check your network.');
+        showError('Network error. Try again later.');
         console.error(err);
     } finally {
         showLoader(false);
     }
 }
 
+// ===== RENDERING =====
+function renderMovies(movies) {
+    const fallbackImg = "https://placehold.co/300x450?text=No+Image";
 
-function displayMovies(movies) {
-    resultsGrid.innerHTML = movies.map(movie => {
-        // FM-DB specific keys: '#title', '#year', '#img', and '#imdbId'
-        const title = movie["#title"] || "Unknown Title";
-        const year = movie["#year"] || "N/A";
-        const poster = movie["#img"] || "https://placeholder.com";
-        const imdbId = movie["#imdbId"];
+    const html = movies
+        .map((m) => {
+            const title = m['#title'] || 'Unknown Title';
+            const year = m['#year'] || 'N/A';
+            const poster = m['#img'] || fallbackImg;
 
-        return `
-      <div class="movie-card" data-id="${imdbId}">
-        <img src="${poster}" alt="${title}" onerror="this.src='https://placeholder.com'">
-        <h3>${title}</h3>
-        <p>Year: ${year}</p>
-      </div>
-    `;
-    }).join('');
+            return `
+                <div class="movie-card">
+                    <img src="${poster}" alt="${title}" onerror="this.src='${fallbackImg}'">
+                    <h3>${title}</h3>
+                    <p>${year}</p>
+                </div>
+            `;
+        })
+        .join('');
+
+    resultsGrid.innerHTML = html;
 }
 
-function showLoader(show) {
-    loader.className = show ? '' : 'hidden';
-}
 
-function showError(msg) {
-    errorMessage.textContent = msg;
-    errorMessage.className = msg ? '' : 'hidden';
-}
+// ===== EVENT LISTENER =====
+searchInput.addEventListener(
+    'input',
+    debounce((e) => {
+        const query = e.target.value.trim();
+        if (query.length < 2) {
+            resultsGrid.innerHTML = '';
+            showError('');
+            return;
+        }
+        searchMovies(query);
+    }, 400)
+);
