@@ -11,16 +11,12 @@ body {
   text-align: center;
 }
 
-input {
-  width: 100%;
+/* REMOVE custom input padding, border, radius — Bootstrap handles it */
+input.form-control {
   max-width: 400px;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  font-size: 16px;
-  margin-bottom: 20px;
 }
 
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -28,6 +24,7 @@ input {
   margin-top: 20px;
 }
 
+/* Movie cards */
 .movie-card {
   background: #a10505;
   padding: 10px;
@@ -53,31 +50,19 @@ input {
   margin: 0;
 }
 
-.hidden { display: none; }
-#error-message { color: #ff6b6b; margin: 10px; }
-
-.input-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  max-width: 400px;
+.hidden {
+  display: none;
 }
 
-.clear-btn {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #fff;
-  color: #790a0a;
-  border: none;
+#error-message {
+  color: #ff6b6b;
+  margin: 10px;
+}
+
+/* Clear button */
+#clear-btn {
   font-size: 20px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none; /* hidden until typing */
-  align-items: center;
-  justify-content: center;
-  padding: 0;
+  font-weight: bold;
+  
+  padding: 0 14px;
 }
