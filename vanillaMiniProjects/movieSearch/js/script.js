@@ -54,24 +54,35 @@ async function searchMovies(query) {
 function renderMovies(movies) {
     const fallbackImg = "https://placehold.co/300x450?text=No+Image";
 
-    const html = movies
-        .map((m) => {
-            const title = m['#title'] || 'Unknown Title';
-            const year = m['#year'] || 'N/A';
-            const poster = m['#img'] || fallbackImg;
+    // Clear grid safely
+    while (resultsGrid.firstChild) {
+        resultsGrid.removeChild(resultsGrid.firstChild);
+    }
 
-            return `
-                <div class="movie-card">
-                    <img src="${poster}" alt="${title}" onerror="this.src='${fallbackImg}'">
-                    <h3>${title}</h3>
-                    <p>${year}</p>
-                </div>
-            `;
-        })
-        .join('');
+    if (!movies || movies.length === 0) {
+        showError("No movies found.");
+        return;
+    }
 
-    resultsGrid.innerHTML = html;
+    movies.forEach(movie => {
+        const title = movie["#TITLE"] || "Unknown Title";
+        const year = movie["#YEAR"] || "N/A";
+        const poster = movie["#IMG_POSTER"] || fallbackImg;
+
+        const card = document.createElement("div");
+        card.className = "movie-card";
+
+        card.innerHTML = `
+            <img src="${poster}" alt="${title}" onerror="this.src='${fallbackImg}'">
+            <h3>${title}</h3>
+            <p>${year}</p>
+        `;
+
+        resultsGrid.appendChild(card);
+    });
 }
+
+
 
 
 // ===== EVENT LISTENER =====
@@ -80,7 +91,10 @@ searchInput.addEventListener(
     debounce((e) => {
         const query = e.target.value.trim();
         if (query.length < 2) {
-            resultsGrid.innerHTML = '';
+            while (resultsGrid.firstChild) {
+                resultsGrid.removeChild(resultsGrid.firstChild);
+            }
+
             showError('');
             return;
         }
