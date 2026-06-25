@@ -22,6 +22,21 @@ const showError = (msg = '') => {
     errorBox.classList.toggle('hidden', msg === '');
 };
 
+const clearBtn = document.querySelector('#clear-btn');
+
+// Show/hide clear button while typing
+searchInput.addEventListener('input', () => {
+    clearBtn.style.display = searchInput.value.trim() ? 'flex' : 'none';
+});
+
+// Clear everything on click
+clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearBtn.style.display = 'none';
+    resultsGrid.innerHTML = '';
+    showError('');
+});
+
 // ===== API CALL =====
 async function searchMovies(query) {
     showLoader(true);

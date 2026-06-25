@@ -14,7 +14,10 @@
 <body>
     <div class="container">
         <h1>Movie Search Engine</h1>
-        <input type="text" id="search-input" placeholder="Type a movie title...">
+        <div class="input-wrapper">
+            <input type="text" id="search-input" placeholder="Type a movie title...">
+            <button id="clear-btn" class="clear-btn">×</button>
+        </div>
 
         <div id="loader" class="hidden">Loading...</div>
         <div id="error-message" class="hidden"></div>

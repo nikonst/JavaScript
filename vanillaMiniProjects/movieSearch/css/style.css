@@ -55,3 +55,29 @@ input {
 
 .hidden { display: none; }
 #error-message { color: #ff6b6b; margin: 10px; }
+
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  color: #790a0a;
+  border: none;
+  font-size: 20px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* hidden until typing */
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
