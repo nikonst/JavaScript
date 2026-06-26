@@ -97,9 +97,6 @@ function renderMovies(movies) {
     });
 }
 
-
-
-
 // ===== EVENT LISTENER =====
 searchInput.addEventListener(
     'input',
