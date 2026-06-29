@@ -48,7 +48,7 @@
                     Total: <span id="totalResult" class="fw-bold text-success">2</span>
                 </div>
 
-                <div id="winMsg" class="h3 text-success fw-bold mt-3"></div>
+                <div id="winAlert" class="alert alert-success h3 mt-3 d-none">Win</div>
 
             </div>
         </div>
@@ -70,8 +70,13 @@
             document.getElementById('totalResult').textContent = total;
 
             // Win condition
-            const winMsg = document.getElementById('winMsg');
-            winMsg.textContent = (total === 7 || total === 11) ? "Win" : "";
+            const winAlert = document.getElementById('winAlert');
+            if (total === 7 || total === 11) {
+                winAlert.classList.remove("d-none");
+                winAlert.textContent = "Win";
+            } else {
+                winAlert.classList.add("d-none");
+            }
         });
     </script>
 
