@@ -53,18 +53,21 @@
             Επίλεξε ζωγράφο και περιηγήσου στα έργα του
         </p>
 
-
         <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
-            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('vanGogh', this)">
-                Vincent van Gogh
-            </button>
-
             <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('renoir', this)">
                 Pierre-Auguste Renoir
             </button>
 
+            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('vanGogh', this)">
+                Vincent van Gogh
+            </button>
+
             <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('gauguin', this)">
                 Paul Gauguin
+            </button>
+
+            <button class="btn btn-outline-warning btn-lg px-4 fw-semibold" onclick="playVideo('cezanne', this)">
+                Cezanne
             </button>
         </div>
 
@@ -106,7 +109,13 @@
                 "./imgs/gauguin/gauguin1.webp",
                 "./imgs/gauguin/gauguin2.webp",
                 "./imgs/gauguin/gauguin3.webp"
+            ],
+            cezanne: [
+                "./imgs/cezanne/cezanne1.webp",
+                "./imgs/cezanne/cezanne2.webp",
+                "./imgs/cezanne/cezanne3.webp"
             ]
+
         };
 
         function playVideo(painter, buttonElement) {
