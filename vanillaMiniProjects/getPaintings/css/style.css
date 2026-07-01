@@ -8,6 +8,13 @@ body {
   margin: 0;
 }
 
+h2 {
+  color: maroon;
+}
+
+h4 {
+  color: #0b1496;
+}
 .gallery-card {
   background: white;
   padding: 20px;
