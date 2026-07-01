@@ -3,7 +3,7 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const newQuoteBtn = document.getElementById('new-quote-btn');
 
-// Async function to fetch a specific quote by ID
+// Async function to fetch a specific quote
 async function getNewQuote() {
     quoteText.textContent = "Loading new quote...";
     authorText.textContent = "";
@@ -26,8 +26,6 @@ async function getNewQuote() {
     }
 }
 
-
 // Event Listeners
 newQuoteBtn.addEventListener('click', getNewQuote);
 
-// Fixed: Removed getNewQuote() from here so "Press the button to start" shows first
