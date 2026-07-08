@@ -5,7 +5,6 @@ const menu = [
         title: "Buttermilk Pancakes",
         category: "breakfast",
         price: 15.99,
-        img: "https://unsplash.com",
         desc: `Fluffy pancakes layered with fresh organic strawberries, wild berries, and a generous drizzle of warm maple syrup.`,
     },
     {
@@ -13,7 +12,6 @@ const menu = [
         title: "Diner Double Burger",
         category: "lunch",
         price: 13.99,
-        img: "https://unsplash.com",
         desc: `Two juicy smash patties, melted cheddar cheese, crisp pickles, and our signature house sauce on a toasted brioche bun.`,
     },
     {
@@ -21,7 +19,6 @@ const menu = [
         title: "Avocado Toast",
         category: "vegan",
         price: 11.49,
-        img: "https://unsplash.com",
         desc: `Toasted artisanal sourdough topped with crushed avocado, cherry tomatoes, radish slices, and a dash of chili flakes.`,
     },
     {
@@ -29,7 +26,6 @@ const menu = [
         title: "Country Breakfast",
         category: "breakfast",
         price: 20.99,
-        img: "https://unsplash.com",
         desc: `Two farm-fresh eggs cooked to order, crispy smoked bacon strips, golden hashbrowns, and buttered toast.`,
     },
     {
@@ -37,7 +33,6 @@ const menu = [
         title: "Classic Caesar Salad",
         category: "lunch",
         price: 12.99,
-        img: "https://unsplash.com",
         desc: `Crisp romaine lettuce tossed in creamy Caesar dressing, garlic-herb croutons, and freshly shaved parmesan cheese.`,
     },
     {
@@ -45,7 +40,6 @@ const menu = [
         title: "Acai Berry Bowl",
         category: "vegan",
         price: 9.99,
-        img: "https://unsplash.com",
         desc: `Thick blended organic acai topped with gluten-free granola, sliced banana, chia seeds, and organic honey drizzle.`,
     }
 ];
@@ -66,7 +60,6 @@ function displayMenuItems(menuItems) {
         return `<div class="col-12 col-md-6">
             <article class="card h-100 shadow-sm border p-3">
               <div class="d-flex flex-column flex-sm-row gap-3">
-                <img src="${item.img}" alt="${item.title}" class="item-img rounded" />
                 <div class="flex-grow-1">
                   <div class="item-header d-flex justify-content-between pb-2 mb-2">
                     <h5 class="card-title text-capitalize mb-0 fw-semibold">${item.title}</h5>
