@@ -1,4 +1,4 @@
-import { menu } from './menuData.js'
+import { menu } from './../menuData/menuData.js'
 
 // 2. DOM Elements
 const menuGrid = document.getElementById("menu-grid");
