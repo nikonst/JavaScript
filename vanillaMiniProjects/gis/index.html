@@ -78,11 +78,11 @@
         // DATA
         // -----------------------------
 
-        const title1 = [
+        const group1 = [
             { lat: 37.97238471090091, lng: 23.733595960171105 }
         ];
 
-        const title2 = [
+        const group2 = [
             { lat: 35.51585711771740, lng: 24.01669614517619 },
             { lat: 39.3624833, lng: 22.9401864 },
             { lat: 36.4421776, lng: 28.2304007 },
@@ -98,10 +98,10 @@
 
         // Show coordinates in left panel
         document.getElementById("coords1").textContent =
-            JSON.stringify(title1, null, 2);
+            JSON.stringify(group1, null, 2);
 
         document.getElementById("coords2").textContent =
-            JSON.stringify(title2, null, 2);
+            JSON.stringify(group2, null, 2);
 
         // -----------------------------
         // MAP INIT
@@ -117,8 +117,8 @@
         // MARKERS
         // -----------------------------
 
-        // Τίτλος1 → μπλε markers
-        title1.forEach(p => {
+        // Ομάδα 1 → μπλε markers
+        group1.forEach(p => {
             L.marker([p.lat, p.lng], {
                 icon: L.icon({
                     iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png",
@@ -129,8 +129,8 @@
                 .bindPopup(`<b>Αγγλικανοί</b><br>${p.lat}, ${p.lng}`);
         });
 
-        // Τίτλος2 → πράσινοι markers
-        title2.forEach(p => {
+        // Ομάδα 2 → πράσινοι markers
+        group2.forEach(p => {
             L.marker([p.lat, p.lng], {
                 icon: L.icon({
                     iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png",
