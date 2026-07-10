@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Map Groups Example</title>
 
-    <!-- Bootstrap 5 -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Leaflet -->
@@ -40,23 +40,41 @@
 
                 <h3 class="mb-3">Συντεταγμένες</h3>
 
-                <!-- Τίτλος 1 -->
+                <!-- ΟΜΑΔΑ 1 -->
                 <div class="card mb-3">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         Αγγλικανοί
+                        <button class="btn btn-sm btn-light" id="toggleMarkers1">Εμφάνιση/Απόκρυψη Σημείων</button>
                     </div>
+
                     <div class="card-body">
-                        <pre id="coords1" class="mb-0"></pre>
+                        <button class="btn btn-sm btn-secondary mb-2" data-bs-toggle="collapse"
+                            data-bs-target="#coords1Collapse">
+                            Εμφάνιση/Απόκρυψη Συντεταγμένων
+                        </button>
+
+                        <div class="collapse" id="coords1Collapse">
+                            <pre id="coords1" class="mb-0"></pre>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Τίτλος 2 -->
+                <!-- ΟΜΑΔΑ 2 -->
                 <div class="card mb-3">
-                    <div class="card-header bg-success text-white">
+                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
                         Ιουδαϊσμός
+                        <button class="btn btn-sm btn-light" id="toggleMarkers2">Εμφάνιση/Απόκρυψη Σημείων</button>
                     </div>
+
                     <div class="card-body">
-                        <pre id="coords2" class="mb-0"></pre>
+                        <button class="btn btn-sm btn-secondary mb-2" data-bs-toggle="collapse"
+                            data-bs-target="#coords2Collapse">
+                            Εμφάνιση/Απόκρυψη Συντεταγμένων
+                        </button>
+
+                        <div class="collapse" id="coords2Collapse">
+                            <pre id="coords2" class="mb-0"></pre>
+                        </div>
                     </div>
                 </div>
 
@@ -70,13 +88,14 @@
         </div>
     </div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <script>
-        // -----------------------------
         // DATA
-        // -----------------------------
 
         const group1 = [
             { lat: 37.97238471090091, lng: 23.733595960171105 }
@@ -103,9 +122,7 @@
         document.getElementById("coords2").textContent =
             JSON.stringify(group2, null, 2);
 
-        // -----------------------------
         // MAP INIT
-        // -----------------------------
 
         const map = L.map('map').setView([38.5, 23.5], 6);
 
@@ -113,11 +130,15 @@
             maxZoom: 19
         }).addTo(map);
 
+        // LAYER GROUPS
+
+        const layerGroup1 = L.layerGroup().addTo(map);
+        const layerGroup2 = L.layerGroup().addTo(map);
+
         // -----------------------------
         // MARKERS
         // -----------------------------
 
-        // Ομάδα 1 → μπλε markers
         group1.forEach(p => {
             L.marker([p.lat, p.lng], {
                 icon: L.icon({
@@ -125,11 +146,10 @@
                     iconSize: [32, 32]
                 })
             })
-                .addTo(map)
-                .bindPopup(`<b>Αγγλικανοί</b><br>${p.lat}, ${p.lng}`);
+                .bindPopup(`<b>Αγγλικανοί</b><br>${p.lat}, ${p.lng}`)
+                .addTo(layerGroup1);
         });
 
-        // Ομάδα 2 → πράσινοι markers
         group2.forEach(p => {
             L.marker([p.lat, p.lng], {
                 icon: L.icon({
@@ -137,10 +157,28 @@
                     iconSize: [32, 32]
                 })
             })
-                .addTo(map)
-                .bindPopup(`<b>Ιουδαϊσμός</b><br>${p.lat}, ${p.lng}`);
+                .bindPopup(`<b>Ιουδαϊσμός</b><br>${p.lat}, ${p.lng}`)
+                .addTo(layerGroup2);
         });
 
+        // -----------------------------
+        // TOGGLE BUTTONS
+        // -----------------------------
+
+        let group1Visible = true;
+        let group2Visible = true;
+
+        document.getElementById("toggleMarkers1").onclick = () => {
+            group1Visible = !group1Visible;
+            if (group1Visible) layerGroup1.addTo(map);
+            else map.removeLayer(layerGroup1);
+        };
+
+        document.getElementById("toggleMarkers2").onclick = () => {
+            group2Visible = !group2Visible;
+            if (group2Visible) layerGroup2.addTo(map);
+            else map.removeLayer(layerGroup2);
+        };
     </script>
 
 </body>
