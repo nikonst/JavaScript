@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Map Groups Example</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #left-panel {
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 2px solid #ddd;
+        }
+
+        #map {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row h-100">
+
+            <!-- LEFT PANEL -->
+            <div id="left-panel" class="col-4 p-3 bg-light">
+
+                <h3 class="mb-3">Συντεταγμένες</h3>
+
+                <!-- Τίτλος 1 -->
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white">
+                        Αγγλικανοί
+                    </div>
+                    <div class="card-body">
+                        <pre id="coords1" class="mb-0"></pre>
+                    </div>
+                </div>
+
+                <!-- Τίτλος 2 -->
+                <div class="card mb-3">
+                    <div class="card-header bg-success text-white">
+                        Ιουδαϊσμός
+                    </div>
+                    <div class="card-body">
+                        <pre id="coords2" class="mb-0"></pre>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- MAP -->
+            <div class="col-8 p-0">
+                <div id="map"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // -----------------------------
+        // DATA
+        // -----------------------------
+
+        const title1 = [
+            { lat: 37.97238471090091, lng: 23.733595960171105 }
+        ];
+
+        const title2 = [
+            { lat: 35.51585711771740, lng: 24.01669614517619 },
+            { lat: 39.3624833, lng: 22.9401864 },
+            { lat: 36.4421776, lng: 28.2304007 },
+            { lat: 36.4421776, lng: 28.2304007 },
+            { lat: 40.6296719, lng: 22.9591469 },
+            { lat: 39.6386918, lng: 22.4132572 },
+            { lat: 39.6397941, lng: 22.4128227 },
+            { lat: 39.6408417, lng: 20.8952909 },
+            { lat: 40.58551612007975, lng: 22.963175792289068 },
+            { lat: 39.26210337380522, lng: 23.07326447777704 },
+            { lat: 39.3624833, lng: 22.9401864 }
+        ];
+
+        // Show coordinates in left panel
+        document.getElementById("coords1").textContent =
+            JSON.stringify(title1, null, 2);
+
+        document.getElementById("coords2").textContent =
+            JSON.stringify(title2, null, 2);
+
+        // -----------------------------
+        // MAP INIT
+        // -----------------------------
+
+        const map = L.map('map').setView([38.5, 23.5], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
+
+        // -----------------------------
+        // MARKERS
+        // -----------------------------
+
+        // Τίτλος1 → μπλε markers
+        title1.forEach(p => {
+            L.marker([p.lat, p.lng], {
+                icon: L.icon({
+                    iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png",
+                    iconSize: [32, 32]
+                })
+            })
+                .addTo(map)
+                .bindPopup(`<b>Αγγλικανοί</b><br>${p.lat}, ${p.lng}`);
+        });
+
+        // Τίτλος2 → πράσινοι markers
+        title2.forEach(p => {
+            L.marker([p.lat, p.lng], {
+                icon: L.icon({
+                    iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png",
+                    iconSize: [32, 32]
+                })
+            })
+                .addTo(map)
+                .bindPopup(`<b>Ιουδαϊσμός</b><br>${p.lat}, ${p.lng}`);
+        });
+
+    </script>
+
+</body>
+
+</html>
