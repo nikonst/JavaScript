@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Demo</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <h1>My Website</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>About Me</h2>
+            <p></p>
+        </section>
+        <section>
+            <h2>My Skills</h2>
+            <ol>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ol>
+        </section>
+        <form>
+            <h2>Contact Form</h2>
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" required />
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required />
+            <label for="textarea">Message</label>
+            <textarea id="textarea" name="textarea" rows="5" cols="33">
+            </textarea>
+            <h3>Preferred Contact Method</h3>
+            <input type="radio" id="contact-email" name="contact" value="Email">
+            <label for="contact-email">Email</label>
+
+            <input type="radio" id="contact-phone" name="contact" value="Phone">
+            <label for="contact-phone">Phone</label>
+
+            <input type="checkbox" id="subscribe" name="subscribe">
+            <label for="subscribe">Subscribe to newsletter</label>
+            <br />
+            <label for="country">Choose a country:</label>
+            <select name="country" id="country">
+                <option value="">--Please choose an option--</option>
+                <option value="greece">Greece</option>
+                <option value="italy">Italy</option>
+                <option value="spain">Spain</option>
+            </select>
+            <p><button type="submit">Send</button></p>
+        </form>
+    </main>
+    <p id="intro">Welcome to my website.</p>
+
+    <p class="highlight">Important information.</p>
+
+    <p class="highlight">Another important message.</p>
+    <footer>
+        <p>© 2026 My Website</p>
+    </footer>
+</body>
+
+</html>

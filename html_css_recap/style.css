@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+header {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+#intro {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.highlight {
+    background-color: yellow;
+    padding: 10px;
+}
+
+section p {
+    color: #555;
+}
