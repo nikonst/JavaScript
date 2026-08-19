@@ -34,12 +34,15 @@ function App() {
     })
     : tasks
 
-  //console.log(visibleTasks)
+   //console.log(visibleTasks)
   return (
     <>
       <AppHeader title={'TaskForge'} subtitle={'Manage your projects and tasks'} />
-      <button onClick={() => setShowImportantOnly(prev => !prev)}>
-        Show Important Only
+      <button onClick={() => {
+        setShowImportantOnly(prev => !prev)
+      }
+      }>
+        {showImportantOnly ? 'Show All Tasks' : 'Show Important Only'}
       </button>
       {visibleTasks.map((task) => (
         <TaskCard key={task.id} task={task} />
