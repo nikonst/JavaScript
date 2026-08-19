@@ -2,8 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import AppHeader from './components/AppHeader'
 import TaskCard from './components/TaskCard'
+import TaskForm from './components/TaskForm'
 
-const tasks = [
+const theTasks = [
   {
     id: 1,
     title: 'Design dashboard',
@@ -25,6 +26,7 @@ const tasks = [
 ]
 
 function App() {
+  const [tasks, setTasks] = useState(theTasks)
   const [showImportantOnly, setShowImportantOnly] = useState(false)
 
   const visibleTasks = showImportantOnly
@@ -34,7 +36,20 @@ function App() {
     })
     : tasks
 
-   //console.log(visibleTasks)
+  const addTitle = (title) => {
+    const newTask = {
+      id: crypto.randomUUID(),
+      title: title,
+      status: null,
+      priority: null,
+    }
+
+    setTasks((prevTasks) => [
+      ...prevTasks,
+      newTask,
+    ])
+  }
+  //console.log(visibleTasks)
   return (
     <>
       <AppHeader title={'TaskForge'} subtitle={'Manage your projects and tasks'} />
@@ -44,9 +59,14 @@ function App() {
       }>
         {showImportantOnly ? 'Show All Tasks' : 'Show Important Only'}
       </button>
-      {visibleTasks.map((task) => (
-        <TaskCard key={task.id} task={task} />
-      ))}
+      {visibleTasks.length === 0 ? (
+        <p>No tasks found.</p>
+      ) : (
+        visibleTasks.map((task) => (
+          <TaskCard key={task.id} task={task} />
+        ))
+      )}
+      <TaskForm addTitle={addTitle} />
     </>
   )
 }
