@@ -1,4 +1,4 @@
-export default function TaskCard({ task }) {
+export default function TaskCard({ task, deleteTask, markDone }) {
     return (
         <div>
             <p>Title: {task.title}</p>
@@ -10,6 +10,8 @@ export default function TaskCard({ task }) {
             }
             <p>Priority: {task.priority}</p>
             {task.priority === 'high' && <p>⚠ Important task</p>}
+            <button onClick={() => deleteTask(task.id)}>Delete</button>
+            <button onClick={() => markDone(task.id)}>Mark Done</button>
         </div>
     )
 }

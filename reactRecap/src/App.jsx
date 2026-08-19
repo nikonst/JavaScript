@@ -1,8 +1,44 @@
+// ADD
+// setItems(prev => [...prev, newItem])
+
+// // DELETE
+// setItems(prev => prev.filter(item => item.id !== id))
+
+// // UPDATE
+// setItems(prev => prev.map(item => ...))
+
+// // ADD
+// setItems(prev => [...prev, newItem])
+
+// // DELETE
+// setItems(prev => prev.filter(item => item.id !== id))
+
+// // UPDATE
+// setItems(prev =>
+//   prev.map(item =>
+//     item.id === id
+//       ? { ...item, /* changes */ }
+//       : item
+//   )
+// )
+
+// ADD    → [...prev, newItem]
+// DELETE → prev.filter(...)
+// UPDATE → prev.map(...)
+
+// Συνηθισμένα cleanup cases:
+
+// setInterval  → clearInterval
+// setTimeout   → clearTimeout
+// addEventListener → removeEventListener
+// subscription → unsubscribe
+
 import { useState } from 'react'
 import './App.css'
 import AppHeader from './components/AppHeader'
 import TaskCard from './components/TaskCard'
 import TaskForm from './components/TaskForm'
+import { useEffect } from 'react'
 
 const theTasks = [
   {
@@ -28,6 +64,21 @@ const theTasks = [
 function App() {
   const [tasks, setTasks] = useState(theTasks)
   const [showImportantOnly, setShowImportantOnly] = useState(false)
+  const [numOfTasks, setNumOfTasks] = useState(theTasks.length)
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      console.log('tick')
+    }, 2000)
+
+    return () => {
+      clearInterval(intervalId)
+    }
+  }, [])
+
+  useEffect(() => {
+    setNumOfTasks(tasks.length)
+  }, [tasks.length])
 
   const visibleTasks = showImportantOnly
     ? tasks.filter((task) => {
@@ -36,12 +87,12 @@ function App() {
     })
     : tasks
 
-  const addTitle = (title) => {
+  const addTask = ({ title, status, priority }) => {
     const newTask = {
       id: crypto.randomUUID(),
       title: title,
-      status: null,
-      priority: null,
+      status: status,
+      priority: priority,
     }
 
     setTasks((prevTasks) => [
@@ -49,10 +100,26 @@ function App() {
       newTask,
     ])
   }
+
+  const deleteTask = (id) => {
+    setTasks(prev => prev.filter(item => item.id !== id))
+  }
+
+  const markDone = (id) => {
+    setTasks(prev =>
+      prev.map(item =>
+        item.id === id
+          ? { ...item, status: 'done' }
+          : item
+      )
+    )
+  }
+
   //console.log(visibleTasks)
   return (
     <>
-      <AppHeader title={'TaskForge'} subtitle={'Manage your projects and tasks'} />
+      <AppHeader title={'TaskForge'} subtitle={'Manage your projects and tasks'}
+        numOfTasks={numOfTasks} />
       <button onClick={() => {
         setShowImportantOnly(prev => !prev)
       }
@@ -63,10 +130,10 @@ function App() {
         <p>No tasks found.</p>
       ) : (
         visibleTasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
+          <TaskCard key={task.id} task={task} deleteTask={deleteTask} markDone={markDone} />
         ))
       )}
-      <TaskForm addTitle={addTitle} />
+      <TaskForm addTask={addTask} />
     </>
   )
 }
