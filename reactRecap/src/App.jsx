@@ -44,6 +44,7 @@ import Counter from './components/Counter'
 import AsyncDemo from './components/AsyncDemo'
 import DetailsPanel from './components/drills/DetailsPanel'
 import SelectableTask from './components/drills/SelectableTask'
+import ScoreBoard from './components/drills/drill3/ScoreBoard'
 
 const theTasks = [
   {
@@ -133,6 +134,9 @@ function App() {
       <AsyncDemo />
       <DetailsPanel/>
       <SelectableTask/>
+      <hr/><hr />
+      <ScoreBoard/>
+      <hr/><hr />
       <button onClick={() => {
         setShowImportantOnly(prev => !prev)
       }
