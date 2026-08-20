@@ -40,6 +40,7 @@ import TaskCard from './components/TaskCard'
 import TaskForm from './components/TaskForm'
 import { useEffect } from 'react'
 import UserContext from './UserContext'
+import Counter from './components/Counter'
 
 const theTasks = [
   {
@@ -125,6 +126,7 @@ function App() {
     <UserContext.Provider value={user}>
       <AppHeader title={'TaskForge'} subtitle={'Manage your projects and tasks'}
         numOfTasks={numOfTasks} />
+      <Counter/>
       <button onClick={() => {
         setShowImportantOnly(prev => !prev)
       }
