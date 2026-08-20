@@ -1,0 +1,9 @@
+useEffect(() => {
+  ...
+}, [value])
+
+χωρίς array     → κάθε render
+
+[]              → μόνο mount
+
+[value]         → mount + όταν αλλάξει value

@@ -46,6 +46,7 @@ import DetailsPanel from './components/drills/DetailsPanel'
 import SelectableTask from './components/drills/SelectableTask'
 import ScoreBoard from './components/drills/drill3/ScoreBoard'
 import CharacterStats from './components/drills/drill4/CharacterStats'
+import AutoFocusInput from './components/drills/drill5/AutoFocusInput'
 
 const theTasks = [
   {
@@ -131,15 +132,17 @@ function App() {
     <UserContext.Provider value={user}>
       <AppHeader title={'TaskForge'} subtitle={'Manage your projects and tasks'}
         numOfTasks={numOfTasks} />
-      <Counter/>
+      <Counter />
       <AsyncDemo />
-      <DetailsPanel/>
-      <SelectableTask/>
-      <hr/><hr />
-      <ScoreBoard/>
-      <hr/><hr />
-      <CharacterStats/>
-       <hr/><hr />
+      <DetailsPanel />
+      <SelectableTask />
+      <hr /><hr />
+      <ScoreBoard />
+      <hr /><hr />
+      <CharacterStats />
+      <hr /><hr />
+      <AutoFocusInput />
+      <hr /><hr />
       <button onClick={() => {
         setShowImportantOnly(prev => !prev)
       }
