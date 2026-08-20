@@ -43,6 +43,7 @@ import UserContext from './UserContext'
 import Counter from './components/Counter'
 import AsyncDemo from './components/AsyncDemo'
 import DetailsPanel from './components/drills/DetailsPanel'
+import SelectableTask from './components/drills/SelectableTask'
 
 const theTasks = [
   {
@@ -131,6 +132,7 @@ function App() {
       <Counter/>
       <AsyncDemo />
       <DetailsPanel/>
+      <SelectableTask/>
       <button onClick={() => {
         setShowImportantOnly(prev => !prev)
       }
