@@ -41,6 +41,8 @@ import TaskForm from './components/TaskForm'
 import { useEffect } from 'react'
 import UserContext from './UserContext'
 import Counter from './components/Counter'
+import AsyncDemo from './components/AsyncDemo'
+import DetailsPanel from './components/drills/DetailsPanel'
 
 const theTasks = [
   {
@@ -127,6 +129,8 @@ function App() {
       <AppHeader title={'TaskForge'} subtitle={'Manage your projects and tasks'}
         numOfTasks={numOfTasks} />
       <Counter/>
+      <AsyncDemo />
+      <DetailsPanel/>
       <button onClick={() => {
         setShowImportantOnly(prev => !prev)
       }
