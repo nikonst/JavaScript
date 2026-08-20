@@ -39,3 +39,25 @@ section {
 section p {
     color: #555;
 }
+
+.box {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 30px;
+}
+
+/* box-sizing: content-box;
+
+→ width = μόνο content
+
+box-sizing: border-box;
+
+→ width = content + padding + border */
+
+/* content-box → το width αφορά μόνο το content
+border-box → το width περιλαμβάνει ήδη content + padding + border
+margin → είναι πάντα έξω από το box
+για πλάτος μετράμε left + right
+για ύψος top + bottom */

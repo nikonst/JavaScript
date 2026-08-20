@@ -39,6 +39,7 @@ import AppHeader from './components/AppHeader'
 import TaskCard from './components/TaskCard'
 import TaskForm from './components/TaskForm'
 import { useEffect } from 'react'
+import UserContext from './UserContext'
 
 const theTasks = [
   {
@@ -115,9 +116,13 @@ function App() {
     )
   }
 
+  const user = {
+    name: 'Nikos',
+    role: 'developer',
+  }
   //console.log(visibleTasks)
   return (
-    <>
+    <UserContext.Provider value={user}>
       <AppHeader title={'TaskForge'} subtitle={'Manage your projects and tasks'}
         numOfTasks={numOfTasks} />
       <button onClick={() => {
@@ -134,7 +139,7 @@ function App() {
         ))
       )}
       <TaskForm addTask={addTask} />
-    </>
+    </UserContext.Provider>
   )
 }
 
