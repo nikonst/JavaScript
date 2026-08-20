@@ -47,6 +47,7 @@ import SelectableTask from './components/drills/SelectableTask'
 import ScoreBoard from './components/drills/drill3/ScoreBoard'
 import CharacterStats from './components/drills/drill4/CharacterStats'
 import AutoFocusInput from './components/drills/drill5/AutoFocusInput'
+import ProductList from './components/ProductList'
 
 const theTasks = [
   {
@@ -142,6 +143,8 @@ function App() {
       <CharacterStats />
       <hr /><hr />
       <AutoFocusInput />
+      <hr /><hr />
+      {/* <ProductList/> */}
       <hr /><hr />
       <button onClick={() => {
         setShowImportantOnly(prev => !prev)
